@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www.coinbase.com/api/doc/1.0/transactions/signatures.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:41:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"307b195e05","applicationID":"863399","transactionName":"IQ4KQUZbDVlTF00CQQsRDVAbVRFcRgwHEB4LDwBQTA==","queueTime":159,"applicationTime":30,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-476.min.js"}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=u(e),f=c.length,s=i(a,o,r),p=0;f>p;p++)c[p].apply(s,n);return s}function a(t,e){f[t]=u(t).concat(e)}function u(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:u,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=l.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),u=window,c=u.document,f="addEventListener",s="attachEvent",p=(""+location).split("?")[0],l=e.exports={offset:i(),origin:p,features:{}};c[f]?(c[f]("DOMContentLoaded",o,!1),u[f]("load",n,!1)):(c[s]("onreadystatechange",r),u[s]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}]},{},["G9z0Bl"]);</script>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../../stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../../stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../../stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../../stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <ul class='breadcrumb'>
+  <li>
+    <a href='../../1.0.html'>API Home 1.0</a>
+    <span class='divider'>/</span>
+  </li>
+  <li>
+    <a href='../transactions.html'>
+      Transactions
+      
+    </a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>signatures</li>
+</ul>
+
+  <div class='page-header'>
+    <h1>
+      PUT /api/v1/transactions/:id/signatures<br>
+      <small>Submit required signatures for a multisig spend transaction.</small>
+    </h1>
+  </div>
+
+<div>
+
+  
+
+    <h2>Examples</h2>
+      <pre class="prettyprint">
+# Request
+PUT https://api.coinbase.com/v1/transactions/53f3d9e0cbf034354a000132/sighashes
+{
+  &quot;signatures&quot;: [{
+    &quot;index&quot;: 0,
+    &quot;signatures&quot;: [
+      &quot;304502206f73b2147662c70fb6a951e6ddca79ce1e800a799be543d13c9d22817affb997022100b32a96c20a514783cc5135dde9a8a9608b0b55b6c0db01d553c77c544034274d&quot;,
+      &quot;304502204930529e97c2c75bbc3b07a365cf691f5bf319bf0a54980785bb525bd996cb1a022100a7e9e3728444a39c7a45822c3c773a43a888432dfe767ea17e1fab8ac2bfc83f&quot;
+    ]
+  }]
+}
+# Response
+{
+  &quot;success&quot;: true,
+  &quot;transaction&quot;: {
+    &quot;id&quot;: &quot;53f3d9e0cbf034354a000132&quot;,
+    &quot;created_at&quot;: &quot;2014-08-19T16:12:32-07:00&quot;,
+    &quot;hsh&quot;: &quot;bb9199a339e79556be6f9935e12bb189eeaa74bdc7d9bc18191f5a504c840230&quot;,
+    &quot;amount&quot;: {
+      &quot;amount&quot;: &quot;0.10000000&quot;,
+      &quot;currency&quot;: &quot;BTC&quot;
+    },
+    &quot;request&quot;: false,
+    &quot;status&quot;: &quot;pending&quot;,
+    &quot;sender&quot;: {
+      &quot;id&quot;: &quot;52f1b613137f736761000001&quot;,
+      &quot;email&quot;: &quot;user1@example.com&quot;,
+      &quot;name&quot;: &quot;User One&quot;
+    },
+    &quot;recipient&quot;: {
+      &quot;id&quot;: &quot;52f1b61a137f7367610000a6&quot;,
+      &quot;email&quot;: &quot;user2@example.com&quot;,
+      &quot;name&quot;: &quot;User Two&quot;
+    },
+    &quot;recipient_address&quot;: &quot;user2@example.com&quot;,
+    &quot;notes&quot;: &quot;Look ma, spending from a multisig account.&quot;,
+    &quot;idem&quot;: &quot;&quot;,
+    &quot;type&quot;: &quot;multisig&quot;,
+    &quot;signed&quot;: true, # Signed is true.
+    &quot;signatures_required&quot;: 2,
+    &quot;signatures_present&quot;: 2, # This multisig transaction is now considered signed.
+    &quot;signatures_needed&quot;: 0
+  }
+}
+  </pre>
+
+
+
+    <h2>Params</h2>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Param name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>signatures </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>Array of inputs with array of signatures each</p>
+        <br>
+        Value: Must be Array
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>signatures[][index] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>Input index that you got in the sighash call</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>signatures[][signatures] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>Array of signatures produced by signing the sighash for this input with your private keys</p>
+        <br>
+        Value: Must be Array
+    </td>
+  </tr>
+
+  
+
+      </tbody>
+    </table>
+</div>
+
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = "coinbaseapi";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js?https';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <hr>
+    <footer>  &copy; 2014 Coinbase, Inc.
+</footer>
+  </div>
+  <script type='text/javascript' src='../../javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../../javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../../javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../../javascripts/apipie.js'></script>
+</body>
+
+<!-- Mirrored from www.coinbase.com/api/doc/1.0/transactions/signatures.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:41:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+</html>

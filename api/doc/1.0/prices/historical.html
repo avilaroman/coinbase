@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www.coinbase.com/api/doc/1.0/prices/historical.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:41:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"307b195e05","applicationID":"863399","transactionName":"IQ4KQUZbDVlTF00CQQsRDVAbVRFcRgwHEB4LDwBQTA==","queueTime":43,"applicationTime":32,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-476.min.js"}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=u(e),f=c.length,s=i(a,o,r),p=0;f>p;p++)c[p].apply(s,n);return s}function a(t,e){f[t]=u(t).concat(e)}function u(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:u,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=l.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),u=window,c=u.document,f="addEventListener",s="attachEvent",p=(""+location).split("?")[0],l=e.exports={offset:i(),origin:p,features:{}};c[f]?(c[f]("DOMContentLoaded",o,!1),u[f]("load",n,!1)):(c[s]("onreadystatechange",r),u[s]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}]},{},["G9z0Bl"]);</script>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../../stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../../stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../../stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../../stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <ul class='breadcrumb'>
+  <li>
+    <a href='../../1.0.html'>API Home 1.0</a>
+    <span class='divider'>/</span>
+  </li>
+  <li>
+    <a href='../prices.html'>
+      Prices
+      
+    </a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>historical</li>
+</ul>
+
+  <div class='page-header'>
+    <h1>
+      GET /api/v1/prices/historical<br>
+      <small>Get the historical spot price of bitcoin in USD.</small>
+    </h1>
+  </div>
+
+<div>
+
+  <p>Unauthenticated resource that displays historical spot rates for bitcoin in USD. Results are displayed in CSV format (unlike most api calls).</p>
+
+<p>Use the <code>page</code> param to paginate through results. One thousand results are returned per page.</p>
+<a href='https://api.coinbase.com/v1/prices/historical?page=1'>Download Now</a>
+
+    <h2>Examples</h2>
+      <pre class="prettyprint">
+# Request
+GET https://api.coinbase.com/v1/prices/historical?page=5
+
+# Response
+2014-01-06T00:25:24-08:00,10.0
+2014-01-06T00:25:24-08:00,10.0
+2014-01-06T00:25:23-08:00,10.0
+2014-01-06T00:25:23-08:00,10.0
+...
+  </pre>
+
+
+
+    <h2>Params</h2>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Param name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>page </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Can be used to page through results. Default is 1.</p>
+        <br>
+        Value: Must be Integer
+    </td>
+  </tr>
+
+  
+
+      </tbody>
+    </table>
+</div>
+
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = "coinbaseapi";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js?https';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <hr>
+    <footer>  &copy; 2014 Coinbase, Inc.
+</footer>
+  </div>
+  <script type='text/javascript' src='../../javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../../javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../../javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../../javascripts/apipie.js'></script>
+</body>
+
+<!-- Mirrored from www.coinbase.com/api/doc/1.0/prices/historical.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:41:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
+
+<!-- Mirrored from www.coinbase.com/docs/api/authentication by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:34:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"307b195e05","applicationID":"863399","transactionName":"IQ4KQUZbDVlTF00HXgESS1REXRIaVxAWC1QMFQ1WVUAIWlg=","queueTime":45,"applicationTime":233,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-476.min.js"}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=u(e),f=c.length,s=i(a,o,r),p=0;f>p;p++)c[p].apply(s,n);return s}function a(t,e){f[t]=u(t).concat(e)}function u(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:u,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=l.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),u=window,c=u.document,f="addEventListener",s="attachEvent",p=(""+location).split("?")[0],l=e.exports={offset:i(),origin:p,features:{}};c[f]?(c[f]("DOMContentLoaded",o,!1),u[f]("load",n,!1)):(c[s]("onreadystatechange",r),u[s]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}]},{},["G9z0Bl"]);</script>
+  <title>
+      Coinbase API Authentication - Coinbase
+  </title>
+  <link rel="shortcut icon" href="../../favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57"   href="../../apple-touch-icon-iphone-114.png" />  
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../apple-touch-icon-iphone-114.png" />  
+  <link rel="apple-touch-icon-precomposed" sizes="72x72"   href="../../apple-touch-icon-ipad-144.png" />    
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../apple-touch-icon-ipad-144.png" />    
+    <meta content="https://www.coinbase.com/assets/logos/logo@2x.png" property="og:image" />
+    <meta content="Coinbase" property="og:title" />
+    <meta content="The easiest way to buy, use, and accept bitcoin." property="og:description" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="R7G5THr8xgaHFkTNkr_RUB0HvX2Nf8e4qnWi0X1kmz8" />
+  <meta http-equiv="X-Frame-Options" content="deny" />
+  
+  <script type="text/javascript">
+window.Coinbase = {"cache":{},"constants":{"ENV":"production","HTTPS":true,"MIXPANEL_TOKEN":"7c112173efca4899213c618484d8f5fe","BUGSNAG_JS_API_KEY":"c35ee1482f4958be12ff3bee470b3545","OLARK_KEY":"8678-140-10-4291","PUSHER_KEY":"057b12fc5917720115c1","USER":null,"S_SNIPPET_KEY":"6174a9","SESSION_ID":"f6344e7894b0048228ff9c8f1412f4bc"},"modules":{},"translations":{"CURRENCY_UNIT":"\u20ac","CURRENCY_DELIMITER":".","CURRENCY_SEPARATOR":",","LOCALE":"es"},"utils":{},"metrics":{}};
+</script>
+
+  <link data-turbolinks-track="true" href="../../assets/core-0de401f1c79e0cc19fc6dbcdb223cac5.css" media="all" rel="stylesheet" type="text/css" />
+  <link data-turbolinks-track="true" href="../../assets/application-5ead28d213a24807a87af4b7bea5be0a.css" media="all" rel="stylesheet" type="text/css" />
+  <script src="../../assets/jquery-82d48e54e30bce171e48ec3f05683068.js" type="text/javascript"></script>
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="8prmBYc/4tn0msPC3XP0UV0P3IwMRGSlXJrlsUwJZvM=" name="csrf-token" />
+  
+
+
+
+  <script src="../../assets/application-13c646928d8ee59b81675a1b64e272ef.js" type="text/javascript"></script>
+</head>
+
+<body class="app signed-out apis authentication" data-controller-name="docs/apis" data-action-name="authentication" data-view-name="Coinbase.Views.Apis.Authentication">
+  <div class="page-container">
+
+    <div class="navbar navbar-static-top">
+  <div class="navbar-inner " >
+    <div class="container">
+      <a id="main_nav_btn" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <a href="../../index.html" class="brand" onclick=""><img alt="Coinbase" src="../../assets/logos/logo-inverse_2x-ec5a19074e5034d321272344a6f84cd9.png" /></a>
+
+      <div class="mobile-bg"></div>
+
+      <div class="nav-collapse" id="application_menu">
+        <ul class="nav clearfix">
+          <li class=""><a href="../../home.html">Características</a></li>
+          <li class=""><a href="../../merchants.html">Comerciantes</a></li>
+          <li class=""><a href="../../vault.html">Caja fuerte</a></li>
+          <li class="dropdown dropdown-hover" id="resources_menu">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recursos <b class='caret'></b></a>
+            <ul class="dropdown-menu fadeIn animated-fast" role="menu" aria-labelledby="dLabel">
+              <li class=""><a href="../../about.html">Acerca de Coinbase</a></li>
+              <li class=""><a href="../../buy-bitcoin.html">Comprar bitcoins</a></li>
+              <li class=""><a href="../../security.html">Seguridad</a></li>
+              
+              <li class=""><a href="../../charts.html">Gráficos</a></li>
+              <li class=""><a href="../../apps.html">Aplicaciones</a></li>
+              <li class=""><a href="overview.html">API</a></li>
+              <li class=""><a href="../merchant_tools/getting_started.html">Documentación</a></li>
+              <li class=""> <a href="https://support.coinbase.com/">Soporte</a></li>
+              <li><a href="http://blog.coinbase.com/">Blog</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="nav clearfix">
+              <li class='top-balance'>
+                <a href="../../charts.html">Precio de compra: 329,19 $</a>
+              </li>
+            <li class=" signin"><a href="../../signin.html">Iniciar sesión</a></li>
+            <li style="margin-top:-3px" class=" signup"><a href="../../signup.html" class="btn">Inscribirse</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container" id="page">
+      <div class="flash">
+</div>
+
+      <div class="row">
+  <div id="sidebar" class="span3">
+
+  <ul class="nav nav-list docs">
+
+    <li class="nav-header">HERRAMIENTAS COMERCIALES</li>
+    <li class=""><a href="../merchant_tools/getting_started.html">Empezar</a></li>
+    <li class=""><a href="../merchant_tools/examples.html">Ejemplos</a></li>
+    <li class=""><a href="../merchant_tools/pricing.html">Precios</a></li>
+    <li class=""><a href="../merchant_tools/payment_buttons.html">Botones de Pago</a></li>
+    <li class=""><a href="../merchant_tools/payment_pages.html">Páginas de Pago</a></li>
+    <li class=""><a href="../merchant_tools/payment_iframes.html">Pagos con iFrames</a></li>
+    <li class=""><a href="../merchant_tools/shopping_cart_plugins.html">Carrito de la Compra</a></li>
+    <li class=""><a href="../merchant_tools/point_of_sale.html">Punto de Venta</a></li>
+    <li class=""><a href="../merchant_tools/email_invoices.html">Facturas por correo electrónico</a></li>
+    <li class=""><a href="../merchant_tools/recurring_payments.html">Pagos Recurrentes</a></li>
+    <li class=""><a href="../merchant_tools/discounts.html">Descuentos</a></li>
+    <li class=""><a href="../merchant_tools/payouts.html">Pagos</a></li>
+    <li class=""><a href="../merchant_tools/callbacks.html">Avisos</a></li>
+
+    <li class="nav-header">Desarrolladores</li>
+    <li class=""><a href="overview.html">Empezar</a></li>
+    <li class="active"><a href="authentication.html">Autenticación</a></li>
+    <li class=""><a href="permissions.html">Permisos</a></li>
+    <li class=""><a href="multisig.html">Multifirma</a></li>
+    <li class=""><a href="libraries.html">Bibliotecas Socias</a></li>
+    <li class=""><a href="use-cases.html">Tutoriales</a></li>
+    <li class=""><a href="oauth_tutorial.html">Tutorial OAuth2</a></li>
+    <li><a href="../../api/doc.html">Referencia API</a></li>
+    <li class=""><a href="technical_faq.html">Pregunta técnicas frecuentes</a></li>
+    <li class=""><a href="../../signin.html">Mis Apps</a></li>
+
+    <li class="nav-header">Bitcoin Node</li>
+    <li class=""><a href="../../network.html">Resumen</a></li>
+    <li class=""><a href="../../network/blocks.html">Bloques</a></li>
+    <li class=""><a href="../../network/transactions.html">Transacciones</a></li>
+
+    <li class="nav-header">Services</li>
+    <li><a href="../../sms_service.html">Acceso SMS</a></li>
+  </ul>
+</div>
+
+
+  <div id="main" class="span9">
+
+    <header>
+      <h1>API Authentication</h1>
+    </header>
+
+    <p>
+      We offer two authentication options for accessing the Coinbase API:
+    </p>
+
+    <table class="table table-bordered features">
+      <thead>
+      <tr>
+        <th>Method</th>
+        <th>Best For</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>
+          <a href="#hmac">
+            <i class="icon-lock"></i> Clave API + Secreto
+</a>        </td>
+        <td>Accessing your own account.</td>
+      </tr>
+      <tr>
+        <td>
+        <a href="#oauth2">
+          <i class="icon-lock"></i> OAuth2
+</a>        </td>
+        <td>Lets others grant your application full or partial access to their account.</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <h2 id='hmac'>
+      Clave API + Secreto
+      <small style="margin-top: -1px; display: block;">We recommend this option if you only need to access your own account.</small>
+    </h2>
+    <h4 style="margin-top: 20px;">How to start</h4>
+    <p>
+      You can create a new API key and set what actions are permitted when making requests with it in
+      <a href="../../signin.html">configuración de tu cuenta</a>. A list of permissions and what they give access to can be found on the <a href="permissions.html">página de permisos</a>.
+    </p>
+     <p><strong>Note</strong>: All requests will need to include a <code>application/json</code> <code>Content-Type</code> header and go over SSL. The base URL is <code>https://api.coinbase.com/v1/</code>.
+
+    <h4>Example</h4>
+
+    <p>Request:</p>
+    <pre>
+GET /api/v1/account/balance HTTP/1.1
+Accept: */*
+User-Agent: Ruby
+ACCESS_KEY: &lt;YOUR-API-KEY&gt;
+ACCESS_SIGNATURE: &lt;YOUR-COMPUTED-SIGNATURE&gt;
+ACCESS_NONCE: &lt;YOUR-UPDATED-NONCE&gt;
+Connection: close
+Host: coinbase.com
+</pre>
+    <p>Response:</p>
+    <pre>{"amount"=>"50.00000000", "currency"=>"BTC"}</pre>
+
+    <p>The <code>ACCESS_KEY</code> header is simply your API <code>key</code>.</p>
+
+    <p>The <code>ACCESS_SIGNATURE</code> header is a HMAC-SHA256 hash of the <code>nonce</code>
+      concatentated with the full <code>URL</code> and <code>body</code> of the HTTP request, encoded using your API <code>secret</code>.</p>
+
+    <p>The <code>nonce</code> is a positive integer number that must increase with every request you make. </code>The <code>nonce</code> parameter can be included in one of three ways:</p>
+    <ul>
+      <li>
+        As a <code>ACCESS_NONCE</code> header in your requests. <small><a href="#" onclick="javascript:$(&quot;#hmac_nonce_header_example&quot;).toggle(); return false;">Example</a>.</small>
+        <div id="hmac_nonce_header_example" style="display:none; padding:10px 0 5px;">
+          <pre>ACCESS_NONCE: 1234</pre>
+        </div>
+      </li>
+      <li>As a GET parameter in the URL.  <small><a href="#" onclick="javascript:$(&quot;#hmac_nonce_url_example&quot;).toggle(); return false;">Ejemplo</a>.</small>
+        <div id="hmac_nonce_url_example" style="display:none; padding:10px 0 5px;">
+          <pre>https://api.coinbase.com/v1/account/balance?nonce=1234</pre>
+        </div>
+      </li>
+      <li>As a root-level parameter in your JSON POST requests</li>
+    </ul>
+
+    <p>This scheme is generally known as "HMAC authentication" (see <a href="http://en.wikipedia.org/wiki/Hash-based_message_authentication_code" target="_blank">artículo de Wikipedia</a>). Here are some examples of code, making simple API calls:</p>
+    <ul>
+      <li><a href="#" onclick="javascript:$(&quot;#python_example&quot;).toggle(); return false;">ejemplo de Python </a>
+        <div id="python_example" style="display:none; padding:10px 0 5px;">
+          <div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">hmac</span>
+<span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c">#This code sample demonstrates a GET and a POST call to the Coinbase API</span>
+<span class="c">#Before implementation, set environmental variables with the names API_KEY and API_SECRET.</span>
+
+<span class="k">def</span> <span class="nf">make_request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+  <span class="n">opener</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">build_opener</span><span class="p">()</span>
+  <span class="n">nonce</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">)</span>
+  <span class="n">message</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">nonce</span><span class="p">)</span> <span class="o">+</span> <span class="n">url</span> <span class="o">+</span> <span class="p">(</span><span class="s">&#39;&#39;</span> <span class="k">if</span> <span class="n">body</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">body</span><span class="p">)</span>
+  <span class="n">signature</span> <span class="o">=</span> <span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;API_SECRET&#39;</span><span class="p">],</span> <span class="n">message</span><span class="p">,</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+
+
+  <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;ACCESS_KEY&#39;</span> <span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;API_KEY&#39;</span><span class="p">],</span>
+             <span class="s">&#39;ACCESS_SIGNATURE&#39;</span><span class="p">:</span> <span class="n">signature</span><span class="p">,</span>
+             <span class="s">&#39;ACCESS_NONCE&#39;</span><span class="p">:</span> <span class="n">nonce</span><span class="p">,</span>
+             <span class="s">&#39;Accept&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">}</span>
+
+  <span class="c"># If we are passing data, a POST request is made. Note that content_type is specified as json.</span>
+  <span class="k">if</span> <span class="n">body</span><span class="p">:</span>
+    <span class="n">headers</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">})</span>
+    <span class="n">req</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+  <span class="c"># If body is nil, a GET request is made.</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">req</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+  <span class="k">try</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">opener</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+  <span class="k">except</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">HTTPError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">e</span>
+    <span class="k">return</span> <span class="n">e</span>
+
+<span class="c"># Example of a GET request, where body is nil.</span>
+<span class="k">print</span> <span class="n">make_request</span><span class="p">(</span><span class="s">&#39;https://api.coinbase.com/v1/account/balance&#39;</span><span class="p">)</span>
+
+
+<span class="c"># Example of a POST request.</span>
+
+<span class="c"># Required parameters for POST /api/v1/buttons</span>
+<span class="n">button_params</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">&#39;button&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">&#39;name&#39;</span> <span class="p">:</span> <span class="s">&#39;test&#39;</span><span class="p">,</span>
+    <span class="s">&#39;price_string&#39;</span> <span class="p">:</span> <span class="s">&#39;1.23&#39;</span><span class="p">,</span>
+    <span class="s">&#39;price_currency_iso&#39;</span> <span class="p">:</span> <span class="s">&#39;USD&#39;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c">#POST /api/v1/buttons</span>
+<span class="k">print</span> <span class="n">make_request</span><span class="p">(</span><span class="s">&#39;https://api.coinbase.com/v1/buttons&#39;</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">button_params</span><span class="p">))</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+        </div>
+      </li>
+      <li><a href="#" onclick="javascript:$(&quot;#ruby_example&quot;).toggle(); return false;">ejemplo de Ruby</a>
+        <div id="ruby_example" style="display:none; padding:10px 0 5px;">
+          <div class="highlight"><pre><span class="nb">require</span> <span class="s1">&#39;openssl&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;rest_client&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;json&#39;</span>
+
+<span class="c1">#This code sample demonstrates a GET and a POST call to the Coinbase API</span>
+<span class="c1">#Before implementation, set environmental variables with the names API_KEY and API_SECRET.</span>
+
+<span class="no">API_KEY</span> <span class="o">=</span> <span class="s1">&#39;API_KEY&#39;</span>
+<span class="no">API_SECRET</span> <span class="o">=</span> <span class="s1">&#39;API_SECRET&#39;</span>
+
+<span class="k">def</span> <span class="nf">make_request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="kp">nil</span><span class="p">)</span>
+  <span class="n">nonce</span> <span class="o">=</span> <span class="p">(</span><span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">to_f</span> <span class="o">*</span> <span class="mi">1</span><span class="n">e6</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span>
+  <span class="n">message</span> <span class="o">=</span> <span class="n">nonce</span><span class="o">.</span><span class="n">to_s</span> <span class="o">+</span> <span class="n">url</span> <span class="o">+</span> <span class="n">body</span><span class="o">.</span><span class="n">to_s</span>
+  <span class="n">signature</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">HMAC</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(</span><span class="no">OpenSSL</span><span class="o">::</span><span class="no">Digest</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;sha256&#39;</span><span class="p">),</span> <span class="no">API_SECRET</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+  <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ACCESS_KEY&quot;</span> <span class="o">=&gt;</span> <span class="no">API_KEY</span><span class="p">,</span>
+             <span class="s2">&quot;ACCESS_SIGNATURE&quot;</span> <span class="o">=&gt;</span> <span class="n">signature</span><span class="p">,</span>
+             <span class="s2">&quot;ACCESS_NONCE&quot;</span> <span class="o">=&gt;</span> <span class="n">nonce</span><span class="p">}</span>
+  <span class="k">begin</span>
+     <span class="c1"># If body is nil, a GET request is made.</span>
+    <span class="k">if</span> <span class="n">body</span><span class="o">.</span><span class="n">nil?</span>
+      <span class="no">RestClient</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">.</span><span class="n">merge</span><span class="p">({</span><span class="ss">:accept</span> <span class="o">=&gt;</span> <span class="ss">:json</span><span class="p">}))</span>
+    <span class="k">else</span>
+    <span class="c1"># If we are passing data, a POST request is made. Note that content_type is specified as json.</span>
+      <span class="no">RestClient</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="o">.</span><span class="n">merge</span><span class="p">({</span><span class="ss">:content_type</span> <span class="o">=&gt;</span> <span class="ss">:json</span><span class="p">,</span> <span class="ss">:accept</span> <span class="o">=&gt;</span> <span class="ss">:json</span><span class="p">}))</span>
+    <span class="k">end</span>
+  <span class="k">rescue</span> <span class="o">=&gt;</span> <span class="n">e</span>
+    <span class="nb">puts</span> <span class="n">e</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">response</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># Example of a GET request, where body is nil.</span>
+<span class="nb">puts</span> <span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;https://api.coinbase.com/v1/account/balance&#39;</span><span class="p">)</span>
+
+<span class="c1"># Example of a POST request.</span>
+
+<span class="c1"># Required parameters for POST /api/v1/buttons</span>
+<span class="n">request</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="ss">:button</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">&#39;test&#39;</span><span class="p">,</span>
+    <span class="ss">:price_string</span> <span class="o">=&gt;</span> <span class="s1">&#39;1.23&#39;</span><span class="p">,</span>
+    <span class="ss">:price_currency_iso</span> <span class="o">=&gt;</span> <span class="s1">&#39;USD&#39;</span><span class="p">,</span>
+    <span class="ss">:variable_price</span> <span class="o">=&gt;</span> <span class="kp">true</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">#POST /api/v1/buttons</span>
+<span class="nb">puts</span> <span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;https://api.coinbase.com/v1/buttons&#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">to_json</span><span class="p">)</span>
+</pre></div>
+        </div>
+      </li>
+      <li><a href="#" onclick="javascript:$(&quot;#java_example&quot;).toggle(); return false;">ejemplo de Java</a>
+        <div id="java_example" style="display:none; padding:10px 0 5px;">
+          <div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.security.InvalidKeyException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.security.NoSuchAlgorithmException</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.crypto.Mac</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.crypto.spec.SecretKeySpec</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.apache.commons.codec.binary.Hex</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.HttpEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.HttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.ClientProtocolException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.HttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpPost</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpRequestBase</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.entity.StringEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClientBuilder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.util.EntityUtils</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CoinbaseExample</span> <span class="o">{</span>
+
+    <span class="kd">static</span> <span class="n">String</span> <span class="n">API_KEY</span> <span class="o">=</span> <span class="s">&quot;API_KEY&quot;</span><span class="o">;</span>
+
+    <span class="kd">static</span> <span class="n">String</span> <span class="n">API_SECRET</span> <span class="o">=</span> <span class="s">&quot;API_SECRET&quot;</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">getHttp</span><span class="o">(</span><span class="n">String</span> <span class="n">url</span><span class="o">,</span> <span class="n">String</span> <span class="n">body</span><span class="o">)</span>
+            <span class="kd">throws</span> <span class="n">InvalidKeyException</span><span class="o">,</span> <span class="n">NoSuchAlgorithmException</span><span class="o">,</span>
+            <span class="n">ClientProtocolException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+
+        <span class="n">String</span> <span class="n">nonce</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">());</span>
+        <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">nonce</span> <span class="o">+</span> <span class="n">url</span> <span class="o">+</span> <span class="o">(</span><span class="n">body</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">body</span> <span class="o">:</span> <span class="s">&quot;&quot;</span><span class="o">);</span>
+
+        <span class="n">Mac</span> <span class="n">mac</span> <span class="o">=</span> <span class="n">Mac</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="s">&quot;HmacSHA256&quot;</span><span class="o">);</span>
+        <span class="n">mac</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="k">new</span> <span class="n">SecretKeySpec</span><span class="o">(</span><span class="n">API_SECRET</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(),</span> <span class="s">&quot;HmacSHA256&quot;</span><span class="o">));</span>
+        <span class="n">String</span> <span class="n">signature</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">Hex</span><span class="o">.</span><span class="na">encodeHex</span><span class="o">(</span><span class="n">mac</span><span class="o">.</span><span class="na">doFinal</span><span class="o">(</span><span class="n">message</span><span class="o">.</span><span class="na">getBytes</span><span class="o">())));</span>
+
+        <span class="n">HttpRequestBase</span> <span class="n">request</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">body</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">body</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="n">url</span><span class="o">);</span>
+        <span class="k">else</span> <span class="o">{</span>
+            <span class="n">HttpPost</span> <span class="n">post</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPost</span><span class="o">(</span><span class="n">url</span><span class="o">);</span>
+            <span class="n">post</span><span class="o">.</span><span class="na">setEntity</span><span class="o">(</span><span class="k">new</span> <span class="n">StringEntity</span><span class="o">(</span><span class="n">body</span><span class="o">));</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="n">post</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">request</span><span class="o">.</span><span class="na">setHeader</span><span class="o">(</span><span class="s">&quot;ACCESS_KEY&quot;</span><span class="o">,</span> <span class="n">API_KEY</span><span class="o">);</span>
+        <span class="n">request</span><span class="o">.</span><span class="na">setHeader</span><span class="o">(</span><span class="s">&quot;ACCESS_SIGNATURE&quot;</span><span class="o">,</span> <span class="n">signature</span><span class="o">);</span>
+        <span class="n">request</span><span class="o">.</span><span class="na">setHeader</span><span class="o">(</span><span class="s">&quot;ACCESS_NONCE&quot;</span><span class="o">,</span> <span class="n">nonce</span><span class="o">);</span>
+
+        <span class="n">HttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClientBuilder</span><span class="o">.</span><span class="na">create</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+        <span class="n">HttpResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+
+        <span class="n">HttpEntity</span> <span class="n">entity</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getEntity</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">entity</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+            <span class="k">return</span> <span class="n">EntityUtils</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">entity</span><span class="o">);</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">getHttp</span><span class="o">(</span><span class="s">&quot;https://api.coinbase.com/v1/account/balance&quot;</span><span class="o">,</span> <span class="kc">null</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+        </div>
+      </li>
+    </ul>
+    <p><strong>Out-of-order Processing</strong></p>
+    <p>Sometimes network traffic can cause near-simultaneous API calls to arrive out of order. Since the <code>nonce</code>
+      must always be increasing, an API call with a higher nonce may arrive earlier than a separate call with
+      a lower nonce if they are initiated very quickly together. When this happens, the 2nd call will be dropped as invalid.</p>
+    <p>To address this, a separate <code>expire</code> parameter can be included, specifying a unix timestamp after which the call
+      will not process. When the <code>expire</code> parameter is included, the <code>nonce</code> is ignored.</p>
+    <p>We recommend setting the <code>expire</code> parameter to no greater than 15 minutes in the future to prevent replay attempts.</p>
+    <p><a href="#" onclick="javascript:$(&quot;#hmac_expire_example&quot;).toggle(); return false;">Example</a></p>
+    <pre id="hmac_expire_example" style="display:none;">GET https://conbase.com/api/v1/account/balance?expire=1406139548</pre>
+
+    <br/>
+    <div class='row'>
+      <div class='span4 offset2 well'>
+        <a href="../../signin.html" class="btn btn-primary" style="margin-left: 30px;"><i class='icon-plus'></i> Create a new API Key</a> &nbsp; (sign in required)
+      </div>
+    </div>
+
+    <p>&nbsp;</p>
+
+    <h2 id='oauth2'>
+      OAuth2 Authentication
+      <small style="margin-top: -1px; display: block;">We recommend this option if your application needs to access other user's accounts.</small>
+    </h2>
+
+    <p>The <a href="http://en.wikipedia.org/wiki/OAuth#OAuth_2.0">OAuth2</a> protocol allows third parties to grant your application full or partial access to their account, without sharing their api key or password.  It is a slightly more complex integration than the api key authentication method, but is more flexible.  OAuth2 works well for web applications, as well as desktop and mobile applications.</p>
+    <p>There are good OAuth2 client libraries in most languages due to its widespread use by companies like Google and Facebook.</p>
+    <br/>
+
+    <h4>Registration</h4>
+
+    <p>To get started you should <a href="../../signin.html">crear una aplicación con OAuth2 </a> and obtain a <code>client_id</code> and <code>client_secret</code>.</p>
+    <p>You will also be prompted to set a <code>redirect_uri</code> which is a url on your website.  If you are developing a desktop or mobile application, see the section below on what <code>redirect_uri</code> to use.</p>
+
+    <p>Note that, for security reasons, all <code>redirect_uris</code> will need to use SSL (i.e. begin with <code>https://</code>). URIs without SSL will be rejected as invalid.</p>
+
+    <h4>Three-legged OAuth</h4>
+
+    <p>Three-legged OAuth2 requires the user to authorize your app on a browser page after logging into their account. To authenticate a user with three-legged OAuth2:</p>
+
+    <ul>
+    <li>Use the <code>client_id</code> and <code>client_secret</code> you obtained during registration to generate an <code>authorize_url</code> and redirect the user to this url.  Optionally include <code>scope</code> or <code>meta</code> parameters to request a specific set of <a href="permissions.html">permisos</a>.</li>
+    <li>If the user authorizes your app, they will be returned to the <code>redirect_uri</code> you set during registration (with a <code>code</code> param in the url).</li>
+    <li>Use the <code>code</code> param in the url to generate an <code>access_token</code></li>
+    <li>Use this <code>access_token</code> to make API calls on the user's behalf.</li>
+    </ul>
+
+
+    <h4>Examples</h4>
+
+    <div class="accordion" id="accordion2">
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse1">
+            Three-legged OAuth2 In Ruby
+          </a>
+        </div>
+        <div id="collapse1" class="accordion-body collapse">
+          <div class="accordion-inner">
+
+            <p>Ruby example:</p>
+            <div class="highlight"><pre><span class="nb">require</span> <span class="s1">&#39;oauth2&#39;</span>
+<span class="n">redirect_uri</span> <span class="o">=</span> <span class="s1">&#39;http://www.yourwebsite.com/oauth2/callback&#39;</span> <span class="c1"># this must match the url you set during registration</span>
+<span class="n">client</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">CLIENT_ID</span><span class="p">,</span> <span class="no">CLIENT_SECRET</span><span class="p">,</span> <span class="ss">site</span><span class="p">:</span> <span class="s1">&#39;https://coinbase.com&#39;</span><span class="p">)</span>
+<span class="sb">`open &quot;</span><span class="si">#{</span><span class="n">client</span><span class="o">.</span><span class="n">auth_code</span><span class="o">.</span><span class="n">authorize_url</span><span class="p">(</span><span class="n">redirect_uri</span><span class="p">:</span> <span class="n">redirect_uri</span><span class="p">)</span><span class="si">}</span><span class="sb">&quot;`</span>
+<span class="nb">print</span> <span class="s2">&quot;Enter the code returned in the URL: &quot;</span>
+<span class="n">code</span> <span class="o">=</span> <span class="no">STDIN</span><span class="o">.</span><span class="n">readline</span><span class="o">.</span><span class="n">chomp</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">auth_code</span><span class="o">.</span><span class="n">get_token</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">redirect_uri</span><span class="p">:</span> <span class="n">redirect_uri</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="no">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/api/v1/account/balance&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
+</pre></div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse2">
+            Three-legged OAuth2 From Scratch
+          </a>
+        </div>
+        <div id="collapse2" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <p>The following paths are used for requesting tokens (using a code, email and password, or refresh token):</p>
+
+            <pre>
+GET    https://www.coinbase.com/oauth/authorize     display authorization form
+POST   https://www.coinbase.com/oauth/token         endpoint for requesting the token, include a grant
+                                                type of (authorization code, resource owner
+                                                credentials, client credentials, or refresh token)
+            </pre>
+
+            <p>Here is a sample flow that your app might go through:</p>
+            <pre>
+# Redirect the user to this page
+https://www.coinbase.com/oauth/authorize?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_CALLBACK_URL
+
+# If the user accepts, they will be redirected to:
+YOUR_CALLBACK_URL?code=CODE
+
+# Initiate a POST request to get the access token
+https://www.coinbase.com/oauth/token?grant_type=authorization_code&code=CODE&redirect_uri=YOUR_CALLBACK_URL&client_id=CLIENT_ID&client_secret=CLIENT_SECRET
+
+# Response containing the 'access_token'
+{
+    "access_token": "...",
+    "refresh_token": "...",
+    "token_type": "bearer",
+    "expire_in": 7200,
+    "scope": "universal"
+}
+
+# Now you can use the 'access_token' to initiate authenticated requests
+https://api.coinbase.com/v1/account/balance?access_token=...
+
+# Response
+{"amount"=>"50.00000000", "currency"=>"BTC"}
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h4 id='tokens'>Access Tokens and Refresh Tokens</h4>
+
+    <p>Coinbase uses an optional security feature of OAuth2 called <a href="http://tools.ietf.org/html/draft-ietf-oauth-v2-22#section-1.5">refresh tokens</a>.</p>
+    <p>When you first authenticate, your app will be given an <code>access_token</code> and <code>refresh_token</code>.  The access token is used to authenticate all your requests, but will expire in two hours.  Once an access token has expired, you will need to use the refresh token to obtain a new access token and refresh token.  The refresh token is one time use, so it can only be exchanged once for a new set of access and refresh tokens.</p>
+    <p>This complicates the integration, but provides an additional layer of security since a compromised access token is automatically revoked after two hours.</p>
+    <p>If you are using an OAuth2 library that supports refresh tokens, you won't need to worry about this as the library will take care of it for you.  Otherwise, you will have to implement your own logic to get a new access token at least every two hours using the refresh token.</p>
+
+    <h4 id='mobile'>Developing Mobile And Desktop Apps</h4>
+    <p>If you're developing an installed application, you may not have a redirect url.  In these cases you can set the redirect url to this special value: <code>urn:ietf:wg:oauth:2.0:oob</code>.  This tells our servers to render a blank page with the authorization code in the url and title of the page, which can be parsed by your application.</p>
+    <p>This uses the <a href="https://developers.google.com/accounts/docs/OAuth2InstalledApp">mismo patrón</a> that Google follows in their documentation. <a href="http://www.slideshare.net/briandavidcampbell/is-that-a-token-in-your-phone-in-your-pocket-or-are-you-just-glad-to-see-me-oauth-20-and-mobile-devices">Here's a great guide</a> with sample code for both iOS and Android.</p>
+
+    <h4 id='mobile'>State Variable</h4>
+    <p>To help protect against cross-site request forgery (CSRF), it is recommended to included a <code>state</code> GET parameter during the OAuth2 authorization process.  Verifying that this variable matches upon receipt of an authorization code will mitigate any CSRF attempts.</p>
+    <p>An example of a request with <code>state</code> is as follows:</p>
+    <p><pre>https://www.coinbase.com/oauth/authorize?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_CALLBACK_URL&state=CSRFToken123</pre></code></p>
+
+    <h2 id='security'>Security Notes</h2>
+    <h4>Storing Credentials Securely</h4>
+    <p>You should take great care to ensure your credentials are stored securely. If someone obtains your <code>api_secret</code> or an <code>access_token</code> with the <code>send</code> or <code>all</code> permission, they will be able to send all the bitcoin out of your account.</p>
+    <p>In particular, you should avoid storing these credentials in your code base (which gets added to version control) or in your database unless you have encrypted them securely.  Separating credentials from your code base and database is a good practice.</p>
+    <p>API key access is turned off by default on all accounts.  So if you decide to do an API key integration, you will need to enable it first and take the necessary steps from then on to store it securely.  You can always regenerate your API key (or disable it) if you feel it has been compromised.</p>
+
+    <h4>Validating SSL Certificates</h4>
+    <p>It is also very important that your application validates our SSL certificate when it connects over https.  This helps prevent a <a href="http://en.wikipedia.org/wiki/Man-in-the-middle_attack">man in the middle attack</a>.  If you are using a client library, this may be turned on by default, but it is worth double checking.  If you see a setting to 'verify SSL' you should always ensure it is set to true.</p>
+
+    <h4>More Security for API Keys</h4>
+    <p>If you need more security with your API Keys, we recommend that you <strong>whitelist IP addresses</strong> that are permitted to make requests with a particular API Key.</p>
+    <p>You can do so when either creating a new API Key or editing an existing one.</p>
+    <br>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  <footer>
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span2">
+        <a href="../../index.html" class="brand"><img alt="Coinbase" src="../../assets/logos/logo_2x-467d659a6b4b1a77868a097de7f88c86.png" /></a>
+        <small><span>&copy; 2014 Coinbase</span></small>
+      </div>
+      <div class="span2">
+        <h4>Producto</h4>
+        <nav>
+          <a href="../../buy-bitcoin.html">Cómo comprar bitcoins</a>
+          <a href="../../merchants.html">Pasarela de pago</a>
+          <a href="overview.html">Plataforma del desarrollador</a>
+          <a href="../../security.html">Seguridad</a>
+        </nav>
+      </div>
+      <div class="span2">
+        <h4>Acerca de</h4>
+        <nav>
+          <a href="../../about.html">Acerca de</a>
+          <a href="../../careers.html">Carreras</a>
+          <a href="../../press.html">Prensa</a>
+          <a href="../../legal/user_agreement.html">Aviso legal y privacidad</a>
+        </nav>
+      </div>
+      <div class="span2">
+        <h4>Recursos</h4>
+        <nav>
+          <a href="overview.html">API</a>
+          <a href="../merchant_tools/getting_started.html">Documentación</a>
+          <a href="http://status.coinbase.com/">Estado</a>
+          <a href="https://support.coinbase.com/">Soporte</a>
+          
+          
+        </nav>
+      </div>
+      <div class="span2">
+        <h4>Social</h4>
+        <nav>
+          <a href="http://blog.coinbase.com/">Nuestro blog</a>
+          <a href="https://twitter.com/coinbase">Twitter</a>
+          <a href="https://www.facebook.com/Coinbase"></span>Facebook</a>
+        </nav>
+      </div>
+      <div class="span2">
+        <div class="footer-locale-select">
+  <h4>Idioma <sup>(BETA)</sup></h4>
+  <select id="locale_select" name="locale"><option value="de">Deutsch</option>
+<option value="en">English</option>
+<option value="es" selected="selected">Español</option>
+<option value="fr">Français</option>
+<option value="it">Italiano</option>
+<option value="nl">Nederlands</option></select>
+  <a href="https://translate.coinbase.com/" title="¡Ayuda a traducir Coinbase!">
+    <i class="icon-language"></i>
+</a></div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- begin olark code -->
+<script type='text/javascript'>
+setTimeout(function (){
+  var olarkId = "8678-140-10-4291";
+  var id = window.setTimeout(function(){}, 0);
+  while (id--) {
+    window.clearTimeout(id);
+  }
+  for (var key in Object.keys(window)) {
+    if (key.indexOf('hbl') == 0 || key.indexOf('habla') == 0) {
+      clearTimeout(window[key]);
+      delete window[key];
+    }
+  }
+  delete window.__get_olark_key;
+  delete window.olark;
+
+  function initOlark(){
+    c = {loader: "static.olark.com/jsclient/loader0.js",name:"olark",methods:["configure","extend","declare","identify"]};
+    var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){f[z]=function(){(a.s=a.s||[]).push(arguments)};var a=f[z]._={},q=c.methods.length;while(q--){(function(n){f[z][n]=function(){f[z]("call",n,arguments)}})(c.methods[q])}a.l=c.loader;a.i=nt;a.p={0:+new Date};a.P=function(u){a.p[u]=new Date-a.p[0]};function s(){a.P(r);f[z](r)}f.addEventListener?f.addEventListener(r,s,false):f.attachEvent("on"+r,s);var ld=function(){function p(hd){hd="head";return["<",hd,"></",hd,"><",i,' onl' + 'oad="var d=',g,";d.getElementsByTagName('head')[0].",j,"(d.",h,"('script')).",k,"='",l,"//",a.l,"'",'"',"></",i,">"].join("")}var i="body",m=d[i];if(!m){return setTimeout(ld,100)}a.P(1);var j="appendChild",h="createElement",k="src",n=d[h]("div"),v=n[j](d[h](z)),b=d[h]("iframe"),g="document",e="domain",o;n.style.display="none";m.insertBefore(n,m.firstChild).id=z;b.frameBorder="0";b.id=z+"-loader";if(/MSIE[ ]+6/.test(navigator.userAgent)){b.src="javascript:false"}b.allowTransparency="true";v[j](b);try{b.contentWindow[g].open()}catch(w){c[e]=d[e];o="javascript:var d="+g+".open();d.domain='"+d.domain+"';";b[k]=o+"void(0);"}try{var t=b.contentWindow[g];t.write(p());t.close()}catch(x){b[k]=o+'d.write("'+p().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};ld()};nt();
+  }
+  function identifyOlark() {
+    olark.identify(olarkId);
+  }
+
+  if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+    // Loading Olark the normal way break FF so we're doing something different here
+    window.olark || initOlark();
+    identifyOlark()
+
+    $(document).on("page:load page:restore", function(){
+      initOlark();
+      setTimeout(function() {
+        identifyOlark()
+      }, 100);
+    });
+  } else {
+    initOlark();
+    identifyOlark()
+  }
+}, 0);
+</script>
+<!-- end olark code -->
+
+
+  
+
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '../../../www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-32804181-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script type="text/javascript">
+  Coinbase.exchangeRatesGlobal = {"usd_to_btc":"0.003058","btc_to_usd":"327.05823999999996","usd_to_bit":"3058.0","bit_to_usd":"0.00032705823999999996"};
+
+
+</script>
+
+
+</body>
+
+<!-- Mirrored from www.coinbase.com/docs/api/authentication by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:34:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+</html>

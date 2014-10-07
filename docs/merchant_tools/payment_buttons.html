@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
+
+<!-- Mirrored from www.coinbase.com/docs/merchant_tools/payment_buttons by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:34:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"307b195e05","applicationID":"863399","transactionName":"IQ4KQUZbDVlTF00HXgESS1hRRgJdVwsWPEUNDghGG0QATFsADBduABQQQVtaEg==","queueTime":45,"applicationTime":239,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-476.min.js"}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=u(e),f=c.length,s=i(a,o,r),p=0;f>p;p++)c[p].apply(s,n);return s}function a(t,e){f[t]=u(t).concat(e)}function u(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:u,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=l.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),u=window,c=u.document,f="addEventListener",s="attachEvent",p=(""+location).split("?")[0],l=e.exports={offset:i(),origin:p,features:{}};c[f]?(c[f]("DOMContentLoaded",o,!1),u[f]("load",n,!1)):(c[s]("onreadystatechange",r),u[s]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}]},{},["G9z0Bl"]);</script>
+  <title>
+      Bitcoin Payment Buttons - Bitcoin Merchant Tools - Coinbase
+  </title>
+  <link rel="shortcut icon" href="../../favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57"   href="../../apple-touch-icon-iphone-114.png" />  
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../apple-touch-icon-iphone-114.png" />  
+  <link rel="apple-touch-icon-precomposed" sizes="72x72"   href="../../apple-touch-icon-ipad-144.png" />    
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../apple-touch-icon-ipad-144.png" />    
+    <meta content="https://www.coinbase.com/assets/logos/logo@2x.png" property="og:image" />
+    <meta content="Coinbase" property="og:title" />
+    <meta content="The easiest way to buy, use, and accept bitcoin." property="og:description" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="R7G5THr8xgaHFkTNkr_RUB0HvX2Nf8e4qnWi0X1kmz8" />
+  <meta http-equiv="X-Frame-Options" content="deny" />
+  
+  <script type="text/javascript">
+window.Coinbase = {"cache":{},"constants":{"ENV":"production","HTTPS":true,"MIXPANEL_TOKEN":"7c112173efca4899213c618484d8f5fe","BUGSNAG_JS_API_KEY":"c35ee1482f4958be12ff3bee470b3545","OLARK_KEY":"8678-140-10-4291","PUSHER_KEY":"057b12fc5917720115c1","USER":null,"S_SNIPPET_KEY":"6174a9","SESSION_ID":"f6344e7894b0048228ff9c8f1412f4bc"},"modules":{},"translations":{"CURRENCY_UNIT":"\u20ac","CURRENCY_DELIMITER":".","CURRENCY_SEPARATOR":",","LOCALE":"es"},"utils":{},"metrics":{}};
+</script>
+
+  <link data-turbolinks-track="true" href="../../assets/core-0de401f1c79e0cc19fc6dbcdb223cac5.css" media="all" rel="stylesheet" type="text/css" />
+  <link data-turbolinks-track="true" href="../../assets/application-5ead28d213a24807a87af4b7bea5be0a.css" media="all" rel="stylesheet" type="text/css" />
+  <script src="../../assets/jquery-82d48e54e30bce171e48ec3f05683068.js" type="text/javascript"></script>
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="8prmBYc/4tn0msPC3XP0UV0P3IwMRGSlXJrlsUwJZvM=" name="csrf-token" />
+  
+
+
+
+  <script src="../../assets/application-13c646928d8ee59b81675a1b64e272ef.js" type="text/javascript"></script>
+</head>
+
+<body class="app signed-out merchant_tools payment_buttons" data-controller-name="docs/merchant_tools" data-action-name="payment_buttons" data-view-name="Coinbase.Views.MerchantTools.PaymentButtons">
+  <div class="page-container">
+
+    <div class="navbar navbar-static-top">
+  <div class="navbar-inner " >
+    <div class="container">
+      <a id="main_nav_btn" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <a href="../../index.html" class="brand" onclick=""><img alt="Coinbase" src="../../assets/logos/logo-inverse_2x-ec5a19074e5034d321272344a6f84cd9.png" /></a>
+
+      <div class="mobile-bg"></div>
+
+      <div class="nav-collapse" id="application_menu">
+        <ul class="nav clearfix">
+          <li class=""><a href="../../home.html">Características</a></li>
+          <li class=""><a href="../../merchants.html">Comerciantes</a></li>
+          <li class=""><a href="../../vault.html">Caja fuerte</a></li>
+          <li class="dropdown dropdown-hover" id="resources_menu">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recursos <b class='caret'></b></a>
+            <ul class="dropdown-menu fadeIn animated-fast" role="menu" aria-labelledby="dLabel">
+              <li class=""><a href="../../about.html">Acerca de Coinbase</a></li>
+              <li class=""><a href="../../buy-bitcoin.html">Comprar bitcoins</a></li>
+              <li class=""><a href="../../security.html">Seguridad</a></li>
+              
+              <li class=""><a href="../../charts.html">Gráficos</a></li>
+              <li class=""><a href="../../apps.html">Aplicaciones</a></li>
+              <li class=""><a href="../api/overview.html">API</a></li>
+              <li class=""><a href="getting_started.html">Documentación</a></li>
+              <li class=""> <a href="https://support.coinbase.com/">Soporte</a></li>
+              <li><a href="http://blog.coinbase.com/">Blog</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="nav clearfix">
+              <li class='top-balance'>
+                <a href="../../charts.html">Precio de compra: 329,19 $</a>
+              </li>
+            <li class=" signin"><a href="../../signin.html">Iniciar sesión</a></li>
+            <li style="margin-top:-3px" class=" signup"><a href="../../signup.html" class="btn">Inscribirse</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container" id="page">
+      <div class="flash">
+</div>
+
+      <div class="row">
+  <div id="sidebar" class="span3">
+
+  <ul class="nav nav-list docs">
+
+    <li class="nav-header">HERRAMIENTAS COMERCIALES</li>
+    <li class=""><a href="getting_started.html">Empezar</a></li>
+    <li class=""><a href="examples.html">Ejemplos</a></li>
+    <li class=""><a href="pricing.html">Precios</a></li>
+    <li class="active"><a href="payment_buttons.html">Botones de Pago</a></li>
+    <li class=""><a href="payment_pages.html">Páginas de Pago</a></li>
+    <li class=""><a href="payment_iframes.html">Pagos con iFrames</a></li>
+    <li class=""><a href="shopping_cart_plugins.html">Carrito de la Compra</a></li>
+    <li class=""><a href="point_of_sale.html">Punto de Venta</a></li>
+    <li class=""><a href="email_invoices.html">Facturas por correo electrónico</a></li>
+    <li class=""><a href="recurring_payments.html">Pagos Recurrentes</a></li>
+    <li class=""><a href="discounts.html">Descuentos</a></li>
+    <li class=""><a href="payouts.html">Pagos</a></li>
+    <li class=""><a href="callbacks.html">Avisos</a></li>
+
+    <li class="nav-header">Desarrolladores</li>
+    <li class=""><a href="../api/overview.html">Empezar</a></li>
+    <li class=""><a href="../api/authentication.html">Autenticación</a></li>
+    <li class=""><a href="../api/permissions.html">Permisos</a></li>
+    <li class=""><a href="../api/multisig.html">Multifirma</a></li>
+    <li class=""><a href="../api/libraries.html">Bibliotecas Socias</a></li>
+    <li class=""><a href="../api/use-cases.html">Tutoriales</a></li>
+    <li class=""><a href="../api/oauth_tutorial.html">Tutorial OAuth2</a></li>
+    <li><a href="../../api/doc.html">Referencia API</a></li>
+    <li class=""><a href="../api/technical_faq.html">Pregunta técnicas frecuentes</a></li>
+    <li class=""><a href="../../signin.html">Mis Apps</a></li>
+
+    <li class="nav-header">Bitcoin Node</li>
+    <li class=""><a href="../../network.html">Resumen</a></li>
+    <li class=""><a href="../../network/blocks.html">Bloques</a></li>
+    <li class=""><a href="../../network/transactions.html">Transacciones</a></li>
+
+    <li class="nav-header">Services</li>
+    <li><a href="../../sms_service.html">Acceso SMS</a></li>
+  </ul>
+</div>
+
+
+  <div id="main" class="span9">
+
+    <header>
+      <h1>Payment Buttons <br/><small>Accept bitcoin on your website in an embedded window</small></h1>
+    </header>
+
+    <h3>Sample Button</h3>
+      <a class="coinbase-button" data-code="4d4b84bbad4508b64b61d372ea394dad" href="../../checkouts/4d4b84bbad4508b64b61d372ea394dad.html">Pagar Con Bitcoin</a>
+  <script src="../../assets/button.js" type="text/javascript"></script>
+
+    <br>
+
+    <h3>Sample embed code</h3>
+    <p>When you <a href="../../signin.html">crear un botón de pago</a>, it will give you code like this example.</p>
+    <div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;coinbase-button&quot;</span> <span class="na">data-code=</span><span class="s">&quot;4d4b84bbad4508b64b61d372ea394dad&quot;</span> <span class="na">href=</span><span class="s">&quot;https://coinbase.com/checkouts/4d4b84bbad4508b64b61d372ea394dad&quot;</span><span class="nt">&gt;</span>Pay With Bitcoin<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://coinbase.com/assets/button.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+    <p><small><em class="muted">Any bitcoin sent using the sample button will be donated to the Bitcoin Foundation.</em></small></p>
+
+    <h3>Features</h3>
+    <ul>
+      <li>Payment buttons allow you to accept bitcoin on your website.</li>
+      <li>Great for personal payments, shopping cart integration, or donations.</li>
+      <li>Users never need to leave your site - the payment flow happens in an embedded window.</li>
+      <li>Prices can be shown in bitcoin or your local currency.</li>
+<li><a href="callbacks.html">Retrollamadas</a> can be sent to your website when an order completes.</li>
+<li>Bitcoins can be automatically <a href="payouts.html">hecho efectivo</a> daily to any bank account.</li>
+
+      <li>Allows first time users to purchase bitcoin if they don't own any.</li>
+      <li>Create buttons dynamically via the <a href="../../api/doc/1.0/buttons.html">API de Coinbase</a>.</li>
+    </ul>
+
+    <h3>How to Create a Payment Button</h3>
+    <p>Payment buttons can be generated via our <a href="../../signin.html" target="_blank">generador de botones</a> (shown below)
+      or the <a href="../../api/doc/1.0/buttons/create.html">API de botón</a> (for programmers).</p>
+    <p>The button generator is the easiest way to get started:</p>
+    <div class='row'>
+      <a href="../../assets/docs/merchant_tools-4d014ca68096e14dd470c696b75ed4c3.png" class="fancybox thumbnail span6"><img alt="Merchant_tools" src="../../assets/docs/merchant_tools-4d014ca68096e14dd470c696b75ed4c3.png" /></a>
+    </div>
+    <br>
+    <p>The only required paramaters are a name and price.  The rest can be set when you create the button or later via the <code>data-*</code> attributes in the embed HTML.  <code>data-*</code> attributes will override any attributes you set in the button generator.</p>
+    <p>Once a button is generated, you'll be given a few lines of HTML code to copy and paste into your website.  This will add the button to your page.</p>
+    <p>Buttons can be thought of as disposable (they are just a way to hard code a name and price into a <code>code</code> attribute) so if you mess up you can always start over with a new button.</p>
+    <!-- TODO: Reword -->
+    <p>Due to current US regulations, we require you to fill out a small amount of required information to create buttons via the web or API.</p>
+
+    <h3>Integration Details</h3>
+    <p>A separate bitcoin address is generated for each order and user.  This ensures order totals don't build up at a single bitcoin address.</p>
+    <p>If a user is already signed in to a Coinbase account, they can complete the checkout in two clicks - this is the fastest method of payment.  For users without a Coinbase account the default option is to send payment to a bitcoin address.  This method supports all bitcoin clients.  A QR code with an embedded bitcoin URI is included for mobile wallets.  Users who are new to bitcoin can also learn how to purchase their first bitcoins from within the payment widget.</p>
+    <br/>
+
+    <legend>Advanced Options</legend>
+
+    <div id="accordion1" class="accordion">
+
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">Using the Button API</a>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <p>For more advanced integrations, it's sometimes necessary to create many buttons with different prices.  In these cases you'll want to <a href="../../api/doc/1.0/buttons/create.html">utilizar la API de los botones</a>.</p>
+            <p>For example, let's say you wanted to create a "Pay With Bitcoin" button for your e-commerce site.  Each order will have a different total so you'll need to create a new payment button for each order.</p>
+            <p>In this case you would generate a new button using the following params:</p>
+            <dl class="dl-horizontal">
+              <dt>price_string</dt>
+              <dd>the order total such as <code>178.23</code></dd>
+              <dt>price_currency_iso</dt>
+              <dd>the order currency such as <code>USD</code> or <code>BTC</code></dd>
+              <dt>name</dt>
+              <dd>a short description of the order such as <code>Acme Widgets Order #ABC123</code></dd>
+              <dt>custom</dt>
+              <dd>the order number you'll receive in the <a href="callbacks.html">retrollamada</a> to mark the order as 'paid', for example <code>ABC123</code></dd>
+            </dl>
+
+            <p>The button API will return a <code>code</code> param which you can use to generate the embed HTML (described below).  For further details visit the <a href="../../api/doc/1.0/buttons/create.html" name="customize">página de referencia API de botón</a>.</p>
+            <p>It's worth noting that generating multiple buttons this way is only necessary if you want to set prices dynamically.  If you only have a few items with the same price you can generate buttons manually and modify the <code>data-custom</code> attribute to change which value is returned in the callback.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">Customizing the Embed HTML</a>
+        </div>
+        <div id="collapseTwo" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <p>The embed html consists of one script tag referencing <code>https://www.coinbase.com/assets/button.js</code> and an element with class <code>coinbase-button</code> that includes a <code>data-code</code> parameter.</p>
+            <p>You can have one or more elements with class <code>coinbase-button</code> on the page (if you're including multiple buttons), but only one script tag is ever needed.</p>
+            <p>It's a good idea to use an <code>a</code> tag so that a plain link can also be included in environments where javascript is disabled, but this is not a requirement and other elements (such as a plain div) will also work.</p>
+            <p>After adding the <code>coinbase-button</code> class, the only required parameter is <code>data-code</code> which hard codes the name, price, and description fields (these are set at the time the button is created and cannot be changed later).  The other params can be updated after the button is created by setting <code>data-*</code> attributes on the element.  This makes it easy to update fields without having to create a new button.</p>
+            <p>The div can have the following params:</p>
+            <dl class="dl-horizontal">
+              <dt>data-code</dt>
+              <dd>Required unique identifier of the button, this is used to hard code the name, price, and description and is provided for you via the button generator or API.</dd>
+              <dt>data-button-style</dt>
+              <dd>Optional param, one of <code>buy_now_large</code>, <code>buy_now_small</code>, <code>donation_large</code>, <code>donation_small</code>, <code>subscription_large</code>, <code>subscription_small</code>, <code>custom_large</code>, <code>custom_small</code>, or <code>none</code>.  These different button styles can be previewed in the button generator and the default is <code>buy_now_large</code>.</dd>
+              <dt>data-button-text</dt>
+              <dd>Optional param, allows you to change the button text (only works with button-styles <code>custom_large</code> and <code>custom_small</code>)</dd>
+              <dt>data-custom</dt>
+              <dd>Optional param, allows you to set any text to link the payment back to your website - usually an order, user, or product ID that you want to mark as "paid" in your database. This parameter gets included in <a href="callbacks.html">retrollamadas</a> to your website.</dd>
+              <dt>data-width</dt>
+              <dd>Optional param, can be used to customize the width of the button iframe.  The default is 195 pixels.</dd>
+              <dt>data-height</dt>
+              <dd>Optional param, can be used to customize the height of the button iframe.  The default is 46 pixels.</dd>
+            </dl>
+            <p>Sample button code utilizing the above customizations:</p>
+            <div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;coinbase-button&quot;</span> <span class="na">data-code=</span><span class="s">&quot;4d4b84bbad4508b64b61d372ea394dad&quot;</span> <span class="na">data-button-style=</span><span class="s">&quot;custom_large&quot;</span> <span class="na">data-button-text=</span><span class="s">&quot;Checkout With Bitcoin&quot;</span> <span class="na">data-custom=</span><span class="s">&quot;order1234&quot;</span> <span class="na">href=</span><span class="s">&quot;https://www.coinbase.com/checkouts/4d4b84bbad4508b64b61d372ea394dad&quot;</span><span class="nt">&gt;</span>Checkout With Bitcoin<span class="nt">&lt;/a&gt;&lt;script </span><span class="na">src=</span><span class="s">&quot;https://www.coinbase.com/assets/button.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree">Using Your Own Button And Custom Javascript Events</a>
+        </div>
+        <div id="collapseThree" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <p>You can also trigger the payment modal using your own button, and bind to a custom javascript event when a payment completes.</p>
+            <p>First, by setting the <code>data-button-style</code> attribute to <code>none</code> and using an empty div, the default Coinbase button will not be shown on the page.</p>
+            <p>Next, you'll want to trigger a custom <code>coinbase_show_modal</code> javascript event.  This event requires the <code>code</code> string to be passed in to determine which modal to show (you can have multiple buttons/modals on a page).</p>
+            <p>Once a payment completes, a <code>coinbase_payment_complete</code> javascript event will be fired along with a <code>code</code> param referencing the same button/modal.  This can be used, for example, to redirect the user to a 'confirmation' page where you wait for the callback to reach your site.</p>
+            <p>When the user sends the wrong amount, a <code>coinbase_payment_mispaid</code> event will be fired instead.</p>
+            <p>If 30 minutes has passed, the button will expire and a <code>coinbase_payment_expired</code> event will be fired.</p>
+            <p>Here is a jQuery example which uses custom javascript events and a custom link to trigger the payment modal:</p>
+            <div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&#39;#&#39;</span> <span class="na">class=</span><span class="s">&#39;my-custom-link&#39;</span><span class="nt">&gt;</span>Show Me The Modal!<span class="nt">&lt;/a&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;coinbase-button&quot;</span> <span class="na">data-code=</span><span class="s">&quot;6ad16caf532b5d802a1141766ee4d823&quot;</span> <span class="na">data-button-style=</span><span class="s">&quot;none&quot;</span><span class="nt">&gt;&lt;/div&gt;&lt;script </span><span class="na">src=</span><span class="s">&quot;https://coinbase.com/assets/button.js&quot;</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.my-custom-link&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;coinbase_show_modal&#39;</span><span class="p">,</span> <span class="s1">&#39;6ad16caf532b5d802a1141766ee4d823&#39;</span><span class="p">);</span>
+      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">});</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;coinbase_payment_complete&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">code</span><span class="p">){</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Payment completed for button &quot;</span> <span class="o">+</span> <span class="nx">code</span><span class="p">);</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s2">&quot;/confirmation.html&quot;</span><span class="p">;</span>
+    <span class="p">});</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;coinbase_payment_mispaid&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">code</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Payment mispaid for button &quot;</span> <span class="o">+</span> <span class="nx">code</span><span class="p">);</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s2">&quot;/try-again.html&quot;</span><span class="p">;</span>
+    <span class="p">});</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;coinbase_payment_expired&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">code</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Payment expired for button &quot;</span> <span class="o">+</span> <span class="nx">code</span><span class="p">);</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s2">&quot;/maybe-later.html&quot;</span><span class="p">;</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+            <p>It's important to note that the <code>coinbase_payment_complete</code> event does not guarantee a payment has arrived successfully (any user could trigger this javascript event on the page).  It is just a convenient way to move to the next step in your checkout.  You should always verify the payment was received via the <a href="callbacks.html">retrollamada</a> to your site.  Some merchants prefer to show a 'confirmation' page next that waits for the callback to reach their site before showing the 'success' page.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseFour">Adding a Custom Logo</a>
+        </div>
+        <div id="collapseFour" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <p>You can optionally upload a logo from the <a href="../../signin.html">configuración comercial</a> page.  This will be used in the header of your payment modal (as well as on <a href="payment_pages.html">páginas de pago</a>).</p>
+            <p>Once you upload a logo, it will replace the default text that is normally shown in the header.</p>
+            <table>
+              <tr>
+                <td class='center'><strong>Custom logo:</strong></td>
+                <td class='center'><strong>Default text:</strong></td>
+              </tr>
+              <tr>
+                <td><img alt="Header_custom" src="../../assets/docs/header_custom-b145b2b9aa09f6c7a41c0870fbc01939.png" /></td>
+                <td><img alt="Header_default" src="../../assets/docs/header_default-9b50b4a2b091d1561650dbb5f009ddd7.png" /></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <br>
+    <legend>What's next?</legend>
+<ul>
+    <li><a href="payment_pages.html">Páginas de pago</a> - Redirect users to a payment page hosted on coinbase.com.</li>
+</ul>
+<br>
+
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  <footer>
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span2">
+        <a href="../../index.html" class="brand"><img alt="Coinbase" src="../../assets/logos/logo_2x-467d659a6b4b1a77868a097de7f88c86.png" /></a>
+        <small><span>&copy; 2014 Coinbase</span></small>
+      </div>
+      <div class="span2">
+        <h4>Producto</h4>
+        <nav>
+          <a href="../../buy-bitcoin.html">Cómo comprar bitcoins</a>
+          <a href="../../merchants.html">Pasarela de pago</a>
+          <a href="../api/overview.html">Plataforma del desarrollador</a>
+          <a href="../../security.html">Seguridad</a>
+        </nav>
+      </div>
+      <div class="span2">
+        <h4>Acerca de</h4>
+        <nav>
+          <a href="../../about.html">Acerca de</a>
+          <a href="../../careers.html">Carreras</a>
+          <a href="../../press.html">Prensa</a>
+          <a href="../../legal/user_agreement.html">Aviso legal y privacidad</a>
+        </nav>
+      </div>
+      <div class="span2">
+        <h4>Recursos</h4>
+        <nav>
+          <a href="../api/overview.html">API</a>
+          <a href="getting_started.html">Documentación</a>
+          <a href="http://status.coinbase.com/">Estado</a>
+          <a href="https://support.coinbase.com/">Soporte</a>
+          
+          
+        </nav>
+      </div>
+      <div class="span2">
+        <h4>Social</h4>
+        <nav>
+          <a href="http://blog.coinbase.com/">Nuestro blog</a>
+          <a href="https://twitter.com/coinbase">Twitter</a>
+          <a href="https://www.facebook.com/Coinbase"></span>Facebook</a>
+        </nav>
+      </div>
+      <div class="span2">
+        <div class="footer-locale-select">
+  <h4>Idioma <sup>(BETA)</sup></h4>
+  <select id="locale_select" name="locale"><option value="de">Deutsch</option>
+<option value="en">English</option>
+<option value="es" selected="selected">Español</option>
+<option value="fr">Français</option>
+<option value="it">Italiano</option>
+<option value="nl">Nederlands</option></select>
+  <a href="https://translate.coinbase.com/" title="¡Ayuda a traducir Coinbase!">
+    <i class="icon-language"></i>
+</a></div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- begin olark code -->
+<script type='text/javascript'>
+setTimeout(function (){
+  var olarkId = "8678-140-10-4291";
+  var id = window.setTimeout(function(){}, 0);
+  while (id--) {
+    window.clearTimeout(id);
+  }
+  for (var key in Object.keys(window)) {
+    if (key.indexOf('hbl') == 0 || key.indexOf('habla') == 0) {
+      clearTimeout(window[key]);
+      delete window[key];
+    }
+  }
+  delete window.__get_olark_key;
+  delete window.olark;
+
+  function initOlark(){
+    c = {loader: "static.olark.com/jsclient/loader0.js",name:"olark",methods:["configure","extend","declare","identify"]};
+    var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){f[z]=function(){(a.s=a.s||[]).push(arguments)};var a=f[z]._={},q=c.methods.length;while(q--){(function(n){f[z][n]=function(){f[z]("call",n,arguments)}})(c.methods[q])}a.l=c.loader;a.i=nt;a.p={0:+new Date};a.P=function(u){a.p[u]=new Date-a.p[0]};function s(){a.P(r);f[z](r)}f.addEventListener?f.addEventListener(r,s,false):f.attachEvent("on"+r,s);var ld=function(){function p(hd){hd="head";return["<",hd,"></",hd,"><",i,' onl' + 'oad="var d=',g,";d.getElementsByTagName('head')[0].",j,"(d.",h,"('script')).",k,"='",l,"//",a.l,"'",'"',"></",i,">"].join("")}var i="body",m=d[i];if(!m){return setTimeout(ld,100)}a.P(1);var j="appendChild",h="createElement",k="src",n=d[h]("div"),v=n[j](d[h](z)),b=d[h]("iframe"),g="document",e="domain",o;n.style.display="none";m.insertBefore(n,m.firstChild).id=z;b.frameBorder="0";b.id=z+"-loader";if(/MSIE[ ]+6/.test(navigator.userAgent)){b.src="javascript:false"}b.allowTransparency="true";v[j](b);try{b.contentWindow[g].open()}catch(w){c[e]=d[e];o="javascript:var d="+g+".open();d.domain='"+d.domain+"';";b[k]=o+"void(0);"}try{var t=b.contentWindow[g];t.write(p());t.close()}catch(x){b[k]=o+'d.write("'+p().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};ld()};nt();
+  }
+  function identifyOlark() {
+    olark.identify(olarkId);
+  }
+
+  if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+    // Loading Olark the normal way break FF so we're doing something different here
+    window.olark || initOlark();
+    identifyOlark()
+
+    $(document).on("page:load page:restore", function(){
+      initOlark();
+      setTimeout(function() {
+        identifyOlark()
+      }, 100);
+    });
+  } else {
+    initOlark();
+    identifyOlark()
+  }
+}, 0);
+</script>
+<!-- end olark code -->
+
+
+  
+
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '../../../www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-32804181-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script type="text/javascript">
+  Coinbase.exchangeRatesGlobal = {"usd_to_btc":"0.003058","btc_to_usd":"327.05823999999996","usd_to_bit":"3058.0","bit_to_usd":"0.00032705823999999996"};
+
+
+</script>
+
+
+</body>
+
+<!-- Mirrored from www.coinbase.com/docs/merchant_tools/payment_buttons by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:34:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+</html>

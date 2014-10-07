@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
+
+<!-- Mirrored from www.coinbase.com/docs/api/technical_faq by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:35:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"307b195e05","applicationID":"863399","transactionName":"IQ4KQUZbDVlTF00HXgESS1REXRIaHgoWC1QQSA==","queueTime":51,"applicationTime":108,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-476.min.js"}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=u(e),f=c.length,s=i(a,o,r),p=0;f>p;p++)c[p].apply(s,n);return s}function a(t,e){f[t]=u(t).concat(e)}function u(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:u,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=l.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),u=window,c=u.document,f="addEventListener",s="attachEvent",p=(""+location).split("?")[0],l=e.exports={offset:i(),origin:p,features:{}};c[f]?(c[f]("DOMContentLoaded",o,!1),u[f]("load",n,!1)):(c[s]("onreadystatechange",r),u[s]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}]},{},["G9z0Bl"]);</script>
+  <title>
+       Coinbase - Tu monedero de bitcoin
+  </title>
+  <link rel="shortcut icon" href="../../favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57"   href="../../apple-touch-icon-iphone-114.png" />  
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../apple-touch-icon-iphone-114.png" />  
+  <link rel="apple-touch-icon-precomposed" sizes="72x72"   href="../../apple-touch-icon-ipad-144.png" />    
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../apple-touch-icon-ipad-144.png" />    
+    <meta content="https://www.coinbase.com/assets/logos/logo@2x.png" property="og:image" />
+    <meta content="Coinbase" property="og:title" />
+    <meta content="The easiest way to buy, use, and accept bitcoin." property="og:description" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="R7G5THr8xgaHFkTNkr_RUB0HvX2Nf8e4qnWi0X1kmz8" />
+  <meta http-equiv="X-Frame-Options" content="deny" />
+  
+  <script type="text/javascript">
+window.Coinbase = {"cache":{},"constants":{"ENV":"production","HTTPS":true,"MIXPANEL_TOKEN":"7c112173efca4899213c618484d8f5fe","BUGSNAG_JS_API_KEY":"c35ee1482f4958be12ff3bee470b3545","OLARK_KEY":"8678-140-10-4291","PUSHER_KEY":"057b12fc5917720115c1","USER":null,"S_SNIPPET_KEY":"6174a9","SESSION_ID":"f6344e7894b0048228ff9c8f1412f4bc"},"modules":{},"translations":{"CURRENCY_UNIT":"\u20ac","CURRENCY_DELIMITER":".","CURRENCY_SEPARATOR":",","LOCALE":"es"},"utils":{},"metrics":{}};
+</script>
+
+  <link data-turbolinks-track="true" href="../../assets/core-0de401f1c79e0cc19fc6dbcdb223cac5.css" media="all" rel="stylesheet" type="text/css" />
+  <link data-turbolinks-track="true" href="../../assets/application-5ead28d213a24807a87af4b7bea5be0a.css" media="all" rel="stylesheet" type="text/css" />
+  <script src="../../assets/jquery-82d48e54e30bce171e48ec3f05683068.js" type="text/javascript"></script>
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="8prmBYc/4tn0msPC3XP0UV0P3IwMRGSlXJrlsUwJZvM=" name="csrf-token" />
+  
+
+
+
+  <script src="../../assets/application-13c646928d8ee59b81675a1b64e272ef.js" type="text/javascript"></script>
+</head>
+
+<body class="app signed-out apis technical_faq" data-controller-name="docs/apis" data-action-name="technical_faq" data-view-name="Coinbase.Views.Apis.TechnicalFaq">
+  <div class="page-container">
+
+    <div class="navbar navbar-static-top">
+  <div class="navbar-inner " >
+    <div class="container">
+      <a id="main_nav_btn" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <a href="../../index.html" class="brand" onclick=""><img alt="Coinbase" src="../../assets/logos/logo-inverse_2x-ec5a19074e5034d321272344a6f84cd9.png" /></a>
+
+      <div class="mobile-bg"></div>
+
+      <div class="nav-collapse" id="application_menu">
+        <ul class="nav clearfix">
+          <li class=""><a href="../../home.html">Características</a></li>
+          <li class=""><a href="../../merchants.html">Comerciantes</a></li>
+          <li class=""><a href="../../vault.html">Caja fuerte</a></li>
+          <li class="dropdown dropdown-hover" id="resources_menu">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recursos <b class='caret'></b></a>
+            <ul class="dropdown-menu fadeIn animated-fast" role="menu" aria-labelledby="dLabel">
+              <li class=""><a href="../../about.html">Acerca de Coinbase</a></li>
+              <li class=""><a href="../../buy-bitcoin.html">Comprar bitcoins</a></li>
+              <li class=""><a href="../../security.html">Seguridad</a></li>
+              
+              <li class=""><a href="../../charts.html">Gráficos</a></li>
+              <li class=""><a href="../../apps.html">Aplicaciones</a></li>
+              <li class=""><a href="overview.html">API</a></li>
+              <li class=""><a href="../merchant_tools/getting_started.html">Documentación</a></li>
+              <li class=""> <a href="https://support.coinbase.com/">Soporte</a></li>
+              <li><a href="http://blog.coinbase.com/">Blog</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="nav clearfix">
+              <li class='top-balance'>
+                <a href="../../charts.html">Precio de compra: 329,19 $</a>
+              </li>
+            <li class=" signin"><a href="../../signin.html">Iniciar sesión</a></li>
+            <li style="margin-top:-3px" class=" signup"><a href="../../signup.html" class="btn">Inscribirse</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container" id="page">
+      <div class="flash">
+</div>
+
+      <div class="row">
+  <div id="sidebar" class="span3">
+
+  <ul class="nav nav-list docs">
+
+    <li class="nav-header">HERRAMIENTAS COMERCIALES</li>
+    <li class=""><a href="../merchant_tools/getting_started.html">Empezar</a></li>
+    <li class=""><a href="../merchant_tools/examples.html">Ejemplos</a></li>
+    <li class=""><a href="../merchant_tools/pricing.html">Precios</a></li>
+    <li class=""><a href="../merchant_tools/payment_buttons.html">Botones de Pago</a></li>
+    <li class=""><a href="../merchant_tools/payment_pages.html">Páginas de Pago</a></li>
+    <li class=""><a href="../merchant_tools/payment_iframes.html">Pagos con iFrames</a></li>
+    <li class=""><a href="../merchant_tools/shopping_cart_plugins.html">Carrito de la Compra</a></li>
+    <li class=""><a href="../merchant_tools/point_of_sale.html">Punto de Venta</a></li>
+    <li class=""><a href="../merchant_tools/email_invoices.html">Facturas por correo electrónico</a></li>
+    <li class=""><a href="../merchant_tools/recurring_payments.html">Pagos Recurrentes</a></li>
+    <li class=""><a href="../merchant_tools/discounts.html">Descuentos</a></li>
+    <li class=""><a href="../merchant_tools/payouts.html">Pagos</a></li>
+    <li class=""><a href="../merchant_tools/callbacks.html">Avisos</a></li>
+
+    <li class="nav-header">Desarrolladores</li>
+    <li class=""><a href="overview.html">Empezar</a></li>
+    <li class=""><a href="authentication.html">Autenticación</a></li>
+    <li class=""><a href="permissions.html">Permisos</a></li>
+    <li class=""><a href="multisig.html">Multifirma</a></li>
+    <li class=""><a href="libraries.html">Bibliotecas Socias</a></li>
+    <li class=""><a href="use-cases.html">Tutoriales</a></li>
+    <li class=""><a href="oauth_tutorial.html">Tutorial OAuth2</a></li>
+    <li><a href="../../api/doc.html">Referencia API</a></li>
+    <li class="active"><a href="technical_faq.html">Pregunta técnicas frecuentes</a></li>
+    <li class=""><a href="../../signin.html">Mis Apps</a></li>
+
+    <li class="nav-header">Bitcoin Node</li>
+    <li class=""><a href="../../network.html">Resumen</a></li>
+    <li class=""><a href="../../network/blocks.html">Bloques</a></li>
+    <li class=""><a href="../../network/transactions.html">Transacciones</a></li>
+
+    <li class="nav-header">Services</li>
+    <li><a href="../../sms_service.html">Acceso SMS</a></li>
+  </ul>
+</div>
+
+
+  <div id="main" class="span9">
+
+    <header>
+      <h1>Technical FAQ <br> <small>Here are some frequently asked questions regarding the Coinbase API.</small></h1>
+    </header>
+
+    <h3>Integration</h3>
+    <ul>
+      <li><a href="#method">¿Qué método debería utilizar en mi página web para aceptar bitcoin: Página de pago, Botón de pago, o iFrame de pago?</a></li>
+      <li><a href="#sandbox">¿Ofrece Coinbase cuentas de Sandbox para desarrolladores?</a></li>
+      <li><a href="#scripts">¿Dónde puedo encontrar ejemplos de secuencias de comandos que utilicen la API de Coinbase?</a></li>
+      <li><a href="#libraries">¿Tienes disponible alguna biblioteca de cliente para el lenguaje de programación X?</a></li>
+    </ul>
+
+    <h3>Authentication</h3>
+    <ul>
+      <li><a href="#authentication_methods">¿Qué métodos de autentificación se pueden utilizar con la API de Coinbase?</a></li>
+      <li><a href="#authentication_how">¿Cómo puedo utilizar esto métodos de autentificación?</a></li>
+      <li><a href="#permissions">¿Cómo funcionan los permisos y las credenciales de API?</a></li>
+      <li><a href="#post_requests">¿Cómo puedo enviar peticiones de POST con el método de autentificación HMAC/Secreto?</a></li>
+    </ul>
+
+    <h3>Refunds</h3>
+    <ul>
+      <li><a href="#refunds">¿Cómo puedo reembolsar una solicitud con la API?</a></li>
+    </ul>
+
+    <h3>Notifications</h3>
+    <ul>
+      <li><a href="#callbacks">¿Cómo se notifica a mi página web cuando se completa una solicitud?</a></li>
+      <li><a href="#instant_exchange_limit">¿Cómo se notificará a mi página web cuando se procese mi retiro de efectivo diario de intercambio instantáneo?</a></li>
+    </ul>
+
+    <h3>Mispayments</h3>
+    <ul>
+      <li><a href="#mispayments_general">He visto un pago erróneo en la página de compras de mi cuenta. ¿Qué significa?</a></li>
+      <li><a href="#mispayments_status">¿Cuáles son los posibles valores diferentes para los estados sobre pagos erróneos?</a></li>
+    </ul>
+
+    <h3>Reports</h3>
+    <ul>
+      <li><a href="#reports">¿Cómo puedo exportar datos de transacción desde mi cuenta de Coinbase?</a></li>
+    </ul>
+
+    <h3>Troubleshooting</h3>
+    <ul>
+      <li><a href="#401_response">¿Por qué he recibido una respuesta 401 de no autorización?</a></li>
+      <li><a href="#data_custom_issue">Estoy usando Javascript para cambiar los atributos de datos personalizados en mi botón de pago, pero no funciona.</a></li>
+      <li><a href="#response_types">¿Cuáles son todas las posibles respuestas y tipos de error generados por la API?</a></li>
+      <li><a href="#redirect_urls">¿Por qué no funcionan las URL de redirección en mis botones/iframes de pago?</a></li>
+      <li><a href="#callback_php">¿Cómo recibo datos de retrollamada en PHP?</a></li>
+      <li><a href="#ajax">¿Por qué no funciona mi petición AJAX a la API?</a></li>
+    </ul>
+
+
+    <h3>Integration</h3>
+    <a name="method"></a>
+    <h4>Which method should I use on my site to accept bitcoin: Payment Page, Payment Button, or Payment iFrame?</h4>
+      <p>All three of these integration options provide a great payment experience, and are best used in the following scenarios:</p>
+        <ol><li><strong>Payment Pages:</strong>
+          <ul><li>Use these if you want to have a <strong>fully-hosted payment solution</strong>.</li>
+            <li>With this method, customers will be redirected to a page on our site to complete the payment process.
+              </li>
+              <li>At its simplest, this method requires only a link to our website.</li></ul>
+            </li>
+          <br>
+          <div class='row'>
+          <div class="span2">
+            <a href="../../assets/merchants/example-okcupid-1-fee3211266337c53edf9d0edd17699ac.png" class="fancybox thumbnail" rel="okcupid-group"><img alt="Example-okcupid-1" src="../../assets/merchants/example-okcupid-1-fee3211266337c53edf9d0edd17699ac.png" /></a>
+            <span class="caption">Select Bitcoin as your payment method</span>
+          </div>
+          <div class="span2">
+            <a href="../../assets/merchants/example-okcupid-2-8467efd31234d7c4bf8e68f9b40a6993.png" class="fancybox thumbnail" rel="okcupid-group"><img alt="Example-okcupid-2" src="../../assets/merchants/example-okcupid-2-8467efd31234d7c4bf8e68f9b40a6993.png" /></a>
+            <span class="caption">Payment details are provided by Coinbase</span>
+          </div>
+          <div class="span2">
+            <a href="../../assets/merchants/example-okcupid-3-6126aaf8914fe67e5f4bfdbeaab95c54.png" class="fancybox thumbnail" rel="okcupid-group"><img alt="Example-okcupid-3" src="../../assets/merchants/example-okcupid-3-6126aaf8914fe67e5f4bfdbeaab95c54.png" /></a>
+            <span class="caption">Complete payment</span>
+          </div>
+        </div>
+    <br>
+        <li><strong>Payment Buttons:</strong>
+          <ul>
+            <li>Use these if you want to have a <strong>separate payment area</strong> available, while still having the customer <strong>stay on your website.</strong></li>
+            <li>With this method, customers will stay on your site throughout the checkout process, but will have a separate payment modal.</li>
+            <li>This method requires embedded HTML.</li>
+          </ul>
+
+      <br>
+      <div class='row'>
+      <div class="span2">
+        <a href="../../assets/merchants/example-khan-academy-1-949c453c44438033bc9ae5571dcfd81d.png" class="fancybox thumbnail" rel="khan-academy-group"><img alt="Example-khan-academy-1" src="../../assets/merchants/example-khan-academy-1-949c453c44438033bc9ae5571dcfd81d.png" /></a>
+        <span class="caption">Click to donate</span>
+      </div>
+      <div class="span2">
+        <a href="../../assets/merchants/example-khan-academy-2-a7212d77b17362b60f30d187c09b3294.png" class="fancybox thumbnail" rel="khan-academy-group"><img alt="Example-khan-academy-2" src="../../assets/merchants/example-khan-academy-2-a7212d77b17362b60f30d187c09b3294.png" /></a>
+        <span class="caption">Choose your donation amount</span>
+      </div>
+      <div class="span2">
+        <a href="../../assets/merchants/example-khan-academy-3-96b82641d914f00ccea76f45361d0705.png" class="fancybox thumbnail" rel="khan-academy-group"><img alt="Example-khan-academy-3" src="../../assets/merchants/example-khan-academy-3-96b82641d914f00ccea76f45361d0705.png" /></a>
+        <span class="caption">Khan Academy receives your donation</span>
+      </div>
+
+        <br>
+        <li><strong>Payment Iframes:</strong>
+          <ul>
+            <li>Use these if you want the customer to pay <strong>completely on your website</strong>, without having to navigate to a separate page/area.</li>
+            <li>With this method, customers will stay on your site throughout the checkout process and will not be shown a separate payment modal</li>
+            <li>
+            This requires embedded HTML.</li>
+          </ul>
+        </li>
+      <br>
+      <div class='row'>
+        <div class="span2">
+          <a href="../../assets/merchants/example-cheapair-2-30a8f1612266d71c6d4c948240cfe8ef.png" class="fancybox thumbnail" rel="cheapair-group"><img alt="Example-cheapair-2" src="../../assets/merchants/example-cheapair-2-30a8f1612266d71c6d4c948240cfe8ef.png" /></a>
+          <span class="caption">Select Bitcoin as your payment method</span>
+        </div>
+        <div class="span2">
+          <a href="../../assets/merchants/example-cheapair-3-ca94add5aba3faa58aaed7076b7d4789.png" class="fancybox thumbnail" rel="cheapair-group"><img alt="Example-cheapair-3" src="../../assets/merchants/example-cheapair-3-ca94add5aba3faa58aaed7076b7d4789.png" /></a>
+          <span class="caption">Use the Coinbase payment iframe to pay inline</span>
+        </div>
+        <div class="span2">
+          <a href="../../assets/merchants/example-cheapair-4-c3c90c429a32c404ecfa9b8fa5b89840.png" class="fancybox thumbnail" rel="cheapair-group"><img alt="Example-cheapair-4" src="../../assets/merchants/example-cheapair-4-c3c90c429a32c404ecfa9b8fa5b89840.png" /></a>
+          <span class="caption">Tickets purchased!</span>
+        </div>
+      </div>
+    </ol>
+  </sdiv>
+
+    <a name="sandbox"></a>
+    <h4>Does Coinbase offer sandbox accounts for developers?</h4>
+    <p>No, we currently do not offer sandbox accounts for developers.</p>
+    <p>The best way to test is with a secondary account (either Coinbase or external).</p>
+
+    <a name="scripts"></a>
+    <h4>Where can I find example scripts that use the Coinbase API?</h4>
+    <p>Example scripts are available on our <a href="authentication.html">página de documentación de autentificación</a>.</p>
+
+    <a name="libraries"></a>
+     <h4>Do you have any client libraries available for X programming language?
+    </h4>
+    <p>We have official client libraries available for <a href="https://github.com/coinbase/coinbase-php">PHP</a> and <a href="https://github.com/coinbase/coinbase-ruby">Ruby</a>.</p>
+    <p> There are are also a number of unofficial, community-contributed client libraries available for other languages including Python and Java. These libraries can be found on the <a href="libraries.html">página de bibliotecas.</a></p>
+    <p>We plan to release official libraries in additional languages soon.</p>
+
+
+    <h3>Authentication</h3>
+    <a name="authentication_methods"></a>
+    <h4>Which authentication methods can be used with the Coinbase API?</h4>
+    <p>We offer two different methods for authentication API requests.  These methods are:
+      <ol>
+        <li>API Key + Secret - Best for accessing your own account
+        </li>
+        <li>OAuth - Best for accessing other users' accounts
+        </li>
+      </ol>
+    </p>
+    <p>We previously offered a simple API Key authentication method as well, that has been deprecated and will be discontinued in August 2014.</p>
+
+    <a name="authentication_how"></a>
+    <h4>How can I use these authentication methods?</h4>
+      <p>More details on how to authenticate requests is available on the <a href="authentication.html">página de autentificación</a>.</p>
+      <p> You can also read our <a href="oauth_tutorial-2.html">guía detallada sobre la integración OAuth2 </a></p>
+
+    <a name="permissions"></a>
+    <h4>How do permissions work with API credentials?</h4>
+      <p>When generating API credentials for an account, you will be given the option to select specific permissions.  The credentials generated will only have access to the permissions selected here.  More information about permissions and how they work is available at <a href="permissions.html">https://www.coinbase.com/docs/api/permissions</a></p>
+
+
+    <a name="post_requests"></a>
+    <h4>How can I send POST requests with the HMAC/Secret authentication method?
+    </h4>
+      <p>To send a POST request with the HMAC/Secret authentication scheme, you will need to append the POST request's body to the end of the signed string. Example:</p>
+<pre>
+If you are signing the following request:
+  Nonce: 1234
+  API Call URL: https://api.coinbase.com/v1/accounts
+  POST Body: { "account": { "name": "Savings Wallet" } }
+
+You will need to sign the following data:
+  1234https://api.coinbase.com/v1/accounts{"account":{"name":"Savings Wallet"}}
+</pre>
+
+    <a name="refunds"></a>
+    <h3>Refunds</h3>
+    <h4>How can I refund an order with the API?</h4>
+      <p>To refund an order with the API, use the <a href="../../api/doc/1.0/orders/refund.html"> /reembolsar llamada </a>. This call requires two parameters:</p>
+        <ol>
+          <li>The order code, which you'll need to include in the request URL:
+          <code> https://api.coinbase.com/v1/orders/ORDERCODE/refund </code>
+          </li>
+          <li>The refund currency, which can be either BTC or USD, included in the request body.  If BTC is selected, we will refund the original BTC payment amount.  If USD is selected, we will refund an amount equivalent to the USD-denominated order amount.
+          </li>
+        </ol>
+      <p>The documentation for this API call, as well as more information about the required parameters, can be found in our full API reference <a href="../../api/doc/1.0/orders/refund.html">aquí</a></p>
+
+
+   <h3>Notifications</h3>
+  <a name="callbacks"></a>
+  <h4>How is my website notified when an order is completed?</h4>
+    <p>Coinbase offers a callback notification system.  If enabled, our system will notify your website when a customer completes, cancels, or mispays their order.  More information about these notifications can be found at the following documentation page: <a href="../merchant_tools/callbacks.html">https://www.coinbase.com/docs/merchant_tools/callbacks</a></p>
+    <p>If you have the “I receive merchant orders” notification option selected on your <a href="../../signin.html">settings page</a>, we will also email you whenever a customer completes or mispays their order.</p>
+      <div class='row'>
+        <div class="span2">
+          <a href="../../assets/docs/settings_email-6e8aab00ffd6f76df1e377e645af8f2c.png" class="fancybox thumbnail"><img alt="Settings_email" src="../../assets/docs/settings_email-6e8aab00ffd6f76df1e377e645af8f2c.png" /></a>
+          <span class="caption">Select email notification options.</span>
+        </div>
+      </div>
+
+
+    <a name="instant_exchange_limit"></a>
+    <h4>How will my website be notified when my daily instant-exchange cashout is processed?</h4>
+      <p>When your daily cashout is processed (usually around 2PM PST), our system will send your website a callback notification with the transaction details.</p>
+      <p>More details about this callback can be found at the "Payout Callback Example" section here: <a href="../merchant_tools/callbacks.html">https://www.coinbase.com/docs/merchant_tools/callbacks</a></p>
+
+
+    <h3>Mispayments</h3>
+    <a name="mispayments_general"></a>
+     <h4>I saw a mispayment on the orders page of my account (<a href="../../signin.html">https://www.coinbase.com/orders</a>). What does this mean?</h4>
+      <p> A mispayment is an order payment that was received under abnormal circumstances.  Two triggers will cause a mispayment to occur:
+        <ol><li>The customer's payment was received after the 10-minute order timeout expired.</li>
+        <li>The customer's payment was greater than or less than the actual order amount.</li></ol>
+      <p>Mispayments can usually be handled by either refunding or fulfilling the customer's order.</p>
+      <p>In the case of (1), where a payment was received after the timeout, many merchants choose to fulfil the order. In the case of (2) - a mispayment triggered by an under/over-payment - it is often easiest to refund the customer's order and have them create a new one.
+      </p>
+
+      <a name="mispayments_status"></a>
+      <h4>What are the different possible values for "status" on mispayments?</h4>
+        <p>Mispayments can have several different status indicators.</p>
+          <ul>
+            <li><strong>Converted to USD</strong>: You have auto-cashout enabled for orders and mispayments. These BTC are waiting to be bundled into a daily bank transfer.</li>
+            <li><strong>Cashed Out</strong>: You have auto-cashout enabled for orders and mispayments. The BTC have been bundled into a daily bank transfer.</li>
+            <li><strong>Redirected:</strong> You have auto-cashout enabled for orders but not mispayments. The BTC originally went directly to Coinbase's internal account, and were then sent to your Coinbase account.</li>
+            <li><strong>Received</strong>: You have auto-cashout enabled neither for orders nor mispayments. The BTC have gone straight to your Coinbase account</li>
+            <li><strong>Pending</strong>: Waiting for confirmations from the Bitcoin network (blockchain) before further action.</li>
+          </ul>
+
+
+    <h3>Reports</h3>
+    <a name="reports"></a>
+     <h4>How can I export transaction data from my Coinbase account?</h4>
+      <p>Coinbase offers reports of your transactions for download at <a href="../../signin.html">https://www.coinbase.com/reports</a>.</p>
+          <div class='row'>
+              <div class="span2">
+                <a href="../../assets/docs/reports_request1-714f74090f3e3c5b03ad3ea334e3a412.png" class="fancybox thumbnail" rel="reports-request-group"><img alt="Reports_request1" src="../../assets/docs/reports_request1-714f74090f3e3c5b03ad3ea334e3a412.png" /></a>
+                <span class="caption">Go to reports page in settings</span>
+              </div>
+              <div class="span2">
+                <a href="../../assets/docs/reports_request2-dff90642e73bc0e4b6466906da3ca22e.png" class="fancybox thumbnail" rel="reports-request-group"><img alt="Reports_request2" src="../../assets/docs/reports_request2-dff90642e73bc0e4b6466906da3ca22e.png" /></a>
+                <span class="caption">Create a new report.</span>
+              </div>
+              <div class="span2">
+                <a href="../../assets/docs/reports_request3-5965c79fe4aea43e1aae0993f9b312a0.png" class="fancybox thumbnail" rel="reports-request-group"><img alt="Reports_request3" src="../../assets/docs/reports_request3-5965c79fe4aea43e1aae0993f9b312a0.png" /></a>
+                <span class="caption">Create a recurring reports in the advanced settings.</span>
+              </div>
+            </div>
+            <br>
+
+      <p>We request an email address during the report generation process.  When the report has been generated, a download link will be sent to the provided address. Reports are delivered in CSV file format.</p>
+
+      <p>You may run reports on a recurring basis by selecting one of the repeating options. In that case, you'll receive an e-mail with the download link at your chosen intervals.</p>
+      <p>You may also specify a callback URL to which a JSON string will be sent every time that Report is run.  This report will contain a download link, allowing you to programatically retrieve the data. This JSON string will be identical to the response from the <a href="../../api/doc/1.0/reports.html"> /reporta el extremo API</a>, which allows you to generate a report through our API.</p>
+
+      <p>There are several different reports that can be generated:</p>
+        <ol><li><strong>Transaction History</strong>:   A list of transactions that belong to your account.</li>
+        <br>
+        <div class='row'>
+              <div class="span4">
+                <a href="../../assets/docs/reports_transactions1-02a2f52f152ba03e6c7078352b294be0.png" class="fancybox thumbnail" rel="reports-transactions-group"><img alt="Reports_transactions1" src="../../assets/docs/reports_transactions1-02a2f52f152ba03e6c7078352b294be0.png" /></a>
+                <span class="caption">Transactions Report Example</span>
+              </div>
+              <div class="span4">
+                <a href="../../assets/docs/reports_transactions2-89a593aa57256745bd578e364cefb804.png" class="fancybox thumbnail" rel="reports-transactions-group"><img alt="Reports_transactions2" src="../../assets/docs/reports_transactions2-89a593aa57256745bd578e364cefb804.png" /></a>
+                <span class="caption">Transactions Reports Example (continued)</span>
+              </div>
+            </div>
+          <li><strong>Merchant Order History</strong>: A list of merchant orders that belong to your account.</li>
+          <br>
+            <div class='row'>
+              <div class="span4">
+                <a href="../../assets/docs/reports_merchanthistory1-85a1ab54994ba94333750646c66c4e42.png" class="fancybox thumbnail" rel="reports-merchant-group"><img alt="Reports_merchanthistory1" src="../../assets/docs/reports_merchanthistory1-85a1ab54994ba94333750646c66c4e42.png" /></a>
+                <span class="caption">Merchant Order History Example</span>
+              </div>
+              <div class="span4">
+                <a href="../../assets/docs/reports_merchanthistory2-b729378c927dbdf109ce7137367e15e4.png" class="fancybox thumbnail" rel="reports-merchant-group"><img alt="Reports_merchanthistory2" src="../../assets/docs/reports_merchanthistory2-b729378c927dbdf109ce7137367e15e4.png" /></a>
+                <span class="caption">Merchant Order History Example (continued)</span>
+              </div>
+            </div>
+
+          <br>
+          <li><strong>Merchant Order Mispayments</strong>: A list of mispaid merchant orders on your account.</li>
+          <br>
+            <div class='row'>
+              <div class="span4">
+                <a href="../../assets/docs/reports_mispayments-110e8f1e5e3bef775c5a667a707ca287.png" class="fancybox thumbnail" rel="reports-mispayments-group"><img alt="Reports_mispayments" src="../../assets/docs/reports_mispayments-110e8f1e5e3bef775c5a667a707ca287.png" /></a>
+                <span class="caption">Buys, Sells, and Merchant Payouts Example</span>
+              </div>
+            </div>
+            <br>
+          <li><strong>Buys, Sells, and Merchant Payouts</strong>: A list of all transactions involving bank transfers.</li>
+          <br>
+            <div class='row'>
+              <div class="span4">
+                <a href="../../assets/docs/reports_buys_sells-03cb220e72338a2dcae9003796805652.png" class="fancybox thumbnail" rel="reports-buys_sells-group"><img alt="Reports_buys_sells" src="../../assets/docs/reports_buys_sells-03cb220e72338a2dcae9003796805652.png" /></a>
+                <span class="caption">Buys, Sells, and Merchant Payouts Example</span>
+              </div>
+            </div>
+            <br>
+          <li><strong>Cost Basis for Taxes (BETA)</strong>: A report that is helpful for determining the cost basis of your Bitcoin.</li>
+           <br>
+            <div class='row'>
+              <div class="span4">
+                <a href="../../assets/docs/reports_taxes1-3d97a9611ca81a690215693a198c9480.png" class="fancybox thumbnail" rel="reports-taxes-group"><img alt="Reports_taxes1" src="../../assets/docs/reports_taxes1-3d97a9611ca81a690215693a198c9480.png" /></a>
+                <span class="caption">Cost Basis for Taxes Example</span>
+              </div>
+              <div class="span4">
+                <a href="../../assets/docs/reports_taxes2-6d3142cb969716c261fca8e7aabcf140.png" class="fancybox thumbnail" rel="reports-taxes-group"><img alt="Reports_taxes1" src="../../assets/docs/reports_taxes1-3d97a9611ca81a690215693a198c9480.png" /></a>
+                <span class="caption">Cost Basis for Taxes Example (continued)</span>
+              </div>
+            </div>
+
+          <br>
+          <li id="merchant_payout_report"><strong>Merchant Payout Report</strong></li>
+          <br>
+          <div class="row">
+            <div class="span8">
+              <p>
+                This report is a combination of the "Buys, sells, and Merchant Payouts" report, the "Merchant Order History" report,
+                and the "Merchant Order Mispaymetns" report &mdash; but only for one payout.</p>
+              <p>
+                The Merchant Payout Report is generated automatically after every daily payout when you have both instant exchange and the payout report
+                options enabled in your <a href="../../signin.html">Configuración de comerciante</a>.</p>
+              <p>
+                Every Merchant Payout Report generates an email notification to your primary email address, and also sends a callback
+                to the callback url specified in your merchant settings if present.</p>
+            </div>
+          </div>
+        </ol>
+      </p>
+
+
+
+
+
+    <h3>Troubleshooting</h3>
+    <a name="401_response"></a>
+    <h4>Why did I get a 401 Unauthorized response?</h4>
+      <p>If you received a 401 Unauthorized response on one of your requests, it is likely that an issue is present in your authentication parameters.  Make sure that:
+        <ol>
+          <li>Your API key and secret is enabled (or your OAuth grant is not revoked)</li>
+          <li>The parameters were included in the correct place (e.g. in the request headers)</li>
+          <li>With the key and secret authentication scheme, make sure that the correct data was signed.</li>
+        </ol>
+      <p>If all of the above factors are normal, shoot us over an email at <strong>api@coinbase.com</strong> and we'll be happy to take a look.</p>
+
+      <a name="response_types"></a>
+      <h4>What are all the possible response/error types generated by the API?</h4>
+      <p>Although many different responses are possible, all will conform to one of a few formats.  These formats are all listed below, along with their HTTP status codes:</p>
+      <ul>
+        <li><strong>404</strong></li>
+        A request is made to an API endpoint that does not exist. The body of this response is Coinbase's 404 page. One common cause of this issue is attempting to GET an endpoint that expects POST requests (and vice-versa).
+        <li><strong>401</strong></li>
+        A request is made to an API that exists, but is unauthorized. These responses follow the format of <code>{"error":"reason"}</code>. A few common causes of this error are as follows:
+        <ul>
+          <li>Attempting to use an API Key (or OAuth2 grant) that does not have suitable permissions.  As an example, calling the <code>POST /api/v1/transactions/send_money</code> endpoint with an API key that does not have the <code>send</code> permission. </li>
+          <li>Attempting to use a nonce that is less than the previous one used. </li>
+        </ul>
+        <li><strong>200</strong></li>
+        <p>The API is successfully communicated with.  These responses follow the format of <code>{"success":[true or false],["error":"reason" or returned data]}</code>.  A few common causes of this response are as follows:</p>
+        <ul>
+          <li>The request is formed correctly, but with parameters referencing data that doesn't exist, or for which you don't have authorization.</li>
+          <code>{"success":false,"error":"Order not found with that id"}</code>
+          <li>The request is formed correctly, and the requested data is returned.</li>
+          <code>{"success":true,"address":"1FG4EcuqQ2zPwNrzRSdKJ8kvmbFhbQfYsu","callback_url":null,"label":null}</code>
+        </ul>
+      </ul>
+
+
+  <a name="redirect_urls"></a>
+   <h4>Why aren't redirect URLs working on my payment buttons/iframes?</h4>
+    <p>Redirect URLs will only be used for payment pages hosted on Coinbase.com: <a href="../../signin.html?link_type=hosted">https://www.coinbase.com/merchant_tools?link_type=hosted</a>.</p>
+    <p>These URLs will not be applied to buttons or iframes, as doing so would require unnecessarily invasive
+      Javascript. If you need to apply redirection URLs to these, you can set up your own Javascript to listen for the
+      <code>coinbase_payment_complete</code> Javascript event, and redirect your users when that fires. You can see an
+      example of this in the <a href="../merchant_tools/payment_buttons.html">Using Your Own Button And Custom Javascript Events</a>
+      section of our documentation.</p>
+
+    <a name="callback_php"></a>
+    <h4>How do I receive callback data in PHP?</h4>
+  <div class="highlight"><pre><span class="x">$data = file_get_contents(&quot;php://input&quot;);</span>
+</pre></div>
+      <p>Many PHP developers try to use the <code>$_POST</code> variable with Coinbase callbacks, only to find they're not getting any data. <code>$_POST</code> works only when the POSTer has specified a content type of <code>application/x-www-form-urlencoded</code> and <code>multipart/form-data</code>.</p>
+      <p>Coinbase sends everything as application/json. <code>php://input</code> returns the entire body of the POST request regardless of content type.</p>
+
+    <a name="ajax"></a>
+    <h4>Why isn't my AJAX request to the API working?</h4>
+      <p>Coinbase's Access-Control-Allow-Origin won't allow authenticated browser-based AJAX requests, even if you try to do so with JSONP (although unauthenticated requests, like the "prices" API, will work).</p>
+      <p>Browser extensions (such as Postman) are not necessarily subject to the same rules and may be able to do so.</p>
+
+
+    <h3>Getting Help</h3>
+    <a name="getting_help"></a>
+      <h4>Who can i contact if I need help with the API?</h4>
+    <p>Contact our API support team at <strong>api@coinbase.com</strong> and we'll be happy to help.</p>
+    <br>
+    <br>
+    <br>
+</div>
+
+
+</div>
+
+    </div>
+  </div>
+
+  <footer>
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span2">
+        <a href="../../index.html" class="brand"><img alt="Coinbase" src="../../assets/logos/logo_2x-467d659a6b4b1a77868a097de7f88c86.png" /></a>
+        <small><span>&copy; 2014 Coinbase</span></small>
+      </div>
+      <div class="span2">
+        <h4>Producto</h4>
+        <nav>
+          <a href="../../buy-bitcoin.html">Cómo comprar bitcoins</a>
+          <a href="../../merchants.html">Pasarela de pago</a>
+          <a href="overview.html">Plataforma del desarrollador</a>
+          <a href="../../security.html">Seguridad</a>
+        </nav>
+      </div>
+      <div class="span2">
+        <h4>Acerca de</h4>
+        <nav>
+          <a href="../../about.html">Acerca de</a>
+          <a href="../../careers.html">Carreras</a>
+          <a href="../../press.html">Prensa</a>
+          <a href="../../legal/user_agreement.html">Aviso legal y privacidad</a>
+        </nav>
+      </div>
+      <div class="span2">
+        <h4>Recursos</h4>
+        <nav>
+          <a href="overview.html">API</a>
+          <a href="../merchant_tools/getting_started.html">Documentación</a>
+          <a href="http://status.coinbase.com/">Estado</a>
+          <a href="https://support.coinbase.com/">Soporte</a>
+          
+          
+        </nav>
+      </div>
+      <div class="span2">
+        <h4>Social</h4>
+        <nav>
+          <a href="http://blog.coinbase.com/">Nuestro blog</a>
+          <a href="https://twitter.com/coinbase">Twitter</a>
+          <a href="https://www.facebook.com/Coinbase"></span>Facebook</a>
+        </nav>
+      </div>
+      <div class="span2">
+        <div class="footer-locale-select">
+  <h4>Idioma <sup>(BETA)</sup></h4>
+  <select id="locale_select" name="locale"><option value="de">Deutsch</option>
+<option value="en">English</option>
+<option value="es" selected="selected">Español</option>
+<option value="fr">Français</option>
+<option value="it">Italiano</option>
+<option value="nl">Nederlands</option></select>
+  <a href="https://translate.coinbase.com/" title="¡Ayuda a traducir Coinbase!">
+    <i class="icon-language"></i>
+</a></div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- begin olark code -->
+<script type='text/javascript'>
+setTimeout(function (){
+  var olarkId = "8678-140-10-4291";
+  var id = window.setTimeout(function(){}, 0);
+  while (id--) {
+    window.clearTimeout(id);
+  }
+  for (var key in Object.keys(window)) {
+    if (key.indexOf('hbl') == 0 || key.indexOf('habla') == 0) {
+      clearTimeout(window[key]);
+      delete window[key];
+    }
+  }
+  delete window.__get_olark_key;
+  delete window.olark;
+
+  function initOlark(){
+    c = {loader: "static.olark.com/jsclient/loader0.js",name:"olark",methods:["configure","extend","declare","identify"]};
+    var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){f[z]=function(){(a.s=a.s||[]).push(arguments)};var a=f[z]._={},q=c.methods.length;while(q--){(function(n){f[z][n]=function(){f[z]("call",n,arguments)}})(c.methods[q])}a.l=c.loader;a.i=nt;a.p={0:+new Date};a.P=function(u){a.p[u]=new Date-a.p[0]};function s(){a.P(r);f[z](r)}f.addEventListener?f.addEventListener(r,s,false):f.attachEvent("on"+r,s);var ld=function(){function p(hd){hd="head";return["<",hd,"></",hd,"><",i,' onl' + 'oad="var d=',g,";d.getElementsByTagName('head')[0].",j,"(d.",h,"('script')).",k,"='",l,"//",a.l,"'",'"',"></",i,">"].join("")}var i="body",m=d[i];if(!m){return setTimeout(ld,100)}a.P(1);var j="appendChild",h="createElement",k="src",n=d[h]("div"),v=n[j](d[h](z)),b=d[h]("iframe"),g="document",e="domain",o;n.style.display="none";m.insertBefore(n,m.firstChild).id=z;b.frameBorder="0";b.id=z+"-loader";if(/MSIE[ ]+6/.test(navigator.userAgent)){b.src="javascript:false"}b.allowTransparency="true";v[j](b);try{b.contentWindow[g].open()}catch(w){c[e]=d[e];o="javascript:var d="+g+".open();d.domain='"+d.domain+"';";b[k]=o+"void(0);"}try{var t=b.contentWindow[g];t.write(p());t.close()}catch(x){b[k]=o+'d.write("'+p().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};ld()};nt();
+  }
+  function identifyOlark() {
+    olark.identify(olarkId);
+  }
+
+  if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+    // Loading Olark the normal way break FF so we're doing something different here
+    window.olark || initOlark();
+    identifyOlark()
+
+    $(document).on("page:load page:restore", function(){
+      initOlark();
+      setTimeout(function() {
+        identifyOlark()
+      }, 100);
+    });
+  } else {
+    initOlark();
+    identifyOlark()
+  }
+}, 0);
+</script>
+<!-- end olark code -->
+
+
+  
+
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '../../../www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-32804181-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script type="text/javascript">
+  Coinbase.exchangeRatesGlobal = {"usd_to_btc":"0.003058","btc_to_usd":"327.05823999999996","usd_to_bit":"3058.0","bit_to_usd":"0.00032705823999999996"};
+
+
+</script>
+
+
+</body>
+
+<!-- Mirrored from www.coinbase.com/docs/api/technical_faq by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:36:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+</html>

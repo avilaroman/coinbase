@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www.coinbase.com/api/doc/1.0/reports.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:41:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"307b195e05","applicationID":"863399","transactionName":"IQ4KQUZbDVlTF00CQQsRDVAbVRFcRgwHEB4LDwBQTA==","queueTime":45,"applicationTime":35,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-476.min.js"}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=u(e),f=c.length,s=i(a,o,r),p=0;f>p;p++)c[p].apply(s,n);return s}function a(t,e){f[t]=u(t).concat(e)}function u(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:u,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=l.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),u=window,c=u.document,f="addEventListener",s="attachEvent",p=(""+location).split("?")[0],l=e.exports={offset:i(),origin:p,features:{}};c[f]?(c[f]("DOMContentLoaded",o,!1),u[f]("load",n,!1)):(c[s]("onreadystatechange",r),u[s]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}]},{},["G9z0Bl"]);</script>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <ul class='breadcrumb'>
+  <li>
+    <a href='../1.0.html'>API Home 1.0</a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>
+    Reports
+    
+  </li>
+</ul>
+
+<div class='page-header'>
+  <h1>
+    Reports
+    <br>
+    <small>Generate CSV reports on account activity.</small>
+  </h1>
+</div>
+
+
+
+<div class='accordion' id='accordion'>
+
+    <hr>
+    <div class='pull-right small'>
+      <a href='reports/index.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-index'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET /api/v1/reports
+          </a><br>
+          <small>List all reports.</small>
+        </h2>
+    </div>
+
+
+    <div id='description-index' class='collapse accordion-body'>
+      <p>Authenticated resource which returns a list of the reports that a user has generated. Sorted in reverse-chronological order. (Newest reports first.)</p>
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">
+# Request
+GET https://api.coinbase.com/v1/reports
+
+# Response
+{
+  &quot;reports&quot;: [
+    {
+      &quot;report&quot;: {
+        &quot;id&quot;: &quot;53463bf8137f730e1c000060&quot;,
+        &quot;type&quot;: &quot;orders&quot;,
+        &quot;status&quot;: &quot;completed&quot;,
+        &quot;email&quot;: &quot;admin@example.com&quot;,
+        &quot;repeat&quot;: &quot;never&quot;,
+        &quot;time_range&quot;: &quot;past_30&quot;,
+        &quot;callback_url&quot;: null,
+        &quot;file_url&quot;: &quot;http://localhost:3000&quot;,
+        &quot;times&quot;: -1,
+        &quot;times_run&quot;: 1,
+        &quot;last_run&quot;: &quot;2014-04-09T23:00:00-07:00&quot;,
+        &quot;next_run&quot;: &quot;2014-04-09T23:00:00-07:00&quot;,
+        &quot;created_at&quot;: &quot;2014-04-09T23:36:40-07:00&quot;
+      }
+    }
+  ],
+  &quot;total_count&quot;: 1,
+  &quot;num_pages&quot;: 1,
+  &quot;current_page&quot;: 1
+}
+</pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>page </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Can be used to page through results. Default is 1.</p>
+        <br>
+        Value: Must be Integer
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>limit </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Number of records to return. Maximum is 1000. Default is 25.</p>
+        <br>
+        Value: Must be Integer
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>account_id </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Specify which account is used for fetching data. The default is your primary account.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='reports/create.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-create'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            POST /api/v1/reports
+          </a><br>
+          <small>Generate a CSV report. A link to the report is sent via email and a callback event is fired.</small>
+        </h2>
+    </div>
+
+
+    <div id='description-create' class='collapse accordion-body'>
+      <p>Authenticated resource which creates and returns a new report.</p>
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">
+# Request
+POST https://api.coinbase.com/v1/reports
+{
+  &quot;report&quot;: {
+    &quot;email&quot;: &quot;dummy@example.com&quot;,
+    &quot;type&quot;: &quot;transactions&quot;,
+    &quot;time_range&quot;: &quot;today&quot;
+  }
+}
+
+# Response
+{
+  &quot;success&quot;: true,
+  &quot;report&quot;: {
+    &quot;id&quot;: &quot;534711dd137f730e1c0000c6&quot;,
+    &quot;type&quot;: &quot;transactions&quot;,
+    &quot;status&quot;: &quot;active&quot;,
+    &quot;email&quot;: &quot;dummy@example.com&quot;,
+    &quot;repeat&quot;: &quot;never&quot;,
+    &quot;time_range&quot;: &quot;today&quot;,
+    &quot;callback_url&quot;: null,
+    &quot;file_url&quot;: null,
+    &quot;times&quot;: -1,
+    &quot;times_run&quot;: 0,
+    &quot;last_run&quot;: null,
+    &quot;next_run&quot;: &quot;2014-04-10T14:00:00-07:00&quot;,
+    &quot;created_at&quot;:&quot;2014-04-10T14:49:17-07:00&quot;
+  }
+}</pre>
+          <pre class="prettyprint">
+# Request
+POST https://api.coinbase.com/v1/reports
+{
+  &quot;report&quot;: {
+    &quot;type&quot;: &quot;transactions&quot;,
+    &quot;email&quot;: &quot;dummy@example.com&quot;,
+    &quot;callback_url&quot;: &quot;http://example.com/callback&quot;,
+    &quot;time_range&quot;: &quot;custom&quot;,
+    &quot;time_range_start&quot;: &quot;04/01/2014&quot;,
+    &quot;time_range_end&quot;: &quot;04/11/2014&quot;,
+    &quot;start_type&quot;: &quot;on&quot;,
+    &quot;next_run_date&quot;: &quot;04/20/2014&quot;,
+    &quot;next_run_time&quot;: &quot;16:30&quot;,
+    &quot;repeat&quot;: &quot;weekly&quot;,
+    &quot;times&quot;: 2
+  }
+}
+
+# Response
+{
+  &quot;success&quot;: true,
+  &quot;report&quot;: {
+    &quot;id&quot;: &quot;534736cd137f730e1c0000d9&quot;,
+    &quot;type&quot;: &quot;transactions&quot;,
+    &quot;status&quot;: &quot;active&quot;,
+    &quot;email&quot;: &quot;dummy@example.com&quot;,
+    &quot;repeat&quot;: &quot;weekly&quot;,
+    &quot;time_range&quot;: &quot;custom&quot;,
+    &quot;callback_url&quot;: &quot;http://example.com/callback&quot;,
+    &quot;file_url&quot;: null,
+    &quot;times&quot;: 2,
+    &quot;times_run&quot;: 0,
+    &quot;last_run&quot;: null,
+    &quot;next_run&quot;: &quot;2014-04-20T16:30:00-07:00&quot;,
+    &quot;created_at&quot;: &quot;2014-04-10T17:26:53-07:00&quot;
+  }
+}</pre>
+          <pre class="prettyprint">
+# Request
+POST https://api.coinbase.com/v1/reports
+{
+  &quot;report&quot;: {
+    &quot;email&quot;: &quot;dummy@example.com&quot;,
+    &quot;type&quot;: &quot;xyz&quot;
+  }
+}
+
+# Response
+{
+  &quot;success&quot;: false,
+  &quot;errors&quot;: [
+    &quot;Type is not included in the list&quot;
+  ]
+}</pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>account_id </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Specify for which account to create the report. The default is your primary account.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>report </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>Report object containing the parameters.</p>
+        <br>
+        Value: Must be a Hash
+    </td>
+  </tr>
+
+    <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>report[type] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>Must be one of: transactions, orders, transfers</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>report[email] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>A valid email address that the download link will be sent to.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>report[callback_url] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>A callback URL that will receive POST notifications after a new report is generated. The format of the post will be the same as a response from <code>GET /api/v1/reports/:id</code></p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>report[time_range] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Must be one of: <code>today</code>, <code>yesterday</code>, <code>past_7</code>, <code>past_30</code>, <code>month_to_date</code>, <code>last_full_month</code>, <code>year_to_date</code>, <code>last_full_year</code>, <code>all</code>, <code>custom</code>. Defaults to <code>past_30</code>. If <code>custom</code>, then <code>time_range_start</code> and <code>time_range_end</code> are required.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>report[time_range_start] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Start time in MM/DD/YYYY format. Required if <code>time_range</code> is set to <code>custom</code>.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>report[time_range_end] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>End time in MM/DD/YYYY. Required if <code>time_range</code> is set to <code>custom</code>.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>report[start_type] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Must be one of: <code>now</code>, <code>on</code>. <code>now</code> will generate a report immediately. <code>on</code> will use <code>next_run_date</code> and <code>next_run_time</code> to defer the first report until the specific time.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>report[next_run_date] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Next run date in MM/DD/YYYY format. Only used if <code>start_type</code> is <code>on</code>.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>report[next_run_time] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Next run time in HH:MM format. Only used if <code>start_type</code> is <code>on</code>.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>report[repeat] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Must be one of: <code>never</code>, <code>daily</code>, <code>weekly</code>, <code>every_two_weeks</code>, <code>monthly</code>, <code>quarterly</code>, <code>yearly</code>. Defaults to <code>never</code>.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>report[times] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Number of times to repeat. Defaults to -1, meaning infinite. Only applies if <code>repeat</code> is not <code>never</code></p>
+        <br>
+        Value: Must be Integer
+    </td>
+  </tr>
+
+  
+
+
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='reports/show.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-show'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET /api/v1/reports/:id
+          </a><br>
+          <small>Show details for an individual report.</small>
+        </h2>
+    </div>
+
+
+    <div id='description-show' class='collapse accordion-body'>
+      <p>Authenticated resource which returns report details.</p>
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">
+# Request
+GET https://api.coinbase.com/v1/reports/533e5de1137f73ccf1000139
+
+# Response
+{
+  &quot;report&quot;: {
+    &quot;id&quot;: &quot;5347146a137f730e1c0000cb&quot;,
+    &quot;type&quot;: &quot;transactions&quot;,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;email&quot;: &quot;dummy@example.com&quot;,
+    &quot;repeat&quot;: &quot;never&quot;,
+    &quot;time_range&quot;: &quot;past_30&quot;,
+    &quot;callback_url&quot;: null,
+    &quot;file_url&quot;: &quot;http://localhost:3000&quot;,
+    &quot;times&quot;: -1,
+    &quot;times_run&quot;: 1,
+    &quot;last_run&quot;: &quot;2014-04-10T15:00:00-07:00&quot;,
+    &quot;next_run&quot;: &quot;2014-04-10T15:00:00-07:00&quot;,
+    &quot;created_at&quot;: &quot;2014-04-10T15:00:10-07:00&quot;
+  }
+}
+
+# Request
+GET https://api.coinbase.com/v1/reports/abcdefg
+
+# Response
+{
+  &quot;success&quot;: false
+  &quot;error&quot;: &quot;Report not found with that ID&quot;
+}
+  </pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>account_id </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Specify which account is used for fetching data. The default is your primary account.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+
+          </tbody>
+        </table>
+    </div>
+</div>
+
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = "coinbaseapi";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js?https';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <hr>
+    <footer>  &copy; 2014 Coinbase, Inc.
+</footer>
+  </div>
+  <script type='text/javascript' src='../javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../javascripts/apipie.js'></script>
+</body>
+
+<!-- Mirrored from www.coinbase.com/api/doc/1.0/reports.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:41:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+</html>

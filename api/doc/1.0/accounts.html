@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www.coinbase.com/api/doc/1.0/accounts.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:41:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"307b195e05","applicationID":"863399","transactionName":"IQ4KQUZbDVlTF00CQQsRDVAbVRFcRgwHEB4LDwBQTA==","queueTime":34,"applicationTime":40,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-476.min.js"}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=u(e),f=c.length,s=i(a,o,r),p=0;f>p;p++)c[p].apply(s,n);return s}function a(t,e){f[t]=u(t).concat(e)}function u(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:u,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=l.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),u=window,c=u.document,f="addEventListener",s="attachEvent",p=(""+location).split("?")[0],l=e.exports={offset:i(),origin:p,features:{}};c[f]?(c[f]("DOMContentLoaded",o,!1),u[f]("load",n,!1)):(c[s]("onreadystatechange",r),u[s]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}]},{},["G9z0Bl"]);</script>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <ul class='breadcrumb'>
+  <li>
+    <a href='../1.0.html'>API Home 1.0</a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>
+    Accounts
+    
+  </li>
+</ul>
+
+<div class='page-header'>
+  <h1>
+    Accounts
+    <br>
+    <small>Manage your accounts, check on balance, etc.</small>
+  </h1>
+</div>
+
+
+
+<div class='accordion' id='accordion'>
+
+    <hr>
+    <div class='pull-right small'>
+      <a href='accounts/index.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-index'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET /api/v1/accounts
+          </a><br>
+          <small>Get user's accounts.</small>
+        </h2>
+    </div>
+
+
+    <div id='description-index' class='collapse accordion-body'>
+      <p>Authenticated resource that returns the user&#8217;s active accounts.</p>
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">
+# Request
+GET https://api.coinbase.com/v1/accounts
+# Response
+{
+  &quot;accounts&quot;: [
+    {
+      &quot;id&quot;: &quot;536a541fa9393bb3c7000023&quot;,
+      &quot;name&quot;: &quot;My Wallet&quot;,
+      &quot;balance&quot;: {
+        &quot;amount&quot;: &quot;50.00000000&quot;,
+        &quot;currency&quot;: &quot;BTC&quot;
+      },
+      &quot;native_balance&quot;: {
+        &quot;amount&quot;: &quot;500.12&quot;,
+        &quot;currency&quot;: &quot;USD&quot;
+      },
+      &quot;created_at&quot;: &quot;2014-05-07T08:41:19-07:00&quot;,
+      &quot;primary&quot;: true,
+      &quot;active&quot;: true,
+      &quot;type&quot;: &quot;wallet&quot;
+    },
+    {
+      &quot;id&quot;: &quot;536a541fa9393bb3c7000034&quot;,
+      &quot;name&quot;: &quot;Savings&quot;,
+      &quot;balance&quot;: {
+        &quot;amount&quot;: &quot;0.00000000&quot;,
+        &quot;currency&quot;: &quot;BTC&quot;
+      },
+      &quot;native_balance&quot;: {
+        &quot;amount&quot;: &quot;0.00&quot;,
+        &quot;currency&quot;: &quot;USD&quot;
+      },
+      &quot;created_at&quot;: &quot;2014-05-07T08:50:10-07:00&quot;,
+      &quot;primary&quot;: false,
+      &quot;active&quot;: true,
+      &quot;type&quot;: &quot;vault&quot;
+    }
+  ],
+  &quot;total_count&quot;: 2,
+  &quot;num_pages&quot;: 1,
+  &quot;current_page&quot;: 1
+}
+  </pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>page </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Can be used to page through results. Default value is 1.</p>
+        <br>
+        Value: Must be Integer
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>limit </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Number of records to return. Maximum is 1000. Default value is 25.</p>
+        <br>
+        Value: Must be Integer
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>all_accounts </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Set this to true to also list inactive accounts.</p>
+        <br>
+        Value: Must be Boolean
+    </td>
+  </tr>
+
+  
+
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='accounts/balance.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-balance'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET /api/v1/accounts/:account_id/balance
+          </a><br>
+          <small>Get the user's account balance in BTC.</small>
+        </h2>
+    </div>
+
+
+    <div id='description-balance' class='collapse accordion-body'>
+      <p>Authenticated resource that returns the user&#8217;s current account balance in BTC.</p>
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">
+# Request
+GET https://api.coinbase.com/v1/accounts/536a541fa9393bb3c7000034/balance
+# Response
+{
+  &quot;amount&quot;: &quot;36.62800000&quot;,
+  &quot;currency&quot;: &quot;BTC&quot;
+}
+  </pre>
+
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='accounts/create.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-create'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            POST /api/v1/accounts
+          </a><br>
+          <small>Create an account.</small>
+        </h2>
+    </div>
+
+
+    <div id='description-create' class='collapse accordion-body'>
+      <p>Authenticated resource that will create a new account for the user.</p>
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">
+# Request
+POST https://api.coinbase.com/v1/accounts
+{
+  &quot;account&quot;: {
+    &quot;name&quot;: &quot;Savings Wallet&quot;
+  }
+}
+# Response
+{
+  &quot;success&quot;: true,
+  &quot;account&quot;: {
+    &quot;id&quot;: &quot;537cfb1146cd93b85d00001e&quot;,
+    &quot;name&quot;: &quot;Savings Wallet&quot;,
+    &quot;active&quot;: true,
+    &quot;created_at&quot;: &quot;2014-05-21T12:14:25-07:00&quot;,
+    &quot;balance&quot;: {
+      &quot;amount&quot;: &quot;0.00000000&quot;,
+      &quot;currency&quot;: &quot;BTC&quot;
+    },
+    &quot;native_balance&quot;: {
+      &quot;amount&quot;: &quot;0.00&quot;,
+      &quot;currency&quot;: &quot;USD&quot;
+    },
+    &quot;primary&quot;: false
+  }
+}
+  </pre>
+          <pre class="prettyprint">
+# Request
+POST https://api.coinbase.com/v1/accounts
+{
+  &quot;account&quot;: {
+    &quot;name&quot;: &quot;Multisig Wallet&quot;,
+    &quot;type&quot;: &quot;multisig&quot;,
+    &quot;m&quot;: 2,
+    &quot;xpubkeys&quot;: [
+      &quot;xpub661MyMwAqRbcFo8WEPnst2sE8MTLe9DszR7eYhtkVuiUskpAggETvYQeSBWTuwoxZrZvf18w75AzfjLhzihWGagvcMa4J9nDWjmiD2UrAEF&quot;,
+      &quot;xpub661MyMwAqRbcEezXDATCwfxbet7ZYA8cyfh2FDckA85S5Tg5NjzjnPeikzJgj2noBvxTEPNkMwq8RMCuBhiL7sRv29ZtMft2KbKwTcc48uu&quot;,
+      &quot;xpub661MyMwAqRbcEnKbXcCqD2GT1di5zQxVqoHPAgHNe8dv5JP8gWmDproS6kFHJnLZd23tWevhdn4urGJ6b264DfTGKr8zjmYDjyDTi9U7iyT&quot;
+    ]
+  }
+}
+# Response
+{
+  &quot;success&quot;: true,
+  &quot;account&quot;: {
+    &quot;id&quot;: &quot;53f3d34bcbf034354a00005a&quot;,
+    &quot;name&quot;: &quot;Multisig Wallet&quot;,
+    &quot;active&quot;: true,
+    &quot;created_at&quot;: &quot;2014-08-19T15:44:27-07:00&quot;,
+    &quot;balance&quot;: {
+      &quot;amount&quot;: &quot;0.00000000&quot;,
+      &quot;currency&quot;: &quot;BTC&quot;
+    },
+    &quot;native_balance&quot;: {
+      &quot;amount&quot;: &quot;0.00&quot;,
+      &quot;currency&quot;: &quot;USD&quot;
+    },
+    &quot;primary&quot;: false,
+    &quot;type&quot;: &quot;multisig&quot;,
+    &quot;m&quot;: 2,
+    &quot;n&quot;: 3
+  }
+}
+  </pre>
+          <pre class="prettyprint">
+# Request
+POST https://api.coinbase.com/v1/accounts
+{
+  &quot;account&quot;: {
+    &quot;name&quot;: &quot;Multisig Wallet&quot;,
+    &quot;type&quot;: &quot;multisig&quot;,
+    &quot;m&quot;: 2,
+    &quot;n&quot;: 3, # Here you just announce that this account will have 3 keypairs, but then you only provide the 1st one. The rest of the keys can be provided through the /keypairs call.
+    &quot;xpubkeys&quot;: [
+      &quot;xpub661MyMwAqRbcFo8WEPnst2sE8MTLe9DszR7eYhtkVuiUskpAggETvYQeSBWTuwoxZrZvf18w75AzfjLhzihWGagvcMa4J9nDWjmiD2UrAEF&quot;
+    ]
+  }
+}
+# Response
+{
+  &quot;success&quot;: true,
+  &quot;account&quot;: {
+    &quot;id&quot;: &quot;53f3d34bcbf034354a00005a&quot;,
+    &quot;name&quot;: &quot;Multisig Wallet&quot;,
+    &quot;active&quot;: false, # It is not active because it cannot be used yet.
+    &quot;created_at&quot;: &quot;2014-08-19T15:44:27-07:00&quot;,
+    &quot;balance&quot;: {
+      &quot;amount&quot;: &quot;0.00000000&quot;,
+      &quot;currency&quot;: &quot;BTC&quot;
+    },
+    &quot;native_balance&quot;: {
+      &quot;amount&quot;: &quot;0.00&quot;,
+      &quot;currency&quot;: &quot;USD&quot;
+    },
+    &quot;primary&quot;: false,
+    &quot;type&quot;: &quot;multisig&quot;,
+    &quot;m&quot;: 2,
+    &quot;n&quot;: 1,
+    &quot;n_announced&quot;: 3,
+    &quot;n_missing&quot;: 2
+  }
+}
+  </pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>account </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>Account object containing the params</p>
+        <br>
+        Value: Must be a Hash
+    </td>
+  </tr>
+
+    <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>account[name] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>Account name</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>account[type] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Type of account. If creating a HDM account, specify &#8216;multisig&#8217;, otherwise leave blank.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>account[m] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Number of required signatures to spend from a HDM multisig account.</p>
+        <br>
+        Value: Must be Integer
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>account[n] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Number of keypairs that will comprise the complete account, when creating the account in stages. You need to pass this parameter if you will provide less keys than &#8216;m&#8217;.</p>
+        <br>
+        Value: Must be Integer
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>account[xpubkeys] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Array of extended public keys of BIP32 wallets. Length of array must be greater or equal than &#8216;m&#8217; to create a complete account. Otherwise you should provide &#8216;n&#8217;.</p>
+        <br>
+        Value: Must be Array
+    </td>
+  </tr>
+
+  
+
+
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='accounts/keypairs.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-keypairs'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            PUT /api/v1/accounts/:account_id/keypairs
+          </a><br>
+          <small>Add keypairs to an account.</small>
+        </h2>
+    </div>
+
+
+    <div id='description-keypairs' class='collapse accordion-body'>
+      <p>Authenticated resource that lets you add additional keypairs to an account. This is used with multisig accounts where you want to split the initialization process between multiple people.</p>
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">
+# Request
+PUT https://api.coinbase.com/v1/accounts/53f3d34bcbf034354a00005a/keypairs
+{
+  &quot;account&quot;: {
+    &quot;xpubkeys&quot;: [
+      &quot;xpub661MyMwAqRbcEezXDATCwfxbet7ZYA8cyfh2FDckA85S5Tg5NjzjnPeikzJgj2noBvxTEPNkMwq8RMCuBhiL7sRv29ZtMft2KbKwTcc48uu&quot;,
+    ]
+  }
+}
+# Response
+{
+  &quot;success&quot;: true,
+  &quot;account&quot;: {
+    &quot;id&quot;: &quot;53f3d34bcbf034354a00005a&quot;,
+    &quot;name&quot;: &quot;Multisig Wallet&quot;,
+    &quot;active&quot;: true,
+    &quot;created_at&quot;: &quot;2014-08-19T15:44:27-07:00&quot;,
+    &quot;balance&quot;: {
+      &quot;amount&quot;: &quot;0.00000000&quot;,
+      &quot;currency&quot;: &quot;BTC&quot;
+    },
+    &quot;native_balance&quot;: {
+      &quot;amount&quot;: &quot;0.00&quot;,
+      &quot;currency&quot;: &quot;USD&quot;
+    },
+    &quot;primary&quot;: false,
+    &quot;type&quot;: &quot;multisig&quot;,
+    &quot;m&quot;: 2,
+    &quot;n&quot;: 3
+  }
+}
+  </pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>account </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>Account object containing the params you want to update</p>
+        <br>
+        Value: Must be a Hash
+    </td>
+  </tr>
+
+    <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>account[xpubkeys] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Array of extended public keys of BIP32 wallets.</p>
+        <br>
+        Value: Must be Array
+    </td>
+  </tr>
+
+  
+
+
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='accounts/update.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-update'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            PUT /api/v1/accounts/:account_id
+          </a><br>
+          <small>Update account settings.</small>
+        </h2>
+    </div>
+
+
+    <div id='description-update' class='collapse accordion-body'>
+      <p>Authenticated resource that lets you update account settings. You must pass the :account_id of the account in the url.</p>
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">
+# Request
+PUT https://api.coinbase.com/v1/accounts/53752d3e46cd93c93c00000c
+{
+  &quot;account&quot;: {
+    &quot;name&quot;: &quot;Satoshi Wallet&quot;
+  }
+}
+# Response
+{
+  &quot;success&quot;: true,
+  &quot;account&quot;: {
+      &quot;id&quot;: &quot;53752d3e46cd93c93c00000c&quot;,
+      &quot;name&quot;: &quot;Satoshi Wallet&quot;,
+      &quot;active&quot;: true,
+      &quot;created_at&quot;: &quot;2014-05-15T14:10:22-07:00&quot;,
+      &quot;balance&quot;: {
+          &quot;amount&quot;: &quot;100.00&quot;,
+          &quot;currency&quot;: &quot;GBP&quot;
+      },
+      &quot;native_balance&quot;: {
+          &quot;amount&quot;: &quot;168.14&quot;,
+          &quot;currency&quot;: &quot;USD&quot;
+      },
+      &quot;primary&quot;: false
+  }
+}
+  </pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>account </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>Account object containing the params you want to update</p>
+        <br>
+        Value: Must be a Hash
+    </td>
+  </tr>
+
+    <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>account[name] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Name</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+
+
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='accounts/primary.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-primary'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            POST /api/v1/accounts/:account_id/primary
+          </a><br>
+          <small>Set account as primary.</small>
+        </h2>
+    </div>
+
+
+    <div id='description-primary' class='collapse accordion-body'>
+      <p>Authenticated resource that lets you toggle the primary status on a specific account. You must pass the :account_id of the account in the url. This call will behave as follows: <ul>
+  <li>If the specified account is already primary, it will mark it as non-primary and create a new primary wallet.</li>
+  <li>If the specified account is not primary, it will mark it as primary and set the previously-primary account as non-primary.</li>
+</ul></p>
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">
+# Request
+POST https://api.coinbase.com/v1/accounts/53752d3e46cd93c93c00000c/primary
+
+# Response
+{
+  &quot;success&quot;: true,
+}
+  </pre>
+
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='accounts/destroy.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-destroy'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            DELETE /api/v1/accounts/:account_id
+          </a><br>
+          <small>Delete an account.</small>
+        </h2>
+    </div>
+
+
+    <div id='description-destroy' class='collapse accordion-body'>
+      <p>Authenticated resource that will delete an account.</p>
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">
+# Request
+DELETE https://api.coinbase.com/v1/accounts/536a541fa9393bb3c7000034
+
+# Response
+{
+  &quot;success&quot;: true,
+}
+  </pre>
+
+    </div>
+</div>
+
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = "coinbaseapi";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js?https';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <hr>
+    <footer>  &copy; 2014 Coinbase, Inc.
+</footer>
+  </div>
+  <script type='text/javascript' src='../javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../javascripts/apipie.js'></script>
+</body>
+
+<!-- Mirrored from www.coinbase.com/api/doc/1.0/accounts.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:41:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+</html>

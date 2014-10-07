@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www.coinbase.com/api/doc/1.0/buttons/create.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:40:59 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"307b195e05","applicationID":"863399","transactionName":"IQ4KQUZbDVlTF00CQQsRDVAbVRFcRgwHEB4LDwBQTA==","queueTime":41,"applicationTime":157,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-476.min.js"}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=u(e),f=c.length,s=i(a,o,r),p=0;f>p;p++)c[p].apply(s,n);return s}function a(t,e){f[t]=u(t).concat(e)}function u(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:u,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=l.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),u=window,c=u.document,f="addEventListener",s="attachEvent",p=(""+location).split("?")[0],l=e.exports={offset:i(),origin:p,features:{}};c[f]?(c[f]("DOMContentLoaded",o,!1),u[f]("load",n,!1)):(c[s]("onreadystatechange",r),u[s]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}]},{},["G9z0Bl"]);</script>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../../stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../../stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../../stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../../stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <ul class='breadcrumb'>
+  <li>
+    <a href='../../1.0.html'>API Home 1.0</a>
+    <span class='divider'>/</span>
+  </li>
+  <li>
+    <a href='../buttons.html'>
+      Buttons
+      
+    </a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>create</li>
+</ul>
+
+  <div class='page-header'>
+    <h1>
+      POST /api/v1/buttons<br>
+      <small>Create a new payment button, page, or iFrame.</small>
+    </h1>
+  </div>
+
+<div>
+
+  <p>Authenticated resource that creates a payment button, page, or iFrame to accept bitcoin on your website. This can be used to accept bitcoin for an individual item or to integrate with your existing shopping cart solution. For example, you could create a new payment button for each shopping cart on your website, setting the total and order number in the button at checkout.</p>
+
+<p>The <code>code</code> param returned in the response can be used to generate an embeddable <a href='../../../../docs/merchant_tools/payment_buttons.html'>button</a>, <a href='../../../../docs/merchant_tools/payment_pages.html'>payment page</a>, or <a href='../../../../docs/merchant_tools/payment_iframes.html'>iFrame</a>. Coinbase stores the underlying model in the same way, so the <code>code</code> can be used to generate any of these payment methods. Click one of the links above to see sample code showing how the <code>code</code> parameter is used.</p>
+
+<p>You can set a variety of options on payment buttons. These correspond to the options used on the <a href='../../../../signin.html'>button generator page</a>.</p>
+
+<p>These include <code>type</code>, <code>style</code>, <code>custom</code>, <code>variable_price</code>, <code>include_email</code>, <code>include_address</code>, custom redirect urls, and more. For a description of each of these see the documentation below.</p>
+
+    <h2>Examples</h2>
+      <pre class="prettyprint">
+# Request
+POST https://api.coinbase.com/v1/buttons
+{
+  &quot;button&quot;: {
+    &quot;name&quot;: &quot;test&quot;,
+    &quot;type&quot;: &quot;buy_now&quot;,
+    &quot;subscription&quot;: false,
+    &quot;price_string&quot;: &quot;1.23&quot;,
+    &quot;price_currency_iso&quot;: &quot;USD&quot;,
+    &quot;custom&quot;: &quot;Order123&quot;,
+    &quot;callback_url&quot;: &quot;http://www.example.com/my_custom_button_callback&quot;,
+    &quot;description&quot;: &quot;Sample description&quot;,
+    &quot;style&quot;: &quot;custom_large&quot;,
+    &quot;include_email&quot;: true
+  }
+}
+
+# Response
+{
+  &quot;success&quot;: true,
+  &quot;button&quot;: {
+    &quot;code&quot;: &quot;93865b9cae83706ae59220c013bc0afd&quot;,
+    &quot;type&quot;: &quot;buy_now&quot;,
+    &quot;subscription&quot;: false,
+    &quot;style&quot;: &quot;custom_large&quot;,
+    &quot;text&quot;: &quot;Pay With Bitcoin&quot;,
+    &quot;name&quot;: &quot;test&quot;,
+    &quot;description&quot;: &quot;Sample description&quot;,
+    &quot;custom&quot;: &quot;Order123&quot;,
+    &quot;callback_url&quot;: &quot;http://www.example.com/my_custom_button_callback&quot;,
+    &quot;price&quot;: {
+      &quot;cents&quot;: 123,
+      &quot;currency_iso&quot;: &quot;USD&quot;
+    }
+  }
+}
+  </pre>
+
+
+
+    <h2>Params</h2>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Param name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>account_id </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Specify for which account is the button created. The default is your primary account.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>button </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>Button object containing the following params</p>
+        <br>
+        Value: Must be a Hash
+    </td>
+  </tr>
+
+    <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[name] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>The name of the item for which you are collecting bitcoin. For example, <code>Acme Order #123</code> or <code>Annual Pledge Drive</code></p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[price_string] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>Price as a decimal string, for example <code>1.23</code>. Can be more then two significant digits if <code>price_currency_iso</code> equals <code>BTC</code>.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[price_currency_iso] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>Price currency as an ISO 4217 code such as <code>USD</code> or <code>BTC</code>. This determines what currency the price is shown in on the payment widget.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[type] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>One of <code>buy_now</code> and <code>donation</code>. Default is <code>buy_now</code>.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[subscription] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Whether or not this button is a subscription.</p>
+        <br>
+        Value: Must be Boolean
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[repeat] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Required if &#8216;subscription&#8217; is true. Must be one of <code>never</code>, <code>hourly</code>, <code>daily</code>, <code>weekly</code>, <code>every_two_weeks</code>, <code>monthly</code>, <code>quarterly</code>, and <code>yearly</code></p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[style] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>One of <code>buy_now_large</code>, <code>buy_now_small</code>, <code>donation_large</code>, <code>donation_small</code>, <code>subscription_large</code>, <code>subscription_small</code>, <code>custom_large</code>, <code>custom_small</code>, and <code>none</code>. Default is <code>buy_now_large</code>. <code>none</code> is used if you plan on triggering the payment modal yourself using your own button or link.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[text] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Allows you to customize the button text on <code>custom_large</code> and <code>custom_small</code> styles. Default is <code>Pay With Bitcoin</code>.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[description] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Longer description of the item in case you want it added to the user&#8217;s transaction notes.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[custom] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>An optional custom parameter. Usually an Order, User, or Product ID corresponding to a record in your database.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[custom_secure] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Set this to true to prevent the custom parameter from being viewed or modified after the button has been created. Use this if you are storing sensitive data in the custom parameter which you don&#8217;t want to be faked or leaked to the end user. Defaults to false. Note that if this value is set to true, the custom parameter will not be included in success or failure URLs, but it WILL be included in callbacks to your server.</p>
+        <br>
+        Value: Must be Boolean
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[callback_url] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>A custom callback URL specific to this button. It will receive the same information that would otherwise be sent to your <a href='#'>Instant Payment Notification URL</a>. If you have an Instant Payment Notification URL set on your account, this will be called instead &#8212; they will not both be called.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[success_url] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>A custom success URL specific to this button. The user will be redirected to this URL after a successful payment. It will receive the same parameters that would otherwise be sent to the default success url set on the account.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[cancel_url] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>A custom cancel URL specific to this button. The user will be redirected to this URL after a canceled order. It will receive the same parameters that would otherwise be sent to the default cancel url set on the account.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[info_url] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>A custom info URL specific to this button. Displayed to the user after a successful purchase for sharing. It will receive the same parameters that would otherwise be sent to the default info url set on the account.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[auto_redirect] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Auto-redirect users to <code>success_url</code> or <code>cancel_url</code> after payment. (cancel_url if the user pays the wrong amount.)</p>
+        <br>
+        Value: Must be Boolean
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[auto_redirect_success] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Auto-redirect user to <code>success_url</code> after successful payment. (Overridden by auto_redirect if present)</p>
+        <br>
+        Value: Must be Boolean
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[auto_redirect_cancel] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Auto-redirect user to <code>cancel_url</code> after payment of wrong amount. (Overridden by auto_redirect if present)</p>
+        <br>
+        Value: Must be Boolean
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[variable_price] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Allow users to change the price on the generated button.</p>
+        <br>
+        Value: Must be Boolean
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[choose_price] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Setting this parameter to true will allow the user to choose a variable price.</p>
+        <br>
+        Value: Must be Boolean
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[include_address] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Collect shipping address from customer (not for use with inline iframes).</p>
+        <br>
+        Value: Must be Boolean
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[include_email] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Collect email address from customer (not for use with inline iframes).</p>
+        <br>
+        Value: Must be Boolean
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[price1] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Suggested price 1</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[price2] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Suggested price 2</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[price3] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Suggested price 3</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[price4] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Suggested price 4</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[price5] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Suggested price 5</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+
+
+      </tbody>
+    </table>
+</div>
+
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = "coinbaseapi";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js?https';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <hr>
+    <footer>  &copy; 2014 Coinbase, Inc.
+</footer>
+  </div>
+  <script type='text/javascript' src='../../javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../../javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../../javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../../javascripts/apipie.js'></script>
+</body>
+
+<!-- Mirrored from www.coinbase.com/api/doc/1.0/buttons/create.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:40:59 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+</html>

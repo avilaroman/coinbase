@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
+
+<!-- Mirrored from www.coinbase.com/docs/api/international-payouts by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:41:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"307b195e05","applicationID":"863399","transactionName":"IQ4KQUZbDVlTF00HXgESS1REXRIaXwsWD24SAB1aQUAS","queueTime":41,"applicationTime":307,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-476.min.js"}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=u(e),f=c.length,s=i(a,o,r),p=0;f>p;p++)c[p].apply(s,n);return s}function a(t,e){f[t]=u(t).concat(e)}function u(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:u,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=l.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),u=window,c=u.document,f="addEventListener",s="attachEvent",p=(""+location).split("?")[0],l=e.exports={offset:i(),origin:p,features:{}};c[f]?(c[f]("DOMContentLoaded",o,!1),u[f]("load",n,!1)):(c[s]("onreadystatechange",r),u[s]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}]},{},["G9z0Bl"]);</script>
+  <title>
+      International Payouts - Coinbase
+  </title>
+  <link rel="shortcut icon" href="../../favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57"   href="../../apple-touch-icon-iphone-114.png" />  
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../apple-touch-icon-iphone-114.png" />  
+  <link rel="apple-touch-icon-precomposed" sizes="72x72"   href="../../apple-touch-icon-ipad-144.png" />    
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../apple-touch-icon-ipad-144.png" />    
+    <meta content="https://www.coinbase.com/assets/logos/logo@2x.png" property="og:image" />
+    <meta content="Coinbase" property="og:title" />
+    <meta content="The easiest way to buy, use, and accept bitcoin." property="og:description" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="R7G5THr8xgaHFkTNkr_RUB0HvX2Nf8e4qnWi0X1kmz8" />
+  <meta http-equiv="X-Frame-Options" content="deny" />
+  
+  <script type="text/javascript">
+window.Coinbase = {"cache":{},"constants":{"ENV":"production","HTTPS":true,"MIXPANEL_TOKEN":"7c112173efca4899213c618484d8f5fe","BUGSNAG_JS_API_KEY":"c35ee1482f4958be12ff3bee470b3545","OLARK_KEY":"8678-140-10-4291","PUSHER_KEY":"057b12fc5917720115c1","USER":null,"S_SNIPPET_KEY":"6174a9","SESSION_ID":"f6344e7894b0048228ff9c8f1412f4bc"},"modules":{},"translations":{"CURRENCY_UNIT":"\u20ac","CURRENCY_DELIMITER":".","CURRENCY_SEPARATOR":",","LOCALE":"es"},"utils":{},"metrics":{}};
+</script>
+
+  <link data-turbolinks-track="true" href="../../assets/core-0de401f1c79e0cc19fc6dbcdb223cac5.css" media="all" rel="stylesheet" type="text/css" />
+  <link data-turbolinks-track="true" href="../../assets/application-5ead28d213a24807a87af4b7bea5be0a.css" media="all" rel="stylesheet" type="text/css" />
+  <script src="../../assets/jquery-82d48e54e30bce171e48ec3f05683068.js" type="text/javascript"></script>
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="8prmBYc/4tn0msPC3XP0UV0P3IwMRGSlXJrlsUwJZvM=" name="csrf-token" />
+  
+
+
+
+  <script src="../../assets/application-13c646928d8ee59b81675a1b64e272ef.js" type="text/javascript"></script>
+</head>
+
+<body class="app signed-out apis intl_payouts" data-controller-name="docs/apis" data-action-name="intl_payouts" data-view-name="Coinbase.Views.Apis.IntlPayouts">
+  <div class="page-container">
+
+    <div class="navbar navbar-static-top">
+  <div class="navbar-inner " >
+    <div class="container">
+      <a id="main_nav_btn" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <a href="../../index.html" class="brand" onclick=""><img alt="Coinbase" src="../../assets/logos/logo-inverse_2x-ec5a19074e5034d321272344a6f84cd9.png" /></a>
+
+      <div class="mobile-bg"></div>
+
+      <div class="nav-collapse" id="application_menu">
+        <ul class="nav clearfix">
+          <li class=""><a href="../../home.html">Características</a></li>
+          <li class=""><a href="../../merchants.html">Comerciantes</a></li>
+          <li class=""><a href="../../vault.html">Caja fuerte</a></li>
+          <li class="dropdown dropdown-hover" id="resources_menu">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recursos <b class='caret'></b></a>
+            <ul class="dropdown-menu fadeIn animated-fast" role="menu" aria-labelledby="dLabel">
+              <li class=""><a href="../../about.html">Acerca de Coinbase</a></li>
+              <li class=""><a href="../../buy-bitcoin.html">Comprar bitcoins</a></li>
+              <li class=""><a href="../../security.html">Seguridad</a></li>
+              
+              <li class=""><a href="../../charts.html">Gráficos</a></li>
+              <li class=""><a href="../../apps.html">Aplicaciones</a></li>
+              <li class=""><a href="overview.html">API</a></li>
+              <li class=""><a href="../merchant_tools/getting_started.html">Documentación</a></li>
+              <li class=""> <a href="https://support.coinbase.com/">Soporte</a></li>
+              <li><a href="http://blog.coinbase.com/">Blog</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="nav clearfix">
+              <li class='top-balance'>
+                <a href="../../charts.html">Precio de compra: 329,34 $</a>
+              </li>
+            <li class=" signin"><a href="../../signin.html">Iniciar sesión</a></li>
+            <li style="margin-top:-3px" class=" signup"><a href="../../signup.html" class="btn">Inscribirse</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container" id="page">
+      <div class="flash">
+</div>
+
+      <div class="row">
+  <div id="sidebar" class="span3">
+
+  <ul class="nav nav-list docs">
+
+    <li class="nav-header">HERRAMIENTAS COMERCIALES</li>
+    <li class=""><a href="../merchant_tools/getting_started.html">Empezar</a></li>
+    <li class=""><a href="../merchant_tools/examples.html">Ejemplos</a></li>
+    <li class=""><a href="../merchant_tools/pricing.html">Precios</a></li>
+    <li class=""><a href="../merchant_tools/payment_buttons.html">Botones de Pago</a></li>
+    <li class=""><a href="../merchant_tools/payment_pages.html">Páginas de Pago</a></li>
+    <li class=""><a href="../merchant_tools/payment_iframes.html">Pagos con iFrames</a></li>
+    <li class=""><a href="../merchant_tools/shopping_cart_plugins.html">Carrito de la Compra</a></li>
+    <li class=""><a href="../merchant_tools/point_of_sale.html">Punto de Venta</a></li>
+    <li class=""><a href="../merchant_tools/email_invoices.html">Facturas por correo electrónico</a></li>
+    <li class=""><a href="../merchant_tools/recurring_payments.html">Pagos Recurrentes</a></li>
+    <li class=""><a href="../merchant_tools/discounts.html">Descuentos</a></li>
+    <li class=""><a href="../merchant_tools/payouts.html">Pagos</a></li>
+    <li class=""><a href="../merchant_tools/callbacks.html">Avisos</a></li>
+
+    <li class="nav-header">Desarrolladores</li>
+    <li class=""><a href="overview.html">Empezar</a></li>
+    <li class=""><a href="authentication.html">Autenticación</a></li>
+    <li class=""><a href="permissions.html">Permisos</a></li>
+    <li class=""><a href="multisig.html">Multifirma</a></li>
+    <li class=""><a href="libraries.html">Bibliotecas Socias</a></li>
+    <li class=""><a href="use-cases.html">Tutoriales</a></li>
+    <li class=""><a href="oauth_tutorial.html">Tutorial OAuth2</a></li>
+    <li><a href="../../api/doc.html">Referencia API</a></li>
+    <li class=""><a href="technical_faq.html">Pregunta técnicas frecuentes</a></li>
+    <li class=""><a href="../../signin.html">Mis Apps</a></li>
+
+    <li class="nav-header">Bitcoin Node</li>
+    <li class=""><a href="../../network.html">Resumen</a></li>
+    <li class=""><a href="../../network/blocks.html">Bloques</a></li>
+    <li class=""><a href="../../network/transactions.html">Transacciones</a></li>
+
+    <li class="nav-header">Services</li>
+    <li><a href="../../sms_service.html">Acceso SMS</a></li>
+  </ul>
+</div>
+
+
+  <div id="main" class="span9">
+
+    <header>
+      <h1>Tutorial: Getting Started with International Payouts<br><small>This guide will explain how to do international payouts with bitcoin.</small></h1>
+    </header>
+
+    <p>“I have a business with international vendors and contractors that are based all over the world. I'd like to pay them in bitcoin, as I think it would be cheaper and faster. Where do I start?"
+    </p>
+    <h3>Overview</h3>
+    <p>It's easy to send bitcoin to people all over the world with Coinbase. You can use bitcoin to pay contractors or vendors, or just to send funds to friends and family.</p>
+    <p>Bitcoin arrives almost instantly and without hefty foreign exchange fees. Once your bitcoin arrives, the recipient can either keep the funds as bitcoin or, depending on the location, can use a local exchange to sell the bitcoin into their local currency.</p>
+
+    <p>To get started, you'll need a Coinbase account. If you don't have one, you can see more details on how to sign up below:
+      <ul>
+        <li><a href="#" onclick="javascript:$(&quot;#signup_tutorial&quot;).toggle(); return false;">Inicia sesión con una cuenta de Coinbase</a>
+          <div id="signup_tutorial" style="display:none; padding:10px 0 5px;">
+                <p>You can sign up for a Coinbase account here: <a href="../../signup.html">https://www.coinbase.com/signup</a>.</p>
+     <p>In order to sell the bitcoin that you receive into USD, you'll need to reach what we call "Level 1" verification, by doing the following:
+      <ul>
+        <li>Verifying your email address</li>
+        <li>Verifying your phone number</li>
+        <li>Adding a bank account</li>
+        <li>Add a credit card (optional)</li>
+      </ul>
+      <p>You can view your current verification status and buy limits at <a href="../../signin.html">https://www.coinbase.com/verifications</a>. </p>
+      </p><br>
+    <div class='row'>
+      <div class="span2">
+        <a href="../../assets/docs/sign_up-cea9a4f656f04a359ec9d9091d5a383e.png" class="fancybox thumbnail" rel="sign-up-group"><img alt="Sign_up" src="../../assets/docs/sign_up-cea9a4f656f04a359ec9d9091d5a383e.png" /></a>
+        <span class="caption">Sign up for an account</span>
+      </div>
+      <div class="span2">
+        <a href="../../assets/docs/limits-655feb35906c9760fb34beb6e8529617.png" class="fancybox thumbnail" rel="sign-up-group"><img alt="Limits" src="../../assets/docs/limits-655feb35906c9760fb34beb6e8529617.png" /></a>
+        <span class="caption">Reach Level 1 Verification</span>
+      </div>
+      <div class="span2">
+        <a href="../../assets/docs/instant_buy-71201f80d7538bc00e445fd61dbe3870.png" class="fancybox thumbnail" rel="sign-up-group"><img alt="Instant_buy" src="../../assets/docs/instant_buy-71201f80d7538bc00e445fd61dbe3870.png" /></a>
+        <span class="caption">Add a credit card for instant-buy (optional)</span>
+      </div>
+    </div>
+    <br>
+    <p>The last step, adding a credit card, is optional. The advantage of adding a credit card is that it enables "instant-buy", allowing you to buy up to $100 of bitcoin right away.</p>
+          </div>
+        </li>
+      </ul>
+
+
+    <h3>Making International Payouts</h3>
+    <p>In this guide, we'll show you two different options for doing international payouts:
+      <ul>
+        <li>Using our site (which doesn't require any technical work)</li>
+        <li>Using our API, which enables you to automate the payouts (requires programming)</li>
+      </ul>
+    <p>We'll first go through how to make payouts using our site. We'll then present the more automated route in the <a href="#api">API section</a>.
+    <a name="buy_bitcoin"></a>
+    <h3>Option 1: Using the Coinbase site to make payouts</h3>
+
+    <h4>1a. Buy bitcoin</h4>
+    <p>The first step is to buy the bitcoin so that you can send it to your payees.</p>
+    <p>Go to the buy page at <a href="../../signin.html">https://www.coinbase.com/buys</a> to purchase the bitcoin.
+    </p>Note: it will take up to 4 business days for bitcoin to arrive in your account, unless you are using our instant-buy feature.</p><br>
+    <div class='row'>
+      <div class="span4">
+        <a href="../../assets/docs/buy_btc-dd3baf86f4779c108fe510b14e3a75c3.png" class="fancybox thumbnail" rel="buy-group"><img alt="Buy_btc" src="../../assets/docs/buy_btc-dd3baf86f4779c108fe510b14e3a75c3.png" /></a>
+        <span class="caption">Buy bitcoin</span>
+      </div>
+    </div>
+
+    <h4>1b. Send bitcoin</h4>
+    <p>Once your bitcoin has arrived, you can send it to the email address or to the bitcoin address of your recipient.</p>
+    <p>Select the "Send Money" button in the top right-hand-side of your home screen, to bring up a window where you can fill in the amount and the recipient details.</p><br>
+
+    <div class='row'>
+      <div class="span4">
+        <a href="../../assets/docs/send_money1-589bcdfa55e4981e43a5dba7c3f4df92.png" class="fancybox thumbnail" rel="send-money-group"><img alt="Send_money1" src="../../assets/docs/send_money1-589bcdfa55e4981e43a5dba7c3f4df92.png" /></a>
+        <span class="caption">Select "Send Money"</span>
+      </div>
+      <div class="span4">
+        <a href="../../assets/docs/send_money2-a31ff124779ff4b6a73267ce55985639.png" class="fancybox thumbnail" rel="send-money-group"><img alt="Send_money2" src="../../assets/docs/send_money2-a31ff124779ff4b6a73267ce55985639.png" /></a>
+        <span class="caption">Fill out details of send.</span>
+      </div>
+    </div>
+    <br>
+
+    <p>If your recipient does not have a Coinbase account, sending bitcoin to their email address will create a Coinbase wallet associated with their email. The recipient can then log in and claim the bitcoin.</p>
+
+    <p>Once you click send, your bitcoin payments will be sent, anywhere in the world, and will arrive almost instantly!</p>
+
+    <h4>Congratulations, you've made your first payouts in bitcoin!</h4>
+
+
+    <a name="api"></a><h3>Option 2: Using our API to automate payouts</h3>
+    <p>You can use use our API to streamline your payouts. This can be useful if you have a large number of payouts, and are looking for an automated solution.</p>
+    <p>These API requests will require authentication, either using the API Key + Secret method or with OAuth2. With this use case, the API Key + Secret is the simplest solution, which you can read about here:
+      <ul>
+        <li><a href="#" onclick="javascript:$(&quot;#api_key&quot;).toggle(); return false;">primeros pasos con la autentificación de Clave API + Secreto.</a>
+          <div id="api_key" style="display:none; padding:10px 0 5px;">
+                <h4>
+      Step 1. Create an API Key + Secret
+    </h4>
+    <p>
+    If you haven’t already done so, you will need to sign up for a Coinbase account and to create a Key + Secret pair in your <a href="../../signin.html">API settings.</a>
+    </p>
+   <h4>
+      Step 2. Access the API using your Key + Secret
+    </h4>
+    <p>
+    In this step you will use your Key + Secret pair to access our API. We offer several pre-completed code examples below, where you can simply paste your account’s credentials into the fields available for <code>API_KEY</code> and <code>API_SECRET</code>.
+    </p>
+    <ul>
+      <li><a href="#" onclick="javascript:$(&quot;#python_example&quot;).toggle(); return false;">Ejemplo de Python</a>
+        <div id="python_example" style="display:none; padding:10px 0 5px;">
+          <div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">hmac</span>
+<span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c">#This code sample demonstrates a GET call to the Coinbase API</span>
+<span class="c">#Before implementation, set environmental variables with the names API_KEY and API_SECRET.</span>
+
+<span class="k">def</span> <span class="nf">make_request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+  <span class="n">opener</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">build_opener</span><span class="p">()</span>
+  <span class="n">nonce</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">)</span>
+  <span class="n">message</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">nonce</span><span class="p">)</span> <span class="o">+</span> <span class="n">url</span> <span class="o">+</span> <span class="p">(</span><span class="s">&#39;&#39;</span> <span class="k">if</span> <span class="n">body</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">body</span><span class="p">)</span>
+  <span class="n">signature</span> <span class="o">=</span> <span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;API_SECRET&#39;</span><span class="p">],</span> <span class="n">message</span><span class="p">,</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+
+
+  <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;ACCESS_KEY&#39;</span> <span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;API_KEY&#39;</span><span class="p">],</span>
+             <span class="s">&#39;ACCESS_SIGNATURE&#39;</span><span class="p">:</span> <span class="n">signature</span><span class="p">,</span>
+             <span class="s">&#39;ACCESS_NONCE&#39;</span><span class="p">:</span> <span class="n">nonce</span><span class="p">,</span>
+             <span class="s">&#39;Accept&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">}</span>
+
+  <span class="c"># If we are passing data, a POST request is made. Note that content_type is specified as json.</span>
+  <span class="k">if</span> <span class="n">body</span><span class="p">:</span>
+    <span class="n">headers</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">})</span>
+    <span class="n">req</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+  <span class="c"># If body is nil, a GET request is made.</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">req</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+  <span class="k">try</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">opener</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+  <span class="k">except</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">HTTPError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">e</span>
+    <span class="k">return</span> <span class="n">e</span>
+
+<span class="c"># Example of a GET request, where body is nil.</span>
+<span class="k">print</span> <span class="n">make_request</span><span class="p">(</span><span class="s">&#39;https://api.coinbase.com/v1/account/balance&#39;</span><span class="p">)</span>
+</pre></div>
+        </div>
+      </li>
+      <li><a href="#" onclick="javascript:$(&quot;#ruby_example&quot;).toggle(); return false;">Ejemplo de Ruby</a>
+        <div id="ruby_example" style="display:none; padding:10px 0 5px;">
+          <div class="highlight"><pre><span class="nb">require</span> <span class="s1">&#39;openssl&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;rest_client&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;json&#39;</span>
+
+<span class="c1">#This code sample demonstrates a GET POST call to the Coinbase API</span>
+<span class="c1">#Before implementation, set environmental variables with the names API_KEY and API_SECRET.</span>
+
+<span class="no">API_KEY</span> <span class="o">=</span> <span class="s1">&#39;API_KEY&#39;</span>
+<span class="no">API_SECRET</span> <span class="o">=</span> <span class="s1">&#39;API_SECRET&#39;</span>
+
+<span class="k">def</span> <span class="nf">make_request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="kp">nil</span><span class="p">)</span>
+  <span class="n">nonce</span> <span class="o">=</span> <span class="p">(</span><span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">to_f</span> <span class="o">*</span> <span class="mi">1</span><span class="n">e6</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span>
+  <span class="n">message</span> <span class="o">=</span> <span class="n">nonce</span><span class="o">.</span><span class="n">to_s</span> <span class="o">+</span> <span class="n">url</span> <span class="o">+</span> <span class="n">body</span><span class="o">.</span><span class="n">to_s</span>
+  <span class="n">signature</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">HMAC</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(</span><span class="no">OpenSSL</span><span class="o">::</span><span class="no">Digest</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;sha256&#39;</span><span class="p">),</span> <span class="no">API_SECRET</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+  <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ACCESS_KEY&quot;</span> <span class="o">=&gt;</span> <span class="no">API_KEY</span><span class="p">,</span>
+             <span class="s2">&quot;ACCESS_SIGNATURE&quot;</span> <span class="o">=&gt;</span> <span class="n">signature</span><span class="p">,</span>
+             <span class="s2">&quot;ACCESS_NONCE&quot;</span> <span class="o">=&gt;</span> <span class="n">nonce</span><span class="p">}</span>
+  <span class="k">begin</span>
+     <span class="c1"># If body is nil, a GET request is made.</span>
+    <span class="k">if</span> <span class="n">body</span><span class="o">.</span><span class="n">nil?</span>
+      <span class="no">RestClient</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">.</span><span class="n">merge</span><span class="p">({</span><span class="ss">:accept</span> <span class="o">=&gt;</span> <span class="ss">:json</span><span class="p">}))</span>
+    <span class="k">else</span>
+    <span class="c1"># If we are passing data, a POST request is made. Note that content_type is specified as json.</span>
+      <span class="no">RestClient</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="o">.</span><span class="n">merge</span><span class="p">({</span><span class="ss">:content_type</span> <span class="o">=&gt;</span> <span class="ss">:json</span><span class="p">,</span> <span class="ss">:accept</span> <span class="o">=&gt;</span> <span class="ss">:json</span><span class="p">}))</span>
+    <span class="k">end</span>
+  <span class="k">rescue</span> <span class="o">=&gt;</span> <span class="n">e</span>
+    <span class="nb">puts</span> <span class="n">e</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">response</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># Example of a GET request, where body is nil.</span>
+<span class="nb">puts</span> <span class="n">make_request</span><span class="p">(</span><span class="s1">&#39;https://api.coinbase.com/v1/account/balance&#39;</span><span class="p">)</span>
+</pre></div>
+        </div>
+      </li>
+   <!--    <li><a href="#" onclick="javascript:$(&quot;#java_example&quot;).toggle(); return false;">Ejemplo Java</a>
+        <div id="java_example" style="display:none; padding:10px 0 5px;">
+          <div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.security.InvalidKeyException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.security.NoSuchAlgorithmException</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.crypto.Mac</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.crypto.spec.SecretKeySpec</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.apache.commons.codec.binary.Hex</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.HttpEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.HttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.ClientProtocolException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.HttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpPost</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpRequestBase</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.entity.StringEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClientBuilder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.util.EntityUtils</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CoinbaseExample</span> <span class="o">{</span>
+
+    <span class="kd">static</span> <span class="n">String</span> <span class="n">API_KEY</span> <span class="o">=</span> <span class="s">&quot;API_KEY&quot;</span><span class="o">;</span>
+
+    <span class="kd">static</span> <span class="n">String</span> <span class="n">API_SECRET</span> <span class="o">=</span> <span class="s">&quot;API_SECRET&quot;</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">getHttp</span><span class="o">(</span><span class="n">String</span> <span class="n">url</span><span class="o">,</span> <span class="n">String</span> <span class="n">body</span><span class="o">)</span>
+            <span class="kd">throws</span> <span class="n">InvalidKeyException</span><span class="o">,</span> <span class="n">NoSuchAlgorithmException</span><span class="o">,</span>
+            <span class="n">ClientProtocolException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+
+        <span class="n">String</span> <span class="n">nonce</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">());</span>
+        <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">nonce</span> <span class="o">+</span> <span class="n">url</span> <span class="o">+</span> <span class="o">(</span><span class="n">body</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">body</span> <span class="o">:</span> <span class="s">&quot;&quot;</span><span class="o">);</span>
+
+        <span class="n">Mac</span> <span class="n">mac</span> <span class="o">=</span> <span class="n">Mac</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="s">&quot;HmacSHA256&quot;</span><span class="o">);</span>
+        <span class="n">mac</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="k">new</span> <span class="n">SecretKeySpec</span><span class="o">(</span><span class="n">API_SECRET</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(),</span> <span class="s">&quot;HmacSHA256&quot;</span><span class="o">));</span>
+        <span class="n">String</span> <span class="n">signature</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">Hex</span><span class="o">.</span><span class="na">encodeHex</span><span class="o">(</span><span class="n">mac</span><span class="o">.</span><span class="na">doFinal</span><span class="o">(</span><span class="n">message</span><span class="o">.</span><span class="na">getBytes</span><span class="o">())));</span>
+
+        <span class="n">HttpRequestBase</span> <span class="n">request</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">body</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">body</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="n">url</span><span class="o">);</span>
+        <span class="k">else</span> <span class="o">{</span>
+            <span class="n">HttpPost</span> <span class="n">post</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPost</span><span class="o">(</span><span class="n">url</span><span class="o">);</span>
+            <span class="n">post</span><span class="o">.</span><span class="na">setEntity</span><span class="o">(</span><span class="k">new</span> <span class="n">StringEntity</span><span class="o">(</span><span class="n">body</span><span class="o">));</span>
+            <span class="n">request</span> <span class="o">=</span> <span class="n">post</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">request</span><span class="o">.</span><span class="na">setHeader</span><span class="o">(</span><span class="s">&quot;ACCESS_KEY&quot;</span><span class="o">,</span> <span class="n">API_KEY</span><span class="o">);</span>
+        <span class="n">request</span><span class="o">.</span><span class="na">setHeader</span><span class="o">(</span><span class="s">&quot;ACCESS_SIGNATURE&quot;</span><span class="o">,</span> <span class="n">signature</span><span class="o">);</span>
+        <span class="n">request</span><span class="o">.</span><span class="na">setHeader</span><span class="o">(</span><span class="s">&quot;ACCESS_NONCE&quot;</span><span class="o">,</span> <span class="n">nonce</span><span class="o">);</span>
+
+        <span class="n">HttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClientBuilder</span><span class="o">.</span><span class="na">create</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+        <span class="n">HttpResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+
+        <span class="n">HttpEntity</span> <span class="n">entity</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getEntity</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">entity</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+            <span class="k">return</span> <span class="n">EntityUtils</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">entity</span><span class="o">);</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">getHttp</span><span class="o">(</span><span class="s">&quot;https://api.coinbase.com/v1/account/balance&quot;</span><span class="o">,</span> <span class="kc">null</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+        </div>
+      </li> -->
+      <li><a href="#" onclick="javascript:$(&quot;#php_example&quot;).toggle(); return false;">Ejemplo de PHP</a>
+        <div id="php_example" style="display:none; padding:10px 0 5px;">
+        <p>
+        This is a "plug and play" PHP script for making GET and POST requests to the API. It does so through a single function called coinbaseRequest() which takes three parameters:
+        <ul>
+          <li>
+          $directory: the directory to which you're making your request. That is, whatever comes after "https://api.coinbase.com/v1/" in your request URL.
+          </li>
+          <li>
+          $getOrPost: "get" if it's a GET request; "post" if it's a POST request.
+          </li>
+          <li>
+          $parameters: Your API request's GET or POST parameters, formatted as JSON. If you're making a request with no parameters, its value should be "" or '{}'.
+          </li>
+        </ul>
+          </p>
+          <div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">function</span> <span class="nf">coinbaseRequest</span><span class="p">(</span><span class="nv">$directory</span><span class="p">,</span><span class="nv">$getOrPost</span><span class="p">,</span><span class="nv">$parameters</span><span class="p">){</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+<span class="c1">//Your API Key and Secret go here.</span>
+<span class="nv">$apiKey</span> <span class="o">=</span> <span class="s2">&quot;API_KEY&quot;</span><span class="p">;</span>
+<span class="nv">$apiSecret</span> <span class="o">=</span> <span class="s2">&quot;API_SECRET&quot;</span><span class="p">;</span>
+<span class="nv">$nonce</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;%0.0f&#39;</span><span class="p">,</span><span class="nx">round</span><span class="p">(</span><span class="nb">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000000</span><span class="p">));</span>
+<span class="nv">$url</span> <span class="o">=</span> <span class="s2">&quot;https://api.coinbase.com/v1/&quot;</span> <span class="o">.</span> <span class="nv">$directory</span><span class="p">;</span>
+<span class="nv">$parameters</span> <span class="o">=</span> <span class="o">@</span><span class="nb">http_build_query</span><span class="p">(</span><span class="nb">json_decode</span><span class="p">(</span><span class="nv">$parameters</span><span class="p">),</span> <span class="k">true</span><span class="p">);</span>
+
+<span class="k">if</span><span class="p">(</span><span class="nv">$getOrPost</span> <span class="o">==</span> <span class="s2">&quot;post&quot;</span><span class="p">){</span>
+  <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$parameters</span><span class="p">,</span><span class="nx">CURLOPT_POST</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">));</span>
+<span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nv">$parameters</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">){</span>
+  <span class="nv">$url</span> <span class="o">.=</span> <span class="s2">&quot;?&quot;</span> <span class="o">.</span> <span class="nv">$parameters</span><span class="p">;</span>
+  <span class="nv">$parameters</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="nv">$url</span><span class="p">,</span>
+    <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s2">&quot;ACCESS_KEY: &quot;</span> <span class="o">.</span> <span class="nv">$apiKey</span><span class="p">,</span>
+    <span class="s2">&quot;ACCESS_NONCE: &quot;</span> <span class="o">.</span> <span class="nv">$nonce</span><span class="p">,</span>
+    <span class="s2">&quot;ACCESS_SIGNATURE: &quot;</span> <span class="o">.</span> <span class="nb">hash_hmac</span><span class="p">(</span><span class="s2">&quot;sha256&quot;</span><span class="p">,</span> <span class="nv">$nonce</span> <span class="o">.</span> <span class="nv">$url</span> <span class="o">.</span> <span class="nv">$parameters</span><span class="p">,</span> <span class="nv">$apiSecret</span><span class="p">)</span>
+    <span class="p">)));</span>
+
+<span class="nv">$results</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+<span class="k">return</span> <span class="nv">$results</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+        </div>
+      </li>
+    </ul>
+    <br>
+    <p>
+    Once you've updated the code with your <code>API_KEY</code> and <code>API_SECRET</code>, you're ready to submit the request!  Go ahead and run the script.
+    </p>
+    <p> The expected response is your balance in the output.
+    </p>
+    <p> Observe que estos ejemplos se encargaron de autentificar por ti, lo cual supone pasar tres componentes en la cabecera HTTP de tu petición: Clave API, valor de seguridad (nonce) y firma realizada a través de tu API secreto. Puedes leer más sobre autenticación <a href="authentication.html">aquí.</a>.
+    </p>
+
+          </div>
+        </li>
+      </ul>
+
+
+
+    <a href="authentication.html"></a></p>
+    <h4>2a. Buy Bitcoin</h4>
+    <p>Once you know how to make authenticated API calls, you can buy bitcoin with the buy call. The buy call is documented <a href="../../api/doc/1.0/buys/create.html">aquí en la referencia de API</a>.
+<pre>POST /api/v1/buys</pre>
+    <p>The required parameter is <code>qty</code>, the quantity of bitcoin that you would like to buy.</p>
+    <p>Response:</p>
+    <div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;success&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;transfer&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Buy&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;6H7GYLXZ&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-01-28T16:08:58-08:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;fees&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;coinbase&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;cents&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+        <span class="nt">&quot;currency_iso&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;bank&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;cents&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+        <span class="nt">&quot;currency_iso&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;created&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;payout_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-02-01T18:00:00-08:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;btc&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="s2">&quot;1.00000000&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;subtotal&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="s2">&quot;13.55&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="s2">&quot;13.84&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    <h4>2b. Send Bitcoin</h4>
+    <p>You can send bitcoin with the <code>send_money</code> API call, documented <a href="../../api/doc/1.0/transactions/send_money.html">aquí en la referencia de API</a>.
+<pre>POST https://api.coinbase.com/v1/transactions/send_money</pre>
+    <p>A required parameter is <code>transaction[to]</code>, where you can specify an email or a bitcoin address. You'll also need to specify an amount, either by passing an <code>amount</code> parameter, which is interpreted as a bitcoin amount, or by passing an <code>amount_string</code>and <code>amount_currency_iso</code> parameter such as USD, which will then send an equivalent amount of bitcoin at current exchange rates.</p>
+    <p>Response:</p>
+    <div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;success&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;transaction&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;501a1791f8182b2071000087&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-08-01T23:00:49-07:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;hsh&quot;</span><span class="p">:</span> <span class="s2">&quot;9d6a7d1112c3db9de5315b421a5153d71413f5f752aff75bf504b77df4e646a3&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;notes&quot;</span><span class="p">:</span> <span class="s2">&quot;Sample transaction for you!&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;idem&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="s2">&quot;-1.23400000&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;pending&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;sender&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;5011f33df8182b142400000e&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;User Two&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;user2@example.com&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;recipient&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;5011f33df8182b142400000a&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;User One&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;user1@example.com&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;recipient_address&quot;</span><span class="p">:</span> <span class="s2">&quot;37muSN5ZrukVTvyVh3mT5Zc5ew9L9CBare&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    <p>The <code>send_money</code> API call also has an <code>instant_buy</code> parameter, which can be used to purchase the necessary funds first, then send them. This will only work if Instant Buy is enabled on your account and the amount being purchased is less than or equal to the remainder of your daily limit. If you are using this parameter, you could complete both the buy and the send in this one api call.</p>
+
+    <p>If the instant buy is successful, the response will come back with an additional transfer field representing the purchase.</p>
+    <h4>Congratulations, you've made your first payouts in bitcoin using our API!<h4>
+    </p>
+    <h3>What's next?</h3>
+      <p>You can view your recent payout on the Transaction page of your account, which is the first page you'll see when you log in.</p>
+      <p>You can also view transactions using our API endpoint:</p>
+<pre>GET https://api.coinbase.com/v1/transactions</pre>
+    <br>
+    <p>This guide is part of our Integration Tutorial series.  If you would like to request more information about the integration process or have feedback, our Merchant Support Team can be contacted at merchanthelp@coinbase.com.</p>
+</div>
+</div>
+    </div>
+  </div>
+
+  <footer>
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span2">
+        <a href="../../index.html" class="brand"><img alt="Coinbase" src="../../assets/logos/logo_2x-467d659a6b4b1a77868a097de7f88c86.png" /></a>
+        <small><span>&copy; 2014 Coinbase</span></small>
+      </div>
+      <div class="span2">
+        <h4>Producto</h4>
+        <nav>
+          <a href="../../buy-bitcoin.html">Cómo comprar bitcoins</a>
+          <a href="../../merchants.html">Pasarela de pago</a>
+          <a href="overview.html">Plataforma del desarrollador</a>
+          <a href="../../security.html">Seguridad</a>
+        </nav>
+      </div>
+      <div class="span2">
+        <h4>Acerca de</h4>
+        <nav>
+          <a href="../../about.html">Acerca de</a>
+          <a href="../../careers.html">Carreras</a>
+          <a href="../../press.html">Prensa</a>
+          <a href="../../legal/user_agreement.html">Aviso legal y privacidad</a>
+        </nav>
+      </div>
+      <div class="span2">
+        <h4>Recursos</h4>
+        <nav>
+          <a href="overview.html">API</a>
+          <a href="../merchant_tools/getting_started.html">Documentación</a>
+          <a href="http://status.coinbase.com/">Estado</a>
+          <a href="https://support.coinbase.com/">Soporte</a>
+          
+          
+        </nav>
+      </div>
+      <div class="span2">
+        <h4>Social</h4>
+        <nav>
+          <a href="http://blog.coinbase.com/">Nuestro blog</a>
+          <a href="https://twitter.com/coinbase">Twitter</a>
+          <a href="https://www.facebook.com/Coinbase"></span>Facebook</a>
+        </nav>
+      </div>
+      <div class="span2">
+        <div class="footer-locale-select">
+  <h4>Idioma <sup>(BETA)</sup></h4>
+  <select id="locale_select" name="locale"><option value="de">Deutsch</option>
+<option value="en">English</option>
+<option value="es" selected="selected">Español</option>
+<option value="fr">Français</option>
+<option value="it">Italiano</option>
+<option value="nl">Nederlands</option></select>
+  <a href="https://translate.coinbase.com/" title="¡Ayuda a traducir Coinbase!">
+    <i class="icon-language"></i>
+</a></div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- begin olark code -->
+<script type='text/javascript'>
+setTimeout(function (){
+  var olarkId = "8678-140-10-4291";
+  var id = window.setTimeout(function(){}, 0);
+  while (id--) {
+    window.clearTimeout(id);
+  }
+  for (var key in Object.keys(window)) {
+    if (key.indexOf('hbl') == 0 || key.indexOf('habla') == 0) {
+      clearTimeout(window[key]);
+      delete window[key];
+    }
+  }
+  delete window.__get_olark_key;
+  delete window.olark;
+
+  function initOlark(){
+    c = {loader: "static.olark.com/jsclient/loader0.js",name:"olark",methods:["configure","extend","declare","identify"]};
+    var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){f[z]=function(){(a.s=a.s||[]).push(arguments)};var a=f[z]._={},q=c.methods.length;while(q--){(function(n){f[z][n]=function(){f[z]("call",n,arguments)}})(c.methods[q])}a.l=c.loader;a.i=nt;a.p={0:+new Date};a.P=function(u){a.p[u]=new Date-a.p[0]};function s(){a.P(r);f[z](r)}f.addEventListener?f.addEventListener(r,s,false):f.attachEvent("on"+r,s);var ld=function(){function p(hd){hd="head";return["<",hd,"></",hd,"><",i,' onl' + 'oad="var d=',g,";d.getElementsByTagName('head')[0].",j,"(d.",h,"('script')).",k,"='",l,"//",a.l,"'",'"',"></",i,">"].join("")}var i="body",m=d[i];if(!m){return setTimeout(ld,100)}a.P(1);var j="appendChild",h="createElement",k="src",n=d[h]("div"),v=n[j](d[h](z)),b=d[h]("iframe"),g="document",e="domain",o;n.style.display="none";m.insertBefore(n,m.firstChild).id=z;b.frameBorder="0";b.id=z+"-loader";if(/MSIE[ ]+6/.test(navigator.userAgent)){b.src="javascript:false"}b.allowTransparency="true";v[j](b);try{b.contentWindow[g].open()}catch(w){c[e]=d[e];o="javascript:var d="+g+".open();d.domain='"+d.domain+"';";b[k]=o+"void(0);"}try{var t=b.contentWindow[g];t.write(p());t.close()}catch(x){b[k]=o+'d.write("'+p().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};ld()};nt();
+  }
+  function identifyOlark() {
+    olark.identify(olarkId);
+  }
+
+  if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+    // Loading Olark the normal way break FF so we're doing something different here
+    window.olark || initOlark();
+    identifyOlark()
+
+    $(document).on("page:load page:restore", function(){
+      initOlark();
+      setTimeout(function() {
+        identifyOlark()
+      }, 100);
+    });
+  } else {
+    initOlark();
+    identifyOlark()
+  }
+}, 0);
+</script>
+<!-- end olark code -->
+
+
+  
+
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '../../../www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-32804181-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script type="text/javascript">
+  Coinbase.exchangeRatesGlobal = {"usd_to_btc":"0.00305","btc_to_usd":"327.89","usd_to_bit":"3050.0","bit_to_usd":"0.00032789"};
+
+
+</script>
+
+
+</body>
+
+<!-- Mirrored from www.coinbase.com/docs/api/international-payouts by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:41:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www.coinbase.com/api/doc/1.0/recurring_payments.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:41:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"307b195e05","applicationID":"863399","transactionName":"IQ4KQUZbDVlTF00CQQsRDVAbVRFcRgwHEB4LDwBQTA==","queueTime":40,"applicationTime":31,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-476.min.js"}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=u(e),f=c.length,s=i(a,o,r),p=0;f>p;p++)c[p].apply(s,n);return s}function a(t,e){f[t]=u(t).concat(e)}function u(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:u,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=l.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),u=window,c=u.document,f="addEventListener",s="attachEvent",p=(""+location).split("?")[0],l=e.exports={offset:i(),origin:p,features:{}};c[f]?(c[f]("DOMContentLoaded",o,!1),u[f]("load",n,!1)):(c[s]("onreadystatechange",r),u[s]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}]},{},["G9z0Bl"]);</script>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <ul class='breadcrumb'>
+  <li>
+    <a href='../1.0.html'>API Home 1.0</a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>
+    Recurring Payments
+    
+  </li>
+</ul>
+
+<div class='page-header'>
+  <h1>
+    Recurring Payments
+    <br>
+    <small>List your recurring payments (scheduled buys, sells, subscriptions, etc)</small>
+  </h1>
+</div>
+
+
+
+<div class='accordion' id='accordion'>
+
+    <hr>
+    <div class='pull-right small'>
+      <a href='recurring_payments/index.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-index'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET /api/v1/recurring_payments
+          </a><br>
+          <small>List your recurring payments.</small>
+        </h2>
+    </div>
+
+
+    <div id='description-index' class='collapse accordion-body'>
+      <p>Authenticated resource that lets you list all your recurring payments (scheduled buys, sells, and subscriptions you&#8217;ve created with merchants).</p>
+
+<p>Recurring payments can have one of the following <code>status</code> values: <code>new</code>, <code>active</code>, <code>paused</code>, <code>completed</code>, and <code>canceled</code>. You can read more about the status codes on the <a href='../../../docs/merchant_tools/recurring_payments.html'>recurring payments documentation page</a>.</p>
+
+<p>This API call is from the customer&#8217;s perspective and is the opposite of the <a href='subscribers-2.html'>subscribers</a> call from the merchant&#8217;s perspective. It corresponds to the <a href='../../../signin.html'>recurring payments</a> page of the web application.</p>
+
+<p><code>times_run</code> increments each time the recurring payment runs. Once <code>times_run</code> equals <code>times</code> the recurring payment will automatically complete (the status will change to <code>completed</code>). If <code>times</code> is set to -1 this indicates the recurring payment will repeat indefinitely until the user manually cancels.</p>
+
+<p>By default 25 recurring payments are returned at a time. You can set the <code>page</code> and <code>limit</code> parameter to adjust how pagination works.</p>
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">
+# Request
+GET https://api.coinbase.com/v1/recurring_payments
+
+# Response
+{
+  &quot;recurring_payments&quot;: [
+    {
+      &quot;recurring_payment&quot;: {
+        &quot;id&quot;:&quot;51a7b9e9f8182b4b22000013&quot;,
+        &quot;type&quot;: &quot;send&quot;,
+        &quot;status&quot;: &quot;active&quot;,
+        &quot;created_at&quot;: &quot;2013-05-30T13:43:21-07:00&quot;,
+        &quot;to&quot;: &quot;user2@example.com&quot;,
+        &quot;from&quot;: null,
+        &quot;start_type&quot;: &quot;now&quot;,
+        &quot;times&quot;: -1,
+        &quot;times_run&quot;: 7,
+        &quot;repeat&quot;: &quot;monthly&quot;,
+        &quot;last_run&quot;: &quot;2013-05-30T13:00:00-07:00&quot;,
+        &quot;next_run&quot;: &quot;2013-06-30T13:00:00-07:00&quot;,
+        &quot;notes&quot;: null,
+        &quot;description&quot;: &quot;Send 0.02 BTC to User Two&quot;,
+        &quot;amount&quot;: {
+          &quot;amount&quot;: &quot;0.02000000&quot;,
+          &quot;currency&quot;: &quot;BTC&quot;
+        }
+      }
+    },
+    {
+      &quot;recurring_payment&quot;: {
+        &quot;id&quot;:&quot;5193377ef8182b7c19000015&quot;,
+        &quot;type&quot;: &quot;request&quot;,
+        &quot;status&quot;: &quot;completed&quot;,
+        &quot;created_at&quot;: &quot;2013-05-15T00:21:34-07:00&quot;,
+        &quot;to&quot;: &quot;&quot;,
+        &quot;from&quot;: &quot;user1@example.com&quot;,
+        &quot;start_type&quot;: &quot;now&quot;,
+        &quot;times&quot;: 3,
+        &quot;times_run&quot;: 3,
+        &quot;repeat&quot;: &quot;daily&quot;,
+        &quot;last_run&quot;: &quot;2013-05-15T00:22:57-07:00&quot;,
+        &quot;next_run&quot;: &quot;2013-05-16T00:22:57-07:00&quot;,
+        &quot;notes&quot;: &quot;&quot;,
+        &quot;description&quot;: &quot;Request 0.01 BTC from user1@example.com&quot;,
+        &quot;amount&quot;: {
+          &quot;amount&quot;: &quot;0.01000000&quot;,
+          &quot;currency&quot;: &quot;BTC&quot;
+        }
+      }
+    }
+  ],
+  &quot;total_count&quot;: 2,
+  &quot;num_pages&quot;: 1,
+  &quot;current_page&quot;: 1
+}
+  </pre>
+
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='recurring_payments/show.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-show'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET /api/v1/recurring_payments/:id
+          </a><br>
+          <small>Show an individual recurring payment.</small>
+        </h2>
+    </div>
+
+
+    <div id='description-show' class='collapse accordion-body'>
+      <p>Authenticated resource that lets you show an individual recurring payment.</p>
+
+<p>For more information refer to the <a href='recurring_payments/index.html'>recurring payments index api call</a>.</p>
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">
+# Request
+GET https://api.coinbase.com/v1/recurring_payments/5193377ef8182b7c19000015
+
+# Response
+{
+  &quot;recurring_payment&quot;: {
+    &quot;id&quot;: &quot;5193377ef8182b7c19000015&quot;,
+    &quot;type&quot;: &quot;send&quot;,
+    &quot;status&quot;: &quot;active&quot;,
+    &quot;created_at&quot;: &quot;2013-05-30T13:43:21-07:00&quot;,
+    &quot;to&quot;: &quot;user2@example.com&quot;,
+    &quot;from&quot;: null,
+    &quot;start_type&quot;: &quot;now&quot;,
+    &quot;times&quot;: -1,
+    &quot;times_run&quot;: 7,
+    &quot;repeat&quot;: &quot;monthly&quot;,
+    &quot;last_run&quot;: &quot;2013-05-30T13:00:00-07:00&quot;,
+    &quot;next_run&quot;: &quot;2013-06-30T13:00:00-07:00&quot;,
+    &quot;notes&quot;: null,
+    &quot;description&quot;: &quot;Send 0.02 BTC to User Two&quot;,
+    &quot;amount&quot;: {
+      &quot;amount&quot;: &quot;0.02000000&quot;,
+      &quot;currency&quot;: &quot;BTC&quot;
+    }
+  }
+}
+  </pre>
+
+    </div>
+</div>
+
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = "coinbaseapi";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js?https';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <hr>
+    <footer>  &copy; 2014 Coinbase, Inc.
+</footer>
+  </div>
+  <script type='text/javascript' src='../javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../javascripts/apipie.js'></script>
+</body>
+
+<!-- Mirrored from www.coinbase.com/api/doc/1.0/recurring_payments.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:41:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+</html>

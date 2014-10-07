@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www.coinbase.com/api/doc/1.0/orders.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:41:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"307b195e05","applicationID":"863399","transactionName":"IQ4KQUZbDVlTF00CQQsRDVAbVRFcRgwHEB4LDwBQTA==","queueTime":38,"applicationTime":40,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-476.min.js"}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=u(e),f=c.length,s=i(a,o,r),p=0;f>p;p++)c[p].apply(s,n);return s}function a(t,e){f[t]=u(t).concat(e)}function u(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:u,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=l.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),u=window,c=u.document,f="addEventListener",s="attachEvent",p=(""+location).split("?")[0],l=e.exports={offset:i(),origin:p,features:{}};c[f]?(c[f]("DOMContentLoaded",o,!1),u[f]("load",n,!1)):(c[s]("onreadystatechange",r),u[s]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}]},{},["G9z0Bl"]);</script>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <ul class='breadcrumb'>
+  <li>
+    <a href='../1.0.html'>API Home 1.0</a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>
+    Orders
+    
+  </li>
+</ul>
+
+<div class='page-header'>
+  <h1>
+    Orders
+    <br>
+    <small>List merchant orders received.</small>
+  </h1>
+</div>
+
+
+
+<div class='accordion' id='accordion'>
+
+    <hr>
+    <div class='pull-right small'>
+      <a href='orders/index.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-index'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET /api/v1/orders
+          </a><br>
+          <small>List merchant orders received.</small>
+        </h2>
+    </div>
+
+
+    <div id='description-index' class='collapse accordion-body'>
+      <p>Authenticated resource which returns a merchant&#8217;s orders that they have received. Sorted by <code>created_at</code> in descending order.</p>
+
+<p>An order can have any of the following statuses:</p>
+
+<ol>
+<li><code>completed</code> The order has been completed.</li>
+
+<li><code>cancelled</code> The order was cancelled.</li>
+
+<li><code>mispaid</code> An under/over payment was received.</li>
+
+<li><code>expired</code> No payment was received in the 10-minute time period</li>
+</ol>
+
+<p>The <code>transaction[id]</code> can be used to link an order to a transaction.</p>
+
+<p>This call will return 25 orders per page.</p>
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">
+# Request
+GET https://api.coinbase.com/v1/orders
+
+# Response
+{
+  &quot;orders&quot;: [
+    {
+      &quot;order&quot;: {
+        &quot;id&quot;: &quot;A7C52JQT&quot;,
+        &quot;created_at&quot;: &quot;2013-03-11T22:04:37-07:00&quot;,
+        &quot;status&quot;: &quot;completed&quot;,
+        &quot;total_btc&quot;: {
+          &quot;cents&quot;: 100000000,
+          &quot;currency_iso&quot;: &quot;BTC&quot;
+        },
+        &quot;total_native&quot;: {
+          &quot;cents&quot;: 3000,
+          &quot;currency_iso&quot;: &quot;USD&quot;
+        },
+        &quot;custom&quot;: &quot;&quot;,
+        &quot;receive_address&quot;: &quot;mgrmKftH5CeuFBU3THLWuTNKaZoCGJU5jQ&quot;,
+        &quot;button&quot;: {
+          &quot;type&quot;: &quot;buy_now&quot;,
+          &quot;name&quot;: &quot;Order #1234&quot;,
+          &quot;description&quot;: &quot;order description&quot;,
+          &quot;id&quot;: &quot;eec6d08e9e215195a471eae432a49fc7&quot;
+        },
+        &quot;transaction&quot;: {
+          &quot;id&quot;: &quot;513eb768f12a9cf27400000b&quot;,
+          &quot;hash&quot;: &quot;4cc5eec20cd692f3cdb7fc264a0e1d78b9a7e3d7b862dec1e39cf7e37ababc14&quot;,
+          &quot;confirmations&quot;: 0
+        }
+      }
+    }
+  ],
+  &quot;total_count&quot;: 1,
+  &quot;num_pages&quot;: 1,
+  &quot;current_page&quot;: 1
+}
+  </pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>account_id </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Specify which account is used for fetching data. The default is your primary account.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>page </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Can be used to page through results. Default is 1.</p>
+        <br>
+        Value: Must be Integer
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>limit </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Number of records to return. Maximum is 1000. Default value is 25.</p>
+        <br>
+        Value: Must be Integer
+    </td>
+  </tr>
+
+  
+
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='orders/create.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-create'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            POST /api/v1/orders
+          </a><br>
+          <small>Create a new order.</small>
+        </h2>
+    </div>
+
+
+    <div id='description-create' class='collapse accordion-body'>
+      <p>Authenticated resource which returns an order for a new button.</p>
+
+<p>This endpoint is a shortcut combining two other endpoints: <a href='buttons/create.html'>POST /api/v1/buttons</a> and <a href='buttons/create_order.html'>POST /api/v1/buttons/:code/create_order</a>.</p>
+
+<p>You may be confused about what all the &#8216;button&#8217; stuff is here. Let&#8217;s dive in.</p>
+
+<p>&#8216;Orders&#8217; do not exist by themselves. On Coinbase&#8217;s side, there are two models: <ul>
+    <li>Buttons</li>
+    <li>Orders</li>
+  </ul></p>
+
+<p>A button <em>has many</em> orders. An order <em>belongs to</em> one button.</p>
+
+<p>&#8216;Button&#8217; is a bad name because what it really represents is an item for sale. Like a coffee mug. You create one representation of the coffee mug (a button), and then many individual orders can be placed for that button. This way you only need to set the price and description for the item (button) once, and simply fetch new orders later. (Or use the merchant tools, which create orders automatically.)</p>
+
+<p>In some cases, you don&#8217;t necessarily want to create an item that can be purchased multiple times, so the one-button-to-many-orders concept doesn&#8217;t fit. For example, a shopping cart checkout. But an order without a button can&#8217;t exist in our system. This endpoint allows you to fake it by specifying a button description and getting back an order for that button as the response.</p>
+
+<p>Since creating an order first requires the button that the order will be associated with to exist, this endpoint requires you to describe the button with the <code>button</code> parameter.</p>
+<strong>When should I use this endpoint?</strong><ul>
+    <li>
+      To create a one-time unique order that does not use our merchant tools.<br />
+      For example: You want to generate a bitcoin address for an order and display it directly inside your html page as text, and display it only to one user. After the user pays for the order, you will stop displaying the address.
+    </li>
+  </ul><strong>When should I avoid using this endpoint?</strong><ul>
+    <li>
+      When your intention is to dynamically create a Coinbase <a href='../../../docs/merchant_tools/payment_buttons.html'>button</a>, <a href='../../../docs/merchant_tools/payment_pages.html'>checkout page</a>, or <a href='../../../docs/merchant_tools/payment_iframes.html'>iframe</a>.
+      In that case, you want to create a button, not an order. See this call: <a href='buttons/create.html'>POST /api/v1/buttons</a>.
+    </li>
+    <li>
+      When your intention is to create an item that can have multiple orders placed on it.
+    </li>
+  </ul>
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">
+# Request
+POST https://api.coinbase.com/v1/orders
+{
+  &quot;button&quot;: {
+    &quot;name&quot;: &quot;test&quot;,
+    &quot;type&quot;: &quot;buy_now&quot;,
+    &quot;price_string&quot;: &quot;1.23&quot;,
+    &quot;price_currency_iso&quot;: &quot;USD&quot;
+  }
+}
+
+# Response
+{
+  &quot;success&quot;: true,
+  &quot;order&quot;: {
+    &quot;id&quot;: &quot;8QNULQFE&quot;,
+    &quot;created_at&quot;: &quot;2014-02-04T23:36:30-08:00&quot;,
+    &quot;status&quot;: &quot;new&quot;,
+    &quot;total_btc&quot;: {
+      &quot;cents&quot;: 12300000,
+      &quot;currency_iso&quot;: &quot;BTC&quot;
+    },
+    &quot;total_native&quot;: {
+      &quot;cents&quot;: 123,
+      &quot;currency_iso&quot;: &quot;USD&quot;
+    },
+    &quot;custom&quot;: null,
+    &quot;receive_address&quot;: &quot;mnskjZs57dBAmeU2n4csiRKoQcGRF4tpxH&quot;,
+    &quot;button&quot;: {
+      &quot;type&quot;: &quot;buy_now&quot;,
+      &quot;name&quot;: &quot;test&quot;,
+      &quot;description&quot;: null,
+      &quot;id&quot;: &quot;1741b3be1eb5dc50625c48851a94ae13&quot;
+    },
+    &quot;transaction&quot;: null
+  }
+}
+</pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>account_id </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Specify for which account is the order created. The default is your primary account.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>button </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>Button object containing the following params</p>
+        <br>
+        Value: Must be a Hash
+    </td>
+  </tr>
+
+    <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[name] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>The name of the item for which you are collecting bitcoin. For example, <code>Acme Order #123</code> or <code>Annual Pledge Drive</code></p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[price_string] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>Price as a decimal string, for example <code>1.23</code>. Can be more then two significant digits if <code>price_currency_iso</code> equals <code>BTC</code>.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[price_currency_iso] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>Price currency as an ISO 4217 code such as <code>USD</code> or <code>BTC</code>. This determines what currency the price is shown in on the payment widget.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[type] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>One of <code>buy_now</code> and <code>donation</code>. Default is <code>buy_now</code>.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[repeat] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Required if &#8216;type&#8217; is <code>subscription</code>. Must be one of <code>never</code>, <code>hourly</code>, <code>daily</code>, <code>weekly</code>, <code>every_two_weeks</code>, <code>monthly</code>, <code>quarterly</code>, and <code>yearly</code></p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[style] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>One of <code>buy_now_large</code>, <code>buy_now_small</code>, <code>donation_large</code>, <code>donation_small</code>, <code>subscription_large</code>, <code>subscription_small</code>, <code>custom_large</code>, <code>custom_small</code>, and <code>none</code>. Default is <code>buy_now_large</code>. <code>none</code> is used if you plan on triggering the payment modal yourself using your own button or link.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[text] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Allows you to customize the button text on <code>custom_large</code> and <code>custom_small</code> styles. Default is <code>Pay With Bitcoin</code>.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[description] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Longer description of the item in case you want it added to the user&#8217;s transaction notes.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[custom] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>An optional custom parameter. Usually an Order, User, or Product ID corresponding to a record in your database.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[custom_secure] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Set this to true to prevent the custom parameter from being viewed or modified after the button has been created. Use this if you are storing sensitive data in the custom parameter which you don&#8217;t want to be faked or leaked to the end user. Defaults to false. Note that if this value is set to true, the custom parameter will not be included in success or failure URLs, but it WILL be included in callbacks to your server.</p>
+        <br>
+        Value: Must be Boolean
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[callback_url] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>A custom callback URL specific to this button. It will receive the same information that would otherwise be sent to your <a href='#'>Instant Payment Notification URL</a>. If you have an Instant Payment Notification URL set on your account, this will be called instead &#8212; they will not both be called.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[success_url] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>A custom success URL specific to this button. The user will be redirected to this URL after a successful payment. It will receive the same parameters that would otherwise be sent to the default success url set on the account.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[cancel_url] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>A custom cancel URL specific to this button. The user will be redirected to this URL after a canceled order. It will receive the same parameters that would otherwise be sent to the default cancel url set on the account.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[info_url] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>A custom info URL specific to this button. Displayed to the user after a successful purchase for sharing. It will receive the same parameters that would otherwise be sent to the default info url set on the account.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[auto_redirect] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Auto-redirect users to success or cancel url after payment. (Cancel url if the user pays the wrong amount.)</p>
+        <br>
+        Value: Must be Boolean
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[variable_price] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Allow users to change the price on the generated button.</p>
+        <br>
+        Value: Must be Boolean
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[choose_price] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Show some suggested prices</p>
+        <br>
+        Value: Must be Boolean
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[include_address] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Collect shipping address from customer (not for use with inline iframes).</p>
+        <br>
+        Value: Must be Boolean
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[include_email] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Collect email address from customer (not for use with inline iframes).</p>
+        <br>
+        Value: Must be Boolean
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[price1] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Suggested price 1</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[price2] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Suggested price 2</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[price3] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Suggested price 3</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[price4] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Suggested price 4</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>button[price5] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Suggested price 5</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+
+
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='orders/show.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-show'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET /api/v1/orders/:id_or_custom_field
+          </a><br>
+          <small>Show an individual merchant order.</small>
+        </h2>
+    </div>
+
+
+    <div id='description-show' class='collapse accordion-body'>
+      <p>Authenticated resource which returns order details.</p>
+
+<p>You can pass in the order <code>id</code> (a Coinbase field) or <code>custom</code> (a merchant field) to find the appropriate order.</p>
+
+<p>If an order has received multiple payments (i.e., in the case of mispayments), this call will return an array that lists these.</p>
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">
+# Request
+GET https://api.coinbase.com/v1/orders/A7C52JQT
+
+# Response
+{
+  &quot;order&quot;: {
+    &quot;id&quot;: &quot;A7C52JQT&quot;,
+    &quot;created_at&quot;: &quot;2013-03-11T22:04:37-07:00&quot;,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;total_btc&quot;: {
+      &quot;cents&quot;: 10000000,
+      &quot;currency_iso&quot;: &quot;BTC&quot;
+    },
+    &quot;total_native&quot;: {
+      &quot;cents&quot;: 10000000,
+      &quot;currency_iso&quot;: &quot;BTC&quot;
+    },
+    &quot;custom&quot;: &quot;custom123&quot;,
+    &quot;receive_address&quot;: &quot;mgrmKftH5CeuFBU3THLWuTNKaZoCGJU5jQ&quot;,
+    &quot;button&quot;: {
+      &quot;type&quot;: &quot;buy_now&quot;,
+      &quot;name&quot;: &quot;test&quot;,
+      &quot;description&quot;: &quot;&quot;,
+      &quot;id&quot;: &quot;eec6d08e9e215195a471eae432a49fc7&quot;
+    },
+    &quot;transaction&quot;: {
+      &quot;id&quot;: &quot;513eb768f12a9cf27400000b&quot;,
+      &quot;hash&quot;: &quot;4cc5eec20cd692f3cdb7fc264a0e1d78b9a7e3d7b862dec1e39cf7e37ababc14&quot;,
+      &quot;confirmations&quot;: 0
+    }
+  }
+}
+
+# Request
+GET https://api.coinbase.com/v1/orders/custom123
+
+# Response
+{
+  &quot;order&quot;: {
+    &quot;id&quot;: &quot;A7C52JQT&quot;,
+    &quot;created_at&quot;: &quot;2013-03-11T22:04:37-07:00&quot;,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;total_btc&quot;: {
+      &quot;cents&quot;: 10000000,
+      &quot;currency_iso&quot;: &quot;BTC&quot;
+    },
+    &quot;total_native&quot;: {
+      &quot;cents&quot;: 10000000,
+      &quot;currency_iso&quot;: &quot;BTC&quot;
+    },
+    &quot;custom&quot;: &quot;custom123&quot;,
+    &quot;receive_address&quot;: &quot;mgrmKftH5CeuFBU3THLWuTNKaZoCGJU5jQ&quot;,
+    &quot;button&quot;: {
+      &quot;type&quot;: &quot;buy_now&quot;,
+      &quot;name&quot;: &quot;test&quot;,
+      &quot;description&quot;: &quot;&quot;,
+      &quot;id&quot;: &quot;eec6d08e9e215195a471eae432a49fc7&quot;
+    },
+    &quot;transaction&quot;: {
+      &quot;id&quot;: &quot;513eb768f12a9cf27400000b&quot;,
+      &quot;hash&quot;: &quot;4cc5eec20cd692f3cdb7fc264a0e1d78b9a7e3d7b862dec1e39cf7e37ababc14&quot;,
+      &quot;confirmations&quot;: 0
+    }
+  }
+}
+  </pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>account_id </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Specify which account is used for fetching data. The default is your primary account.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+
+          </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='orders/refund.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-refund'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            POST /api/v1/orders/:id_or_custom_field/refund
+          </a><br>
+          <small>Refund an order or a mispayment to an order.</small>
+        </h2>
+    </div>
+
+
+    <div id='description-refund' class='collapse accordion-body'>
+      <p>Authenticated resource which refunds an order or a mispayment to an order. Returns a snapshot of the order data, updated with refund transaction details.</p>
+
+<p>This endpoint will only refund the full amount of the order or mispayment, specified as either the original BTC amount or native currency amount (such as USD). To issue partial refunds, you can use the regular <a href='transactions/send_money.html'>api/v1/transactions/send_money</a> endpoint.</p>
+
+<p>If the order has status <code>completed</code> and the refund processed successfully, the order data will contain the refund transaction details as <code>order[&#39;refund_transaction&#39;]</code>.</p>
+
+<p>If one of the order&#8217;s mispayments was refunded, the order data will contain the refund transaction as part of that mispayment&#8217;s data. E.g. <code>order[&#39;mispayments&#39;][0][&#39;refund_transaction&#39;]</code>.</p>
+
+<p>By default, refunds will be issued to the <code>refund_address</code> that is set on the order or the mispayment. This field is automatically present when the original incoming transaction was from a Coinbase user, or via the payment protocol. In these cases, we are able to provide a refund address automatically. If the refund_address is not present, you can specify an address to send the refund to with the <code>external_refund_address</code> parameters.</p>
+
+<p>If the refund does not process, <code>order[&#39;errors&#39;]</code> will be present, specifying any problems.</p>
+
+
+
+        <h3>Examples</h3>
+          <pre class="prettyprint">
+# Request
+POST https://api.coinbase.com/v1/orders/A7C52JQT/refund
+{
+  &quot;order&quot;: {
+    &quot;refund_iso_code&quot;: &quot;BTC&quot;
+  }
+}
+
+# Response
+{
+  &quot;order&quot;: {
+    &quot;id&quot;: &quot;YYZQ6RN4&quot;,
+    &quot;created_at&quot;: &quot;2014-06-17T16:03:53-07:00&quot;,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;event&quot;: null,
+    &quot;total_btc&quot;: {
+      &quot;cents&quot;: 10000000,
+      &quot;currency_iso&quot;: &quot;BTC&quot;
+    },
+    &quot;total_native&quot;: {
+      &quot;cents&quot;: 100,
+      &quot;currency_iso&quot;: &quot;USD&quot;
+    },
+    &quot;total_payout&quot;: {
+      &quot;cents&quot;: 100,
+      &quot;currency_iso&quot;: &quot;USD&quot;
+    },
+    &quot;custom&quot;: &quot;&quot;,
+    &quot;receive_address&quot;: &quot;mmUFLyAtF89mcvStdobiby3xFpdLARQhNw&quot;,
+    &quot;button&quot;: {
+      &quot;type&quot;: &quot;buy_now&quot;,
+      &quot;name&quot;: &quot;asdfasdf&quot;,
+      &quot;description&quot;: &quot;&quot;,
+      &quot;id&quot;: &quot;320421614991df1e2d526b8169644067&quot;
+    },
+    &quot;refund_address&quot;: &quot;n49yYq81iZxqyKj2ys85ErXLJp9EBPNqis&quot;,
+    &quot;transaction&quot;: {
+      &quot;id&quot;: &quot;53a0c9ee137f734abb0001db&quot;,
+      &quot;hash&quot;: &quot;5d4751d532ba6845f09c24d21a8b1153e96f2b19fcfab84591b3a3be78648998&quot;,
+      &quot;confirmations&quot;: 101
+    },
+    &quot;refund_transaction&quot;: {
+      &quot;id&quot;: &quot;53a22f33137f734abb000296&quot;,
+      &quot;hash&quot;: &quot;ce401504150a02618ca8ee93e5b948c59e30040b6101473a07a97e77c6c4be1c&quot;,
+      &quot;confirmations&quot;: 0
+    }
+  }
+}
+
+# Request
+{
+  &quot;order&quot;: {
+    &quot;refund_iso_code&quot;: &quot;BTC&quot;,
+    &quot;mispayment_id&quot;: &quot;OS7XW810&quot;
+  }
+}
+
+# Response
+{
+  &quot;order&quot;: {
+    &quot;id&quot;: &quot;YCPOHMW4&quot;,
+    &quot;created_at&quot;: &quot;2014-06-17T15:20:47-07:00&quot;,
+    &quot;status&quot;: &quot;mispaid&quot;,
+    &quot;event&quot;: null,
+    &quot;total_btc&quot;: {
+      &quot;cents&quot;:10000000,
+      &quot;currency_iso&quot;: &quot;BTC&quot;
+    },
+    &quot;total_native&quot;: {
+      &quot;cents&quot;:100,
+      &quot;currency_iso&quot;:&quot;USD&quot;
+    },
+    &quot;total_payout&quot;: {
+      &quot;cents&quot;:100,
+      &quot;currency_iso&quot;:&quot;USD&quot;
+    },
+    &quot;custom&quot;: &quot;&quot;,
+    &quot;receive_address&quot;: &quot;mr3rnQGGaDCo5SAqTEp85FwKPrbGtUvaka&quot;,
+    &quot;button&quot;: {
+      &quot;type&quot;: &quot;buy_now&quot;,
+      &quot;name&quot;: &quot;asdfasdf&quot;,
+      &quot;description&quot;: &quot;&quot;,
+      &quot;id&quot;: &quot;320421614991df1e2d526b8169644067&quot;
+    },
+    &quot;refund_address&quot;: &quot;mwS5d8434JHMTZFWtTzXpC6LcTuX6bZGrx&quot;,
+    &quot;mispaid_btc&quot;: {
+      &quot;cents&quot;: 22000000,
+      &quot;currency_iso&quot;: &quot;BTC&quot;
+    },
+    &quot;mispaid_native&quot;: {
+      &quot;cents&quot;:220,
+      &quot;currency_iso&quot;:&quot;USD&quot;
+    },
+    &quot;mispayments&quot;: [
+      {
+        &quot;id&quot;: &quot;OS7XW810&quot;,
+        &quot;created_at&quot;: &quot;2014-06-17T15:21:04-07:00&quot;,
+        &quot;total_btc&quot;: {
+          &quot;cents&quot;:22000000,
+          &quot;currency_iso&quot;: &quot;BTC&quot;
+        },
+        &quot;total_native&quot;: {
+          &quot;cents&quot;:220,
+          &quot;currency_iso&quot;: &quot;USD&quot;
+        },
+        &quot;refund_transaction&quot;: {
+          &quot;id&quot;: &quot;53a235db137f734abb0002d6&quot;,
+          &quot;hash&quot;: &quot;6fe93341e78a7fbfe0d1b6a9c6b193d91871fcbdb5d9d1978c68b740ff1984d9&quot;,
+          &quot;confirmations&quot;: 0
+        }
+      }
+    ],
+    &quot;transaction&quot;: {
+      &quot;id&quot;: &quot;53a0bf4f137f734abb000199&quot;,
+      &quot;hash&quot;: &quot;92447568bfd07d7f02fa47f9fee657592e09e82516bfe854d7952bfc695d0ca1&quot;,
+      &quot;confirmations&quot;: 303
+    },
+    &quot;refund_transaction&quot;: {
+      &quot;id&quot;: &quot;53a231d4137f734abb0002b6&quot;,
+      &quot;hash&quot;: &quot;ae4a4a729fc537bc7fbec24bdec16b7944fa64b546637eb53fca10d5a5726fbf&quot;,
+      &quot;confirmations&quot;: 0
+    }
+  }
+}
+  </pre>
+
+        <h3>Params</h3>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Param name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>refund_iso_code </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>The currency to issue the refund in. If <code>BTC</code>, the original bitcoin amount will be sent back. If <code>USD</code> (or another currency code if the order had a different native price), the amount of bitcoin sent back will be equivalent to the original USD value (or other native value) at the current exchange rate.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>mispayment_id </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>The ID of a mispayment to be refunded. If left blank, the original order transaction will be refunded, if the order status is <code>completed</code>.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>external_refund_address </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>This field is required if the order or mispayment does not already have a value for <code>refund_address</code>. Must be a valid bitcoin address. If this field is specified but the order or mispayment already has a refund_address that was automatically added by Coinbase, the already-present refund_address will take precendence over the external_refund_address specified.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>instant_buy </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>If <code>true</code>, will make an instant purchase for any amount of bitcoin attempting to be sent that is not already available in the account balance.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+
+          </tbody>
+        </table>
+    </div>
+</div>
+
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = "coinbaseapi";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js?https';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <hr>
+    <footer>  &copy; 2014 Coinbase, Inc.
+</footer>
+  </div>
+  <script type='text/javascript' src='../javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../javascripts/apipie.js'></script>
+</body>
+
+<!-- Mirrored from www.coinbase.com/api/doc/1.0/orders.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:41:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+</html>

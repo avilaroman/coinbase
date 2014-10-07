@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
+
+<!-- Mirrored from www.coinbase.com/docs/merchant_tools/callbacks by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:34:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"307b195e05","applicationID":"863399","transactionName":"IQ4KQUZbDVlTF00HXgESS1hRRgJdVwsWPEUNDghGG1cAWVoHAwBaEQ==","queueTime":47,"applicationTime":250,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-476.min.js"}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=u(e),f=c.length,s=i(a,o,r),p=0;f>p;p++)c[p].apply(s,n);return s}function a(t,e){f[t]=u(t).concat(e)}function u(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:u,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=l.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),u=window,c=u.document,f="addEventListener",s="attachEvent",p=(""+location).split("?")[0],l=e.exports={offset:i(),origin:p,features:{}};c[f]?(c[f]("DOMContentLoaded",o,!1),u[f]("load",n,!1)):(c[s]("onreadystatechange",r),u[s]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}]},{},["G9z0Bl"]);</script>
+  <title>
+      Bitcoin Callbacks And Webhooks - Bitcoin Merchant Tools - Coinbase
+  </title>
+  <link rel="shortcut icon" href="../../favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="57x57"   href="../../apple-touch-icon-iphone-114.png" />  
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../apple-touch-icon-iphone-114.png" />  
+  <link rel="apple-touch-icon-precomposed" sizes="72x72"   href="../../apple-touch-icon-ipad-144.png" />    
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../apple-touch-icon-ipad-144.png" />    
+    <meta content="https://www.coinbase.com/assets/logos/logo@2x.png" property="og:image" />
+    <meta content="Coinbase" property="og:title" />
+    <meta content="The easiest way to buy, use, and accept bitcoin." property="og:description" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="R7G5THr8xgaHFkTNkr_RUB0HvX2Nf8e4qnWi0X1kmz8" />
+  <meta http-equiv="X-Frame-Options" content="deny" />
+  
+  <script type="text/javascript">
+window.Coinbase = {"cache":{},"constants":{"ENV":"production","HTTPS":true,"MIXPANEL_TOKEN":"7c112173efca4899213c618484d8f5fe","BUGSNAG_JS_API_KEY":"c35ee1482f4958be12ff3bee470b3545","OLARK_KEY":"8678-140-10-4291","PUSHER_KEY":"057b12fc5917720115c1","USER":null,"S_SNIPPET_KEY":"6174a9","SESSION_ID":"f6344e7894b0048228ff9c8f1412f4bc"},"modules":{},"translations":{"CURRENCY_UNIT":"\u20ac","CURRENCY_DELIMITER":".","CURRENCY_SEPARATOR":",","LOCALE":"es"},"utils":{},"metrics":{}};
+</script>
+
+  <link data-turbolinks-track="true" href="../../assets/core-0de401f1c79e0cc19fc6dbcdb223cac5.css" media="all" rel="stylesheet" type="text/css" />
+  <link data-turbolinks-track="true" href="../../assets/application-5ead28d213a24807a87af4b7bea5be0a.css" media="all" rel="stylesheet" type="text/css" />
+  <script src="../../assets/jquery-82d48e54e30bce171e48ec3f05683068.js" type="text/javascript"></script>
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="8prmBYc/4tn0msPC3XP0UV0P3IwMRGSlXJrlsUwJZvM=" name="csrf-token" />
+  
+
+
+
+  <script src="../../assets/application-13c646928d8ee59b81675a1b64e272ef.js" type="text/javascript"></script>
+</head>
+
+<body class="app signed-out merchant_tools callbacks" data-controller-name="docs/merchant_tools" data-action-name="callbacks" data-view-name="Coinbase.Views.MerchantTools.Callbacks">
+  <div class="page-container">
+
+    <div class="navbar navbar-static-top">
+  <div class="navbar-inner " >
+    <div class="container">
+      <a id="main_nav_btn" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <a href="../../index.html" class="brand" onclick=""><img alt="Coinbase" src="../../assets/logos/logo-inverse_2x-ec5a19074e5034d321272344a6f84cd9.png" /></a>
+
+      <div class="mobile-bg"></div>
+
+      <div class="nav-collapse" id="application_menu">
+        <ul class="nav clearfix">
+          <li class=""><a href="../../home.html">Características</a></li>
+          <li class=""><a href="../../merchants.html">Comerciantes</a></li>
+          <li class=""><a href="../../vault.html">Caja fuerte</a></li>
+          <li class="dropdown dropdown-hover" id="resources_menu">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recursos <b class='caret'></b></a>
+            <ul class="dropdown-menu fadeIn animated-fast" role="menu" aria-labelledby="dLabel">
+              <li class=""><a href="../../about.html">Acerca de Coinbase</a></li>
+              <li class=""><a href="../../buy-bitcoin.html">Comprar bitcoins</a></li>
+              <li class=""><a href="../../security.html">Seguridad</a></li>
+              
+              <li class=""><a href="../../charts.html">Gráficos</a></li>
+              <li class=""><a href="../../apps.html">Aplicaciones</a></li>
+              <li class=""><a href="../api/overview.html">API</a></li>
+              <li class=""><a href="getting_started.html">Documentación</a></li>
+              <li class=""> <a href="https://support.coinbase.com/">Soporte</a></li>
+              <li><a href="http://blog.coinbase.com/">Blog</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="nav clearfix">
+              <li class='top-balance'>
+                <a href="../../charts.html">Precio de compra: 329,19 $</a>
+              </li>
+            <li class=" signin"><a href="../../signin.html">Iniciar sesión</a></li>
+            <li style="margin-top:-3px" class=" signup"><a href="../../signup.html" class="btn">Inscribirse</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container" id="page">
+      <div class="flash">
+</div>
+
+      <div class="row">
+  <div id="sidebar" class="span3">
+
+  <ul class="nav nav-list docs">
+
+    <li class="nav-header">HERRAMIENTAS COMERCIALES</li>
+    <li class=""><a href="getting_started.html">Empezar</a></li>
+    <li class=""><a href="examples.html">Ejemplos</a></li>
+    <li class=""><a href="pricing.html">Precios</a></li>
+    <li class=""><a href="payment_buttons.html">Botones de Pago</a></li>
+    <li class=""><a href="payment_pages.html">Páginas de Pago</a></li>
+    <li class=""><a href="payment_iframes.html">Pagos con iFrames</a></li>
+    <li class=""><a href="shopping_cart_plugins.html">Carrito de la Compra</a></li>
+    <li class=""><a href="point_of_sale.html">Punto de Venta</a></li>
+    <li class=""><a href="email_invoices.html">Facturas por correo electrónico</a></li>
+    <li class=""><a href="recurring_payments.html">Pagos Recurrentes</a></li>
+    <li class=""><a href="discounts.html">Descuentos</a></li>
+    <li class=""><a href="payouts.html">Pagos</a></li>
+    <li class="active"><a href="callbacks.html">Avisos</a></li>
+
+    <li class="nav-header">Desarrolladores</li>
+    <li class=""><a href="../api/overview.html">Empezar</a></li>
+    <li class=""><a href="../api/authentication.html">Autenticación</a></li>
+    <li class=""><a href="../api/permissions.html">Permisos</a></li>
+    <li class=""><a href="../api/multisig.html">Multifirma</a></li>
+    <li class=""><a href="../api/libraries.html">Bibliotecas Socias</a></li>
+    <li class=""><a href="../api/use-cases.html">Tutoriales</a></li>
+    <li class=""><a href="../api/oauth_tutorial.html">Tutorial OAuth2</a></li>
+    <li><a href="../../api/doc.html">Referencia API</a></li>
+    <li class=""><a href="../api/technical_faq.html">Pregunta técnicas frecuentes</a></li>
+    <li class=""><a href="../../signin.html">Mis Apps</a></li>
+
+    <li class="nav-header">Bitcoin Node</li>
+    <li class=""><a href="../../network.html">Resumen</a></li>
+    <li class=""><a href="../../network/blocks.html">Bloques</a></li>
+    <li class=""><a href="../../network/transactions.html">Transacciones</a></li>
+
+    <li class="nav-header">Services</li>
+    <li><a href="../../sms_service.html">Acceso SMS</a></li>
+  </ul>
+</div>
+
+
+  <div id="main" class="span9">
+
+    <header>
+      <h1>Callbacks <br/><small>Instant payment notifications to your website</small></h1>
+    </header>
+
+    <p>Callbacks send an automated message to your website when you receive an order, payout, or bitcoin payment.</p>
+    <p>These can be useful in various integrations, such as to mark an order as "paid" in your own database when you've received a payment.</p>
+
+
+    <h3 id='usage'>Usage</h3>
+    <p>Callbacks are always POST requests in JSON format to a callback url that you set.</p>
+    <p>There are three types of notifications we can send to your website:</p>
+    <ul>
+      <li><code>order</code> - these indicate the status of a merchant order has changed (such as to complete, mispaid, etc)</li>
+      <li><code>payout</code> - these indicate an automated merchant payout has been sent to your bank account via our <a href="payouts.html">intercambio instantáneo</a> feature</li>
+      <li><code>address</code> - these notify you when an individual bitcoin address receives a payment</li>
+    </ul>
+
+    <h3 id='setting'>Setting A Callback URL</h3>
+    <p>To receive <code>order</code> and <code>payout</code> callbacks you will need to set a callback URL on your <a href="../../signin.html">página de configuración comercial</a>.</p>
+    <div class='row'>
+      <a href="../../assets/docs/callback_url-f350550267a82e2d381159e77dfe99f3.png" class="fancybox thumbnail span6"><img alt="Callback_url" src="../../assets/docs/callback_url-f350550267a82e2d381159e77dfe99f3.png" /></a>
+    </div>
+    <br>
+    <p>You can use the "Test Now" button during integration to ensure your website is receiving and processing callbacks correctly. You can also <a href="../../signin.html">ver registros</a> of callbacks we've sent to aid in the debug process.</p>
+    <p>Individual orders can also have a <a href="../../api/doc/1.0/orders/create.html">personalizar URL de retrollamada</a> set, if you'd like to change the callback url per order.</p>
+
+    <p>To receive <code>address</code> callbacks, you can visit the <a href="../../signin.html">mi página de direcciones de bitcoin</a> and click 'Details' next to one of your addresses to set a callback url on it.</p>
+    <div class='row'>
+      <a href="../../assets/docs/callback2-081155dc6abc155d3401ae5217d824f9.png" class="fancybox thumbnail span6"><img alt="Callback2" src="../../assets/docs/callback2-081155dc6abc155d3401ae5217d824f9.png" /></a>
+    </div>
+    <p>You can also set a callback url on an address when creating it <a href="../../api/doc/1.0/addresses/index.html">a través de la API</a>.</p>
+    <p>Note that address callbacks are a lower level integration that is not compatible with our regular merchant tools.  Using the regular merchant tools is required to have access to features such as instant exchange, accounting exports, and setting prices in your local currency.</p>
+
+    <h3>Example Callbacks</h3>
+
+    <h4 id='order'>Order Callback Example</h4>
+    <p>Order callbacks update you when the status of a merchant order has changed.</p>
+    <div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;order&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;5RTQNACF&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-12-09T21:23:41-08:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;completed&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;completed&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;total_btc&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;cents&quot;</span><span class="p">:</span> <span class="mi">100000000</span><span class="p">,</span>
+      <span class="nt">&quot;currency_iso&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;total_native&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;cents&quot;</span><span class="p">:</span> <span class="mi">1253</span><span class="p">,</span>
+      <span class="nt">&quot;currency_iso&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;total_payout&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;cents&quot;</span><span class="p">:</span> <span class="mi">2345</span><span class="p">,</span>
+      <span class="nt">&quot;currency_iso&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;custom&quot;</span><span class="p">:</span> <span class="s2">&quot;order1234&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;receive_address&quot;</span><span class="p">:</span> <span class="s2">&quot;1NhwPYPgoPwr5hynRAsto5ZgEcw1LzM3My&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;button&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;buy_now&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alpaca Socks&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The ultimate in lightweight footwear&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;5d37a3b61914d6d0ad15b5135d80c19f&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;transaction&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;514f18b7a5ea3d630a00000f&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;confirmations&quot;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;refund_address&quot;</span><span class="p">:</span> <span class="s2">&quot;1HcmQZarSgNuGYz4r7ZkjYumiU4PujrNYk&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;customer&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;coinbase@example.com&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;shipping_address&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;John Smith&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;123 Main St.&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;Springfield, OR 97477&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;United States&quot;</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+    <h5>Definitions:</h5>
+
+    <dl class="dl-horizontal">
+      <dt>id</dt>
+      <dd>Order number used to uniquely identify an order on Coinbase</dd>
+
+      <dt>completed_at</dt>
+      <dd>ISO 8601 timestamp when the order completed</dd>
+
+      <dt>status</dt>
+      <dd>
+        Either <code>completed</code>, <code>mispaid</code>, <code>expired</code>.
+        <a href="#" class="reference-help" data-content="
+          &lt;strong&gt;Status Definitions&lt;/strong&gt; &lt;br/&gt;
+          &lt;code&gt;completed&lt;/code&gt;: An on-time payment was received for the exact amount requested. This status will also be used if both a successul and mis payment are received.&lt;br&gt;
+          &lt;code&gt;mispaid&lt;/code&gt;: An on-time payment was received, but it was for a different amount than requested. &lt;br&gt;
+          &lt;code&gt;expired&lt;/code&gt;: No payments were received within the 10-minute timer. If a payment is received after this point, it will be included as a mispayment.  " data-html="true" data-placement="top" data-trigger="hover" rel="popover">
+          <i class='icon-help-circled'></i>
+</a>      </dd>
+      <dt>event</dt>
+      <dd>Contains data about the specific event the callback is being generated for. <code>type</code> will be either <code>completed</code> or <code>mispayment</code>. If <code>mispayment</code>, the ID of the mispayment will be included as <code>mispayment_id</code>. <br/> This is different than the <code>status</code> parameter, which will always contain the original status of the order.  If an order receives a mispayment after moving to the <code>completed</code> status, for example, all callbacks will contain a status parameter of <code>completed</code>.  The mispayment callback, however, will contain an event parameter of <code>mispayment</code>. </dd>
+
+      <dt>total_btc</dt>
+      <dd>Total amount of the order in '<a href="http://bitcoin.stackexchange.com/a/117/540" target="_blank">satoshi </a>' (1 BTC = 100,000,000 Satoshi).  Note the use of the word 'cents' in the callback really means 'satoshi' in this context. The btc amount will be calculated at the current exchange rate at the time the order is placed (current to within 10 minutes).</dd>
+
+      <dt>total_native</dt>
+      <dd>Total amount of the order in your local currency in cents (1 unit = 100 cents).  This will be equal to the price you set when creating the button.</dd>
+
+      <dt>total_payout</dt>
+      <dd>Total amount of the payout in your local currency in cents (1 unit = 100 cents) that was scheduled to be deposited to your bank account using <a href='payouts.html'>instant payout</a>.</dd>
+
+      <dt>custom</dt>
+      <dd>The optional <code>custom</code> parameter you set on the payment button with the <code>data-custom</code> attribute or at the time you created the button.  Usually an Order, User, or Product ID corresponding to a record in your database.</dd>
+
+      <dt>receive_address</dt>
+      <dd>The bitcoin address associated with this order.  This is where the payment was sent.</dd>
+
+      <dt>button</dt>
+      <dd>The details of the button you created.  The id here matches the <code>data-code</code> parameter in your embedded HTML code.</dd>
+
+      <dt>transaction</dt>
+      <dd>The hash and number of confirmations of the underlying bitcoin transaction.  The number of confirmations is typically zero at the time of the first callback. If this was an off-blockchain transaction (i.e. directly from another Coinbase account), the hash will be null.</dd>
+
+      <dt>customer</dt>
+      <dd>Customer information collected in the order form. This can include and email address and/or a shipping address. You may choose to require this information when creating the button.</dd>
+
+      <dt>refund_address</dt>
+      <dd>Experimental parameter that is subject to change.  We only send these when a payment is made from a Coinbase account and is off-blockchain right now.</dd>
+    </dl>
+
+    <br/>
+    <strong>Merchant Discounts</strong>
+    <p>When there is a merchant discount applied to an order, the "order" attribute of the callback will post with two additional fields: <code>discount_percent</code> and <code>total_original</code>. And the field <code>total_native</code> will reflect the total amount after the discount is applied. </p>
+    <div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;order&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="err">.....</span>
+    <span class="nt">&quot;discount_percent&quot;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span>
+    <span class="nt">&quot;total_original&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;cents&quot;</span><span class="p">:</span> <span class="mi">3169</span><span class="p">,</span>
+      <span class="nt">&quot;currency_iso&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+    <p>Definitions:</p>
+
+    <dl class="dl-horizontal">
+      <dt>discount_percent</dt>
+      <dd>The discount percent that was applied to this order.</dd>
+
+      <dt>total_original</dt>
+      <dd>Total amount of the order (before discount) in your local currency in cents (1 unit = 100 cents). This will be equal to the price you set when creating the button.</dd>
+    </dl>
+
+    <br/>
+    <strong>Mispaid Orders</strong>
+    <p>When a user pays the wrong amount for an order, or makes a payment to an expired order, a "mispayment" will be added to the order,
+      and the "order" attribute of the callback will contain an array of these mispayments.</p>
+    <div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;order&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;mispayment&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;mispayment_id&quot;</span><span class="p">:</span> <span class="s2">&quot;ABC123&quot;</span>
+    <span class="p">},</span>
+    <span class="err">.....</span>
+    <span class="nt">&quot;mispayments&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;ABC123&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-12-09T21:25:36-08:00&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;total_btc&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;cents&quot;</span><span class="p">:</span> <span class="mi">3950000</span><span class="p">,</span>
+          <span class="nt">&quot;currency_iso&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;total_native&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;cents&quot;</span><span class="p">:</span> <span class="mi">3169</span><span class="p">,</span>
+          <span class="nt">&quot;currency_iso&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+    <p>Definitions</p>
+    <dl class="dl-horizontal mispayments">
+      <dt>event</dt>
+      <dd>The event that the callback is being fired for. <code>type</code> will be "mispayment" and <code>mispayment_id</code> will be the ID of the specific mispayment that generated this callback.
+        A mispayment with that ID will be present in the <code>mispayments</code> array.</dd>
+
+      <dt>mispayments</dt>
+      <dd>Array of all mispayments this order has received.</dd>
+
+      <dt>mispayments[i][created_at]</dt>
+      <dd>ISO 8601 timestamp when the mispayment was received</dd>
+
+      <dt>mispayments[i][id]</dt>
+      <dd>ID used to uniquely identify a mispayment on Coinbase</dd>
+
+      <dt>mispayments[i][total_btc]</dt>
+      <dd>Total amount of the mispayment in '<a href="http://bitcoin.stackexchange.com/a/117/540" target="_blank">satoshi </a>' (1 BTC = 100,000,000 Satoshi).  Note the use of the word 'cents' in the callback really means 'satoshi' in this context.</dd>
+
+      <dt>mispayments[i][total_native]</dt>
+      <dd>Total amount of the mispayment in your local currency in cents (1 unit = 100 cents).</dd>
+    </dl>
+
+    <br>
+    <h4 id='payout'>Payout Callback Example</h4>
+    <p>Payout callbacks update you when a payout has been made to your primary payout method.</p>
+    <p>A payout is represented internally in Coinbase as a sale of bitcoin, so it shares many of the same fields as the <a href="../../api/doc/1.0/transfers/index.html">transferencias de llamada API</a>. Instead of a single <code>transaction_id</code> moving bitcoin as part of the sell, there is an array of <code>order_codes</code> representing the merchant orders which make up the payout.</p>
+    <div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;payout&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;532bdc501e14ffec57000248&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Sell&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-03-20T23:29:36-07:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;payout_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-03-25T23:29:36-07:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;fees&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;coinbase&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;cents&quot;</span><span class="p">:</span> <span class="mi">57</span><span class="p">,</span>
+        <span class="nt">&quot;currency_iso&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;bank&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;cents&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+        <span class="nt">&quot;currency_iso&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;transaction_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;Pending&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;btc&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;subtotal&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="s2">&quot;56.74&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="s2">&quot;56.02&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;currency&quot;</span><span class="p">:</span> <span class="s2">&quot;USD&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Sold 0.00 BTC for for $56.02.\n\nPayment will be sent to Your Bank ********1234 by Tuesday Mar 25, 2014.&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;payment_method&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;52cef45d9b6faee5170000b3&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;BankAccount&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;customer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;obfuscated_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Your Bank ********1234&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;order_codes&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;BXKZCXPU&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;R7FABJ6T&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;NB6SG859&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;mispayment_codes&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;THTM7XLBS&quot;</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+    <p>Definitions:</p>
+
+    <dl class="dl-horizontal">
+      <dt>id</dt>
+      <dd>Used to identity the payout on Coinbase.</dd>
+
+      <dt>type</dt>
+      <dd>This will always be "Sell" for a merchant payout.</dd>
+
+      <dt>created_at</dt>
+      <dd>ISO 8601 timestamp of when the payout was created.</dd>
+
+      <dt>payout_date</dt>
+      <dd>ISO 8601 timestamp - the payout will arrive on or before this time.</dd>
+
+      <dt>fees</dt>
+      <dd>Any fees the merchant paid as part of the payout.</dd>
+
+      <dt>transaction_id</dt>
+      <dd>The associated bitcoin transaction ID if bitcoin was moved as part of the sell. Esto resultará nulo para un pago comercial debido a que ya ha llegado la cantidad de bitcoin a lo largo del día como parte de solicitudes comerciales. Estas están representadas por los códigos_de_solicitud.</dd>
+
+      <dt>status</dt>
+      <dd>The status of the payout.  It will move from Pending to Complete once the payout has arrived.</dd>
+
+      <dt>btc</dt>
+      <dd>The amount of BTC sold. Esto resultará nulo para un pago comercial debido a que ya ha llegado la cantidad de bitcoin a lo largo del día como parte de solicitudes comerciales. Estas están representadas por los códigos_de_solicitud.</dd>
+
+      <dt>subtotal</dt>
+      <dd>The subtotal amount of the payout.</dd>
+
+      <dt>total</dt>
+      <dd>The total amount of the payout (subtotal minus fees).</dd>
+
+      <dt>description</dt>
+      <dd>Plain text description of the payout.</dd>
+
+      <dt>payment_method</dt>
+      <dd>Details of the payout method used.</dd>
+
+      <dt>order_codes</dt>
+      <dd>These match the order ids received throughout the day from order callbacks.</dd>
+
+      <dt>mispayment_codes</dt>
+      <dd>These match the mispayment ids received throughout the day from wrong amount sent to orders, <em>if</em> you have <a href="../../signin.html">intercambio al instante de solicitudes pagadas de forma incorrecta</a> enabled.</dd>
+    </dl>
+
+    <br>
+    <h4 id='address'>Address Callback Example</h4>
+    <p>Address callbacks update you when a bitcoin transaction arrives to a bitcoin address.</p>
+    <div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;1AmB4bxKGvozGcZnSSVJoM6Q56EBhzMiQ5&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">1.23456</span><span class="p">,</span>
+  <span class="nt">&quot;transaction&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;7b95769dce68b9aa84e4aeda8d448e6cc17695a63cc2d361318eb0f6efdf8f82&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+    <p>Definitions:</p>
+
+    <dl class="dl-horizontal">
+      <dt>address</dt>
+      <dd>The bitcoin address that received the transaction.</dd>
+
+      <dt>amount</dt>
+      <dd>BTC amount</dd>
+
+      <dt>transaction['hash']</dt>
+      <dd>The hash of the bitcoin transaction that just arrived to this address. If this was an off-blockchain transaction (i.e. directly from antoher Coinbase account), the hash will be null.</dd>
+    </dl>
+
+    <br>
+    <h3 id='retry'>Callback Retry Schedule</h3>
+    <p>When posting callbacks, Coinbase expects to receive a <code>200</code> response code from your website.</p>
+    <p>If the response code is not <code>200</code>, we will retry the callback at exponentially increasing times until your website successfully acknowledges the callback.</p>
+    <p>This ensures that if your site experiences downtime or there is a problem with your integration, payment updates will not be lost.</p>
+    <p>Retries happen on an exponentially increasing schedule (4 ^ n seconds for n = 0 through 10). This corresponds to roughly:</p>
+    <ul>
+      <li>about 1 second for the first callback</li>
+      <li>4 seconds</li>
+      <li>16 seconds</li>
+      <li>1 minute</li>
+      <li>4 minutes</li>
+      <li>17 minutes</li>
+      <li>about 1 hour</li>
+      <li>about 5 hours</li>
+      <li>about 18 hours</li>
+      <li>about 3 days</li>
+      <li>about 12 days</li>
+    </ul>
+    <p>Most of the time your website will respond on the very first callback so subsequent callbacks will never need to be run.</p>
+
+    <br>
+    <h3 id='security'>Securing Callbacks</h3>
+    <p>For order callbacks, you will most likely want to obfuscate your callback URL to prevent people from guessing it and passing bad data to your site.  An easy way to do this is the include a secret parameter in your callback URL.  For example if you set your callback URL to <code>https://www.example.com/callback?secret=834u9hteruhgrghe0ugldrg8u4f487</code> then you can check to make sure that the <code>secret</code> param equals <code>834u9hteruhgrghe0ugldrg8u4f487</code> before processing the callback.</p>
+    <p>Your callback url should also use the <code>https</code> protocol for greater security.  This ensures that url parameters (like the secret) cannot be seen as they go over the wire.</p>
+    <p>We may add a signing protocol in the future for additional security, but for now the above steps should be secure if you take care to keep your secret parameter safe.</p>
+
+    <br>
+    <h3 id='confirmations'>Confirmations</h3>
+    <p>Bitcoin transactions arrive usually within a few seconds, but can take anywhere from 10 minutes to 1 hour to become 100% confirmed in the blockchain (bitcoin's public ledger system).  While this may seem like a challenge, Coinbase has several measures in place to eliminate the effect on merchants.</p>
+    <p>When Coinbase sends an order callback with a status of <code>completed</code>, and you have instant-exchange enabled, it is safe to assume at this point that the payout is guaranteed by Coinbase.  <strong>Even if the associated payment transaction does not confirm, Coinbase will always payout an order after sending a <code>completed</code> callback.</strong></p>
+    <p>Typically, Coinbase sends the callback within 1-2 seconds of the bitcoin transaction arriving. If we feel the transaction is at a higher risk for being double spent, we may delay sending the callback until we can be sure the transaction will be confirmed.</p>
+
+    <br>
+    <legend>What's next?</legend>
+<ul>
+      <li><a href="../../signup.html">Inicia sesión hoy</a> - You'll be accepting bitcoin in just a few minutes.</li>
+</ul>
+<br>
+
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  <footer>
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span2">
+        <a href="../../index.html" class="brand"><img alt="Coinbase" src="../../assets/logos/logo_2x-467d659a6b4b1a77868a097de7f88c86.png" /></a>
+        <small><span>&copy; 2014 Coinbase</span></small>
+      </div>
+      <div class="span2">
+        <h4>Producto</h4>
+        <nav>
+          <a href="../../buy-bitcoin.html">Cómo comprar bitcoins</a>
+          <a href="../../merchants.html">Pasarela de pago</a>
+          <a href="../api/overview.html">Plataforma del desarrollador</a>
+          <a href="../../security.html">Seguridad</a>
+        </nav>
+      </div>
+      <div class="span2">
+        <h4>Acerca de</h4>
+        <nav>
+          <a href="../../about.html">Acerca de</a>
+          <a href="../../careers.html">Carreras</a>
+          <a href="../../press.html">Prensa</a>
+          <a href="../../legal/user_agreement.html">Aviso legal y privacidad</a>
+        </nav>
+      </div>
+      <div class="span2">
+        <h4>Recursos</h4>
+        <nav>
+          <a href="../api/overview.html">API</a>
+          <a href="getting_started.html">Documentación</a>
+          <a href="http://status.coinbase.com/">Estado</a>
+          <a href="https://support.coinbase.com/">Soporte</a>
+          
+          
+        </nav>
+      </div>
+      <div class="span2">
+        <h4>Social</h4>
+        <nav>
+          <a href="http://blog.coinbase.com/">Nuestro blog</a>
+          <a href="https://twitter.com/coinbase">Twitter</a>
+          <a href="https://www.facebook.com/Coinbase"></span>Facebook</a>
+        </nav>
+      </div>
+      <div class="span2">
+        <div class="footer-locale-select">
+  <h4>Idioma <sup>(BETA)</sup></h4>
+  <select id="locale_select" name="locale"><option value="de">Deutsch</option>
+<option value="en">English</option>
+<option value="es" selected="selected">Español</option>
+<option value="fr">Français</option>
+<option value="it">Italiano</option>
+<option value="nl">Nederlands</option></select>
+  <a href="https://translate.coinbase.com/" title="¡Ayuda a traducir Coinbase!">
+    <i class="icon-language"></i>
+</a></div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- begin olark code -->
+<script type='text/javascript'>
+setTimeout(function (){
+  var olarkId = "8678-140-10-4291";
+  var id = window.setTimeout(function(){}, 0);
+  while (id--) {
+    window.clearTimeout(id);
+  }
+  for (var key in Object.keys(window)) {
+    if (key.indexOf('hbl') == 0 || key.indexOf('habla') == 0) {
+      clearTimeout(window[key]);
+      delete window[key];
+    }
+  }
+  delete window.__get_olark_key;
+  delete window.olark;
+
+  function initOlark(){
+    c = {loader: "static.olark.com/jsclient/loader0.js",name:"olark",methods:["configure","extend","declare","identify"]};
+    var f=window,d=document,l=f.location.protocol=="https:"?"https:":"http:",z=c.name,r="load";var nt=function(){f[z]=function(){(a.s=a.s||[]).push(arguments)};var a=f[z]._={},q=c.methods.length;while(q--){(function(n){f[z][n]=function(){f[z]("call",n,arguments)}})(c.methods[q])}a.l=c.loader;a.i=nt;a.p={0:+new Date};a.P=function(u){a.p[u]=new Date-a.p[0]};function s(){a.P(r);f[z](r)}f.addEventListener?f.addEventListener(r,s,false):f.attachEvent("on"+r,s);var ld=function(){function p(hd){hd="head";return["<",hd,"></",hd,"><",i,' onl' + 'oad="var d=',g,";d.getElementsByTagName('head')[0].",j,"(d.",h,"('script')).",k,"='",l,"//",a.l,"'",'"',"></",i,">"].join("")}var i="body",m=d[i];if(!m){return setTimeout(ld,100)}a.P(1);var j="appendChild",h="createElement",k="src",n=d[h]("div"),v=n[j](d[h](z)),b=d[h]("iframe"),g="document",e="domain",o;n.style.display="none";m.insertBefore(n,m.firstChild).id=z;b.frameBorder="0";b.id=z+"-loader";if(/MSIE[ ]+6/.test(navigator.userAgent)){b.src="javascript:false"}b.allowTransparency="true";v[j](b);try{b.contentWindow[g].open()}catch(w){c[e]=d[e];o="javascript:var d="+g+".open();d.domain='"+d.domain+"';";b[k]=o+"void(0);"}try{var t=b.contentWindow[g];t.write(p());t.close()}catch(x){b[k]=o+'d.write("'+p().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};ld()};nt();
+  }
+  function identifyOlark() {
+    olark.identify(olarkId);
+  }
+
+  if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+    // Loading Olark the normal way break FF so we're doing something different here
+    window.olark || initOlark();
+    identifyOlark()
+
+    $(document).on("page:load page:restore", function(){
+      initOlark();
+      setTimeout(function() {
+        identifyOlark()
+      }, 100);
+    });
+  } else {
+    initOlark();
+    identifyOlark()
+  }
+}, 0);
+</script>
+<!-- end olark code -->
+
+
+  
+
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '../../../www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-32804181-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script type="text/javascript">
+  Coinbase.exchangeRatesGlobal = {"usd_to_btc":"0.003058","btc_to_usd":"327.05823999999996","usd_to_bit":"3058.0","bit_to_usd":"0.00032705823999999996"};
+
+
+</script>
+
+
+</body>
+
+<!-- Mirrored from www.coinbase.com/docs/merchant_tools/callbacks by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:34:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+</html>

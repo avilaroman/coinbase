@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www.coinbase.com/api/doc/1.0/transactions/send_money.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:41:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"307b195e05","applicationID":"863399","transactionName":"IQ4KQUZbDVlTF00CQQsRDVAbVRFcRgwHEB4LDwBQTA==","queueTime":37,"applicationTime":38,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-476.min.js"}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=u(e),f=c.length,s=i(a,o,r),p=0;f>p;p++)c[p].apply(s,n);return s}function a(t,e){f[t]=u(t).concat(e)}function u(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:u,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=l.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),u=window,c=u.document,f="addEventListener",s="attachEvent",p=(""+location).split("?")[0],l=e.exports={offset:i(),origin:p,features:{}};c[f]?(c[f]("DOMContentLoaded",o,!1),u[f]("load",n,!1)):(c[s]("onreadystatechange",r),u[s]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}]},{},["G9z0Bl"]);</script>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../../stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../../stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../../stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../../stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <ul class='breadcrumb'>
+  <li>
+    <a href='../../1.0.html'>API Home 1.0</a>
+    <span class='divider'>/</span>
+  </li>
+  <li>
+    <a href='../transactions.html'>
+      Transactions
+      
+    </a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>send_money</li>
+</ul>
+
+  <div class='page-header'>
+    <h1>
+      POST /api/v1/transactions/send_money<br>
+      <small>Send bitcoins to an email address or bitcoin address.</small>
+    </h1>
+  </div>
+
+<div>
+
+  <p>Authenticated resource which lets you send money to an email or bitcoin address.</p>
+
+<p>If you pass an <code>amount</code> param it will be interpreted as a bitcoin amount. Alternatively you can pass an <code>amount_string</code> and <code>amount_currency_iso</code> such as &#8216;USD&#8217; or &#8216;EUR&#8217; and the equivalent amount of bitcoin will be sent at current exchange rates.</p>
+
+<p>The <code>instant_buy</code> parameter can be used to purchase the necessary funds first, then send them. This will only work if Instant Buy is enabled on your account and the amount being purchased is less than or equal to the remainder of your daily limit. If the instant buy is successful, the response will come back with an additional <code>transfer</code> field representing the purchase.</p>
+
+    <h2>Examples</h2>
+      <pre class="prettyprint">
+# Request
+POST https://api.coinbase.com/v1/transactions/send_money
+{
+  &quot;transaction&quot;: {
+    &quot;to&quot;: &quot;user1@example.com&quot;,
+    &quot;amount&quot;: &quot;1.234&quot;,
+    &quot;notes&quot;: &quot;Sample transaction for you&quot;
+  }
+}
+# Response
+{
+  &quot;success&quot;: true,
+  &quot;transaction&quot;: {
+    &quot;id&quot;: &quot;501a1791f8182b2071000087&quot;,
+    &quot;created_at&quot;: &quot;2012-08-01T23:00:49-07:00&quot;,
+    &quot;hsh&quot;: &quot;9d6a7d1112c3db9de5315b421a5153d71413f5f752aff75bf504b77df4e646a3&quot;,
+    &quot;notes&quot;: &quot;Sample transaction for you!&quot;,
+    &quot;idem&quot;: &quot;&quot;,
+    &quot;amount&quot;: {
+      &quot;amount&quot;: &quot;-1.23400000&quot;,
+      &quot;currency&quot;: &quot;BTC&quot;
+    },
+    &quot;request&quot;: false,
+    &quot;status&quot;: &quot;pending&quot;,
+    &quot;sender&quot;: {
+      &quot;id&quot;: &quot;5011f33df8182b142400000e&quot;,
+      &quot;name&quot;: &quot;User Two&quot;,
+      &quot;email&quot;: &quot;user2@example.com&quot;
+    },
+    &quot;recipient&quot;: {
+      &quot;id&quot;: &quot;5011f33df8182b142400000a&quot;,
+      &quot;name&quot;: &quot;User One&quot;,
+      &quot;email&quot;: &quot;user1@example.com&quot;
+    },
+    &quot;recipient_address&quot;: &quot;37muSN5ZrukVTvyVh3mT5Zc5ew9L9CBare&quot;
+  }
+}</pre>
+      <pre class="prettyprint">
+# Request
+{
+  &quot;transaction&quot;: {
+    &quot;to&quot;: &quot;user1@example.com&quot;,
+    &quot;amount&quot;: &quot;10.0&quot;,
+    &quot;notes&quot;: &quot;Sample transaction for you&quot;,
+    &quot;instant_buy&quot;: true
+  }
+}
+# Response
+{
+  &quot;success&quot;: true,
+  &quot;transaction&quot;: {
+    &quot;id&quot;: &quot;52f41fc2137f7308720000b5&quot;,
+    &quot;created_at&quot;: &quot;2014-02-06T15:50:26-08:00&quot;,
+    &quot;hsh&quot;: null,
+    &quot;amount&quot;: {
+      &quot;amount&quot;: &quot;-10.00000000&quot;,
+      &quot;currency&quot;: &quot;BTC&quot;
+    },
+    &quot;request&quot;: false,
+    &quot;status&quot;: &quot;pending&quot;,
+    &quot;sender&quot;: {
+      &quot;id&quot;: &quot;52f1b613137f736761000001&quot;,
+      &quot;email&quot;: &quot;user1@example.com&quot;,
+      &quot;name&quot;: &quot;User One&quot;
+    },
+    &quot;recipient&quot;: {
+      &quot;id&quot;: &quot;52f1b61a137f7367610000a6&quot;,
+      &quot;email&quot;: &quot;user2@example.com&quot;,
+      &quot;name&quot;: &quot;User Two&quot;
+    },
+    &quot;recipient_address&quot;: &quot;user2@example.com&quot;,
+    &quot;notes&quot;: &quot;For testing&quot;,
+    &quot;idem&quot;: &quot;&quot;
+  },
+  &quot;transfer&quot;: {
+    &quot;id&quot;: &quot;52f41fbd137f73087200007a&quot;,
+    &quot;created_at&quot;: &quot;2014-02-06T15:50:21-08:00&quot;,
+    &quot;fees&quot;: {
+      &quot;coinbase&quot;: {
+        &quot;cents&quot;: 62,
+        &quot;currency_iso&quot;: &quot;USD&quot;
+      },
+      &quot;bank&quot;: {
+        &quot;cents&quot;: 15,
+        &quot;currency_iso&quot;: &quot;USD&quot;
+      }
+    },
+    &quot;payout_date&quot;: &quot;2014-02-06T15:50:20-08:00&quot;,
+    &quot;transaction_id&quot;: &quot;52f41fbe137f73087200007d&quot;,
+    &quot;_type&quot;: &quot;AchDebit&quot;,
+    &quot;code&quot;: &quot;52f41fbd137f73087200007a&quot;,
+    &quot;type&quot;: &quot;Buy&quot;,
+    &quot;status&quot;: &quot;Completed&quot;,
+    &quot;btc&quot;: {
+      &quot;amount&quot;: &quot;6.09000000&quot;,
+      &quot;currency&quot;: &quot;BTC&quot;
+    },
+    &quot;subtotal&quot;: {
+      &quot;amount&quot;: &quot;61.51&quot;,
+      &quot;currency&quot;: &quot;USD&quot;
+    },
+    &quot;total&quot;: {
+      &quot;amount&quot;: &quot;62.28&quot;,
+      &quot;currency&quot;: &quot;USD&quot;
+    },
+    &quot;description&quot;: &quot;Bought 6.09 BTC for $62.28.  \n\nPaid for with Test Bank *****1111. Your bitcoin will arrive by the end of day on Thursday Feb  6, 2014.&quot;
+  }
+}
+</pre>
+      <pre class="prettyprint">
+# Request
+POST https://api.coinbase.com/v1/transactions/send_money
+{
+  &quot;transaction&quot;: {
+    &quot;to&quot;: &quot;not-an-email-address-or-bitcoin-address&quot;,
+    &quot;amount&quot;: &quot;1.234&quot;,
+    &quot;notes&quot;: &quot;Sample transaction for you&quot;
+  }
+}
+# Response
+{
+  &quot;success&quot;: false,
+  &quot;errors&quot;: [
+    &quot;Please enter a valid email or bitcoin address&quot;
+  ],
+  &quot;transaction&quot;: {...}
+}</pre>
+      <pre class="prettyprint">
+# Request
+POST https://api.coinbase.com/v1/transactions/send_money
+{
+  &quot;transaction&quot;: {
+    &quot;to&quot;: &quot;user@example.com&quot;,
+    &quot;amount&quot;: &quot;-1&quot;,
+    &quot;notes&quot;: &quot;Sample transaction for you&quot;
+  }
+}
+# Response
+{
+  &quot;success&quot;: false,
+  &quot;errors&quot;: [
+    &quot;You must enter a valid amount&quot;
+  ],
+  &quot;transaction&quot;: {...}
+}
+  </pre>
+      <pre class="prettyprint">
+# Request
+POST https://api.coinbase.com/v1/transactions/send_money
+{
+  &quot;transaction&quot;: {
+    &quot;to&quot;: &quot;user2@example.com&quot;,
+    &quot;amount&quot;: &quot;0.1&quot;,
+    &quot;notes&quot;: &quot;Look ma, spending from a multisig account.&quot;
+  }
+}
+# Response
+{
+  &quot;success&quot;: true,
+  &quot;transaction&quot;: {
+    &quot;id&quot;: &quot;53f3d9e0cbf034354a000132&quot;,
+    &quot;created_at&quot;: &quot;2014-08-19T16:12:32-07:00&quot;,
+    &quot;hsh&quot;: &quot;bb9199a339e79556be6f9935e12bb189eeaa74bdc7d9bc18191f5a504c840230&quot;,
+    &quot;amount&quot;: {
+      &quot;amount&quot;: &quot;-0.10000000&quot;,
+      &quot;currency&quot;: &quot;BTC&quot;
+    },
+    &quot;request&quot;: false,
+    &quot;status&quot;: &quot;pending&quot;,
+    &quot;sender&quot;: {
+      &quot;id&quot;: &quot;52f1b613137f736761000001&quot;,
+      &quot;email&quot;: &quot;user1@example.com&quot;,
+      &quot;name&quot;: &quot;User One&quot;
+    },
+    &quot;recipient&quot;: {
+      &quot;id&quot;: &quot;52f1b61a137f7367610000a6&quot;,
+      &quot;email&quot;: &quot;user2@example.com&quot;,
+      &quot;name&quot;: &quot;User Two&quot;
+    },
+    &quot;recipient_address&quot;: &quot;user2@example.com&quot;,
+    &quot;notes&quot;: &quot;Look ma, spending from a multisig account.&quot;,
+    &quot;idem&quot;: &quot;&quot;,
+    &quot;type&quot;: &quot;multisig&quot;,
+    &quot;signed&quot;: false, # A pending transaction, waiting to be signed.
+    &quot;signatures_required&quot;: 2, # Requires 2 more signatures (2 of 3) to be considered signed.
+    &quot;signatures_present&quot;: 0,
+    &quot;signatures_needed&quot;: 2
+  }
+}
+  </pre>
+
+
+    <h2>Errors</h2>
+      401
+      Unauthorized
+      <br>
+
+    <h2>Params</h2>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Param name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>account_id </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Specify which account is debited. The default is your primary account.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>transaction </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>Transaction object containing the params</p>
+        <br>
+        Value: Must be a Hash
+    </td>
+  </tr>
+
+    <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>transaction[to] </strong><br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      <p>An email address or a bitcoin address</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>transaction[amount] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>A string amount that will be converted to BTC, such as &#8216;1&#8217; or &#8216;1.234567&#8217;. Also must be &gt;= &#8216;0.01&#8217; or it will shown an error. If you want to use a different currency you can set <code>amount_string</code> and <code>amount_currency_iso</code> instead. This will automatically convert the amount to BTC and that converted amount will show in the transaction.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>transaction[amount_string] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>A string amount that can be in any currency. If you use this with <code>amount_currency_iso</code> you should leave <code>amount</code> blank.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>transaction[amount_currency_iso] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>A currency symbol such as <code>USD</code>, <code>EUR</code>, or &#8216;BTC&#8217;</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>transaction[notes] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Optional notes field. Included in the email that the recipient receives.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>transaction[user_fee] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Optional transaction fee if you would like to pay it. Coinbase pays transaction fees on payments greater than or equal to 0.01 BTC. But for smaller amounts you may want to add your own amount. Fees can be added as a string, such as &#8216;0.0005&#8217;.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>transaction[referrer_id] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Optional id of the user to get a referral credit in the case that this transaction makes the user eligible. The referring user is eligible for a credit if the address in the &#8216;to&#8217; field is an email address for which there is currently no registered account and the recipient proceeds to buy or sell at least 1 BTC.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>transaction[idem] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>An optional token to ensure idempotence. If a previous transaction with the same <code>idem</code> parameter already exists for this sender, that previous transaction will be returned and a new one will not be created. Max length 100 characters.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>transaction[instant_buy] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Optional parameter signaling that if your account does not currently have enough funds to cover the amount, first purchase the difference with an instant buy, then send the bitcoin.<br /><br /> For example, if you want to send 1.25 BTC, but your account only has 0.5 BTC, typically you would get an error. If you pass <code>instant_buy</code> as true and also have Instant Buy enabled on your account, then first an instant purchase will be made for 0.75 BTC, and once purchased, the full 1.25 BTC will be sent.<br /><br /> If the instant buy is successful, the response will come back with an additional <code>transfer</code> field representing the purchase</p>
+        <br>
+        Value: Must be Boolean
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>transaction[order_id] </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Use this field to associate this transaction with an order as a refund. This transaction&#8217;s ID will appear in the order&#8217;s manual_refund_tx_ids field.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+
+
+      </tbody>
+    </table>
+</div>
+
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = "coinbaseapi";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js?https';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <hr>
+    <footer>  &copy; 2014 Coinbase, Inc.
+</footer>
+  </div>
+  <script type='text/javascript' src='../../javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../../javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../../javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../../javascripts/apipie.js'></script>
+</body>
+
+<!-- Mirrored from www.coinbase.com/api/doc/1.0/transactions/send_money.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:41:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www.coinbase.com/api/doc/1.0/transactions/index.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:41:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-1.newrelic.com","errorBeacon":"bam.nr-data.net","licenseKey":"307b195e05","applicationID":"863399","transactionName":"IQ4KQUZbDVlTF00CQQsRDVAbVRFcRgwHEB4LDwBQTA==","queueTime":34,"applicationTime":30,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-476.min.js"}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=u(e),f=c.length,s=i(a,o,r),p=0;f>p;p++)c[p].apply(s,n);return s}function a(t,e){f[t]=u(t).concat(e)}function u(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:u,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){l.proto="https"===p.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=l.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),u=window,c=u.document,f="addEventListener",s="attachEvent",p=(""+location).split("?")[0],l=e.exports={offset:i(),origin:p,features:{}};c[f]?(c[f]("DOMContentLoaded",o,!1),u[f]("load",n,!1)):(c[s]("onreadystatechange",r),u[s]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}]},{},["G9z0Bl"]);</script>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link type='text/css' rel='stylesheet' href='../../stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../../stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../../stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../../stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <ul class='breadcrumb'>
+  <li>
+    <a href='../../1.0.html'>API Home 1.0</a>
+    <span class='divider'>/</span>
+  </li>
+  <li>
+    <a href='../transactions.html'>
+      Transactions
+      
+    </a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>index</li>
+</ul>
+
+  <div class='page-header'>
+    <h1>
+      GET /api/v1/transactions<br>
+      <small>List a user's recent transactions.</small>
+    </h1>
+  </div>
+
+<div>
+
+  <p>Authenticated resource which returns the user&#8217;s most recent transactions. Sorted by <code>created_at</code> in descending order.</p>
+
+<p>The <code>current_user</code> and <code>balance</code> are added as well so this one call can conveniently be used populate an initial screen on a client app.</p>
+
+<p>A transaction can contain two fields called <code>sender</code> and <code>recipient</code> which represent users on Coinbase. These are not always included if the sender or recipient is not a Coinbase user. The <code>sender</code> or <code>recipient</code> fields contain an <code>id</code>, <code>name</code>, and <code>email</code>.</p>
+
+<p>If the transaction was sent to an external bitcoin address it may contain a <code>recipient_address</code> field intead of <code>recipient</code>.</p>
+
+<p>Transactions also have a <code>status</code> which is either <code>pending</code> or <code>complete</code>.</p>
+
+<p>Finally, the <code>request</code> boolean states whether the transaction is a request for payment (as opposed to a transaction which has already been sent - this mirrors the &#8216;Send Money&#8217; and &#8216;Request Money&#8217; buttons in the web interface). If <code>request</code> is true then <code>status</code> will always be <code>pending</code> (a pending request gets converted to a regular payment once it is paid). Keep in mind that <code>sender</code> in the context of a request means the user who sends the <em>money</em>, not the <em>request</em> (in other words it has the same meaning as if it was a completed transaction).</p>
+
+<p>Here is some sample logic you could use to show a one line summary of the transaction:</p>
+
+<pre><code>if t[&#39;sender&#39;][&#39;id&#39;] == current_user.id
+  if t[&#39;request&#39;]
+    &quot;#{t[&#39;recipient&#39;][&#39;name&#39;]} requested money from you&quot;
+  else
+    &quot;You sent bitcoin to #{t[&#39;recipient&#39;][&#39;name&#39;] rescue &#39;an external account&#39;}&quot;
+  end
+else
+  if t[&#39;request&#39;]
+    &quot;You requested money from #{t[&#39;sender&#39;][&#39;name&#39;]}&quot;
+  else
+    &quot;You received bitcoin from #{t[&#39;sender&#39;][&#39;name&#39;] rescue &#39;an external account&#39;}&quot;
+  end
+end</code></pre>
+
+    <h2>Examples</h2>
+      <pre class="prettyprint">
+# Request
+GET https://api.coinbase.com/v1/transactions
+
+# Response
+{
+  &quot;current_user&quot;: {
+    &quot;id&quot;: &quot;5011f33df8182b142400000e&quot;,
+    &quot;email&quot;: &quot;user2@example.com&quot;,
+    &quot;name&quot;: &quot;User Two&quot;
+  },
+  &quot;balance&quot;: {
+    &quot;amount&quot;: &quot;50.00000000&quot;,
+    &quot;currency&quot;: &quot;BTC&quot;
+  },
+  &quot;native_balance&quot;: {
+    &quot;amount&quot;: &quot;500.00&quot;,
+    &quot;currency&quot;: &quot;USD&quot;
+  },
+  &quot;total_count&quot;: 2,
+  &quot;num_pages&quot;: 1,
+  &quot;current_page&quot;: 1,
+  &quot;transactions&quot;: [
+    {
+      &quot;transaction&quot;: {
+        &quot;id&quot;: &quot;5018f833f8182b129c00002f&quot;,
+        &quot;created_at&quot;: &quot;2012-08-01T02:34:43-07:00&quot;,
+        &quot;amount&quot;: {
+          &quot;amount&quot;: &quot;-1.10000000&quot;,
+          &quot;currency&quot;: &quot;BTC&quot;
+        },
+        &quot;request&quot;: true,
+        &quot;status&quot;: &quot;pending&quot;,
+        &quot;sender&quot;: {
+          &quot;id&quot;: &quot;5011f33df8182b142400000e&quot;,
+          &quot;name&quot;: &quot;User Two&quot;,
+          &quot;email&quot;: &quot;user2@example.com&quot;
+        },
+        &quot;recipient&quot;: {
+          &quot;id&quot;: &quot;5011f33df8182b142400000a&quot;,
+          &quot;name&quot;: &quot;User One&quot;,
+          &quot;email&quot;: &quot;user1@example.com&quot;
+        }
+      }
+    },
+    {
+      &quot;transaction&quot;: {
+        &quot;id&quot;: &quot;5018f833f8182b129c00002e&quot;,
+        &quot;created_at&quot;: &quot;2012-08-01T02:36:43-07:00&quot;,
+        &quot;hsh&quot;: &quot;9d6a7d1112c3db9de5315b421a5153d71413f5f752aff75bf504b77df4e646a3&quot;,
+        &quot;amount&quot;: {
+          &quot;amount&quot;: &quot;-1.00000000&quot;,
+          &quot;currency&quot;: &quot;BTC&quot;
+        },
+        &quot;request&quot;: false,
+        &quot;status&quot;: &quot;complete&quot;,
+        &quot;sender&quot;: {
+          &quot;id&quot;: &quot;5011f33df8182b142400000e&quot;,
+          &quot;name&quot;: &quot;User Two&quot;,
+          &quot;email&quot;: &quot;user2@example.com&quot;
+        },
+        &quot;recipient_address&quot;: &quot;37muSN5ZrukVTvyVh3mT5Zc5ew9L9CBare&quot;
+      }
+    }
+ ]
+}
+  </pre>
+
+
+
+    <h2>Params</h2>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Param name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>account_id </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Specify which account is used for fetching data. The default is your primary account.</p>
+        <br>
+        Value: Must be String
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>page </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Used to paginate through results. The default value is 1.</p>
+        <br>
+        Value: Must be Integer
+    </td>
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>limit </strong><br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      <p>Number of records to return. Maximum is 1000. Default value is 25.</p>
+        <br>
+        Value: Must be Integer
+    </td>
+  </tr>
+
+  
+
+      </tbody>
+    </table>
+</div>
+
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = "coinbaseapi";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js?https';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <hr>
+    <footer>  &copy; 2014 Coinbase, Inc.
+</footer>
+  </div>
+  <script type='text/javascript' src='../../javascripts/bundled/jquery-1.7.2.js'></script>
+<script type='text/javascript' src='../../javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../../javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../../javascripts/apipie.js'></script>
+</body>
+
+<!-- Mirrored from www.coinbase.com/api/doc/1.0/transactions/index.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 07 Oct 2014 13:41:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+</html>
